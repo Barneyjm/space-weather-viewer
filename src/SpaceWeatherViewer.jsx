@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2 } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock } from 'lucide-react';
 
 // Image cache to avoid re-fetching frames we already have
 const imageCache = new Map();
@@ -88,8 +88,22 @@ function parseAuroraTimestamp(filename) {
   return new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day), parseInt(hour), parseInt(minute)));
 }
 
+// Get user's timezone abbreviation
+function getLocalTimezoneAbbr() {
+  return new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+}
+
 // Format timestamp for display
-function formatTimestamp(date) {
+function formatTimestamp(date, useLocalTime = false) {
+  if (useLocalTime) {
+    return date.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }) + ' ' + getLocalTimezoneAbbr();
+  }
   return date.toLocaleString('en-US', {
     timeZone: 'UTC',
     month: 'short',
@@ -243,6 +257,7 @@ async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDela
 
 export default function SpaceWeatherViewer() {
   const [multiView, setMultiView] = useState(false);
+  const [useLocalTime, setUseLocalTime] = useState(true); // Default to local time
   const [selectedSource, setSelectedSource] = useState('density');
   const [loadedFrames, setLoadedFrames] = useState([]);
   const [allSourceFrames, setAllSourceFrames] = useState({});
@@ -475,6 +490,13 @@ export default function SpaceWeatherViewer() {
   const SourceIcon = ANIMATION_SOURCES[selectedSource].icon;
   const currentFrameData = multiView ? unifiedTimeline[currentFrame] : loadedFrames[currentFrame];
 
+  // Format timestamp for current frame based on timezone preference
+  const displayTimestamp = (frameData) => {
+    if (!frameData) return '';
+    const date = frameData.time || new Date(frameData.timestamp);
+    return formatTimestamp(date, useLocalTime);
+  };
+
   // Render single viewer panel
   const renderSingleViewer = (sourceKey, frame, showLabel = true) => {
     const config = ANIMATION_SOURCES[sourceKey];
@@ -586,21 +608,31 @@ export default function SpaceWeatherViewer() {
           </div>
         )}
 
-        {/* Time Range Selector */}
+        {/* Time Range & Timezone Selector */}
         <div className="flex gap-2 mb-4">
-          {[3, 6, 12, 24].map(hours => (
-            <button
-              key={hours}
-              onClick={() => setHoursBack(hours)}
-              className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
-                hoursBack === hours
-                  ? 'bg-cyan-600 text-white'
-                  : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
-              }`}
-            >
-              {hours}h
-            </button>
-          ))}
+          <div className="flex gap-2 flex-1">
+            {[3, 6, 12, 24].map(hours => (
+              <button
+                key={hours}
+                onClick={() => setHoursBack(hours)}
+                className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                  hoursBack === hours
+                    ? 'bg-cyan-600 text-white'
+                    : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                {hours}h
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => setUseLocalTime(!useLocalTime)}
+            className="flex items-center gap-1.5 py-2 px-3 rounded-lg text-sm font-medium bg-slate-700/50 text-slate-300 hover:bg-slate-700 transition-all"
+            title={`Switch to ${useLocalTime ? 'UTC' : 'local'} time`}
+          >
+            <Clock className="w-4 h-4" />
+            {useLocalTime ? getLocalTimezoneAbbr() : 'UTC'}
+          </button>
         </div>
 
         {/* Main Viewer */}
@@ -635,7 +667,7 @@ export default function SpaceWeatherViewer() {
               {/* Current timestamp display */}
               {currentFrameData && (
                 <div className="text-center mb-4 bg-black/40 rounded-lg py-2">
-                  <span className="text-lg font-mono text-cyan-400">{currentFrameData.label}</span>
+                  <span className="text-lg font-mono text-cyan-400">{displayTimestamp(currentFrameData)}</span>
                 </div>
               )}
 
@@ -673,11 +705,11 @@ export default function SpaceWeatherViewer() {
               <div className="relative w-full">
                 <img
                   src={currentFrameData.url}
-                  alt={`${ANIMATION_SOURCES[selectedSource].name} - ${currentFrameData.label}`}
+                  alt={`${ANIMATION_SOURCES[selectedSource].name} - ${displayTimestamp(currentFrameData)}`}
                   className="w-full h-auto object-contain"
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur rounded-lg px-3 py-1.5 text-xs text-center">
-                  {currentFrameData.label}
+                  {displayTimestamp(currentFrameData)}
                 </div>
               </div>
             </div>
@@ -799,7 +831,9 @@ export default function SpaceWeatherViewer() {
         </div>
 
         <footer className="mt-4 text-center text-xs text-slate-500">
-          Data: NOAA SWPC • services.swpc.noaa.gov/images/animations/geospace/
+          <span>Data: <a href="https://www.swpc.noaa.gov/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">NOAA SWPC</a></span>
+          <span className="mx-2">•</span>
+          <a href="https://github.com/Barneyjm/space-weather-viewer" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">GitHub</a>
         </footer>
       </div>
     </div>
