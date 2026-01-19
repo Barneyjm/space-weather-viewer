@@ -266,6 +266,40 @@ const MULTIVIEW_PRESETS = {
 // Default sources for multi-view
 const DEFAULT_MULTIVIEW_SOURCES = MULTIVIEW_PRESETS.overview.sources;
 
+// Parse URL query parameters for channel selection
+function getInitialStateFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const channel = params.get('channel');
+  const channels = params.get('channels');
+
+  if (channels) {
+    // Multi-view mode with multiple channels
+    const channelList = channels.split(',').filter(c => ANIMATION_SOURCES[c]);
+    if (channelList.length > 0) {
+      return { multiView: true, sources: channelList };
+    }
+  } else if (channel && ANIMATION_SOURCES[channel]) {
+    // Single view mode
+    return { multiView: false, source: channel };
+  }
+
+  return null;
+}
+
+// Update URL with current channel selection (without page reload)
+function updateURLWithChannels(multiView, selectedSource, selectedMultiSources) {
+  const params = new URLSearchParams();
+
+  if (multiView) {
+    params.set('channels', selectedMultiSources.join(','));
+  } else {
+    params.set('channel', selectedSource);
+  }
+
+  const newURL = `${window.location.pathname}?${params.toString()}`;
+  window.history.replaceState({}, '', newURL);
+}
+
 // Filename parsers for each pattern type
 function parseTimestamp(filename, pattern) {
   switch (pattern) {
@@ -517,11 +551,14 @@ async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDela
   return results;
 }
 
+// Get initial state from URL (computed once at module load for SSR safety)
+const initialURLState = typeof window !== 'undefined' ? getInitialStateFromURL() : null;
+
 export default function SpaceWeatherViewer() {
-  const [multiView, setMultiView] = useState(false);
+  const [multiView, setMultiView] = useState(initialURLState?.multiView ?? false);
   const [useLocalTime, setUseLocalTime] = useState(true);
-  const [selectedSource, setSelectedSource] = useState('suvi_304');
-  const [selectedMultiSources, setSelectedMultiSources] = useState(DEFAULT_MULTIVIEW_SOURCES);
+  const [selectedSource, setSelectedSource] = useState(initialURLState?.source ?? 'suvi_304');
+  const [selectedMultiSources, setSelectedMultiSources] = useState(initialURLState?.sources ?? DEFAULT_MULTIVIEW_SOURCES);
   const [showSourceSelector, setShowSourceSelector] = useState(false);
   const [loadedFrames, setLoadedFrames] = useState([]);
   const [allSourceFrames, setAllSourceFrames] = useState({});
@@ -553,6 +590,11 @@ export default function SpaceWeatherViewer() {
     clearError: clearExportError,
     supportsMediaRecorder
   } = useVideoExport();
+
+  // Update URL when channel selection changes
+  useEffect(() => {
+    updateURLWithChannels(multiView, selectedSource, selectedMultiSources);
+  }, [multiView, selectedSource, selectedMultiSources]);
 
   // Toggle source in multi-view selection
   const toggleMultiSource = (key) => {
