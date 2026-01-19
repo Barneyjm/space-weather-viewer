@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download } from 'lucide-react';
+import { useVideoExport } from './hooks/useVideoExport';
+import { ExportModal } from './components/ExportModal';
 
 // Image cache to avoid re-fetching frames we already have
 const imageCache = new Map();
@@ -227,8 +229,42 @@ const ANIMATION_SOURCES = {
   }
 };
 
+// Preset channel groupings for multi-view
+const MULTIVIEW_PRESETS = {
+  overview: {
+    name: 'Overview',
+    description: 'One from each category',
+    sources: ['suvi_304', 'lasco_c3', 'enlil', 'density', 'drap_global', 'ovation_north']
+  },
+  solar: {
+    name: 'Solar Observer',
+    description: 'Watch the Sun',
+    sources: ['suvi_304', 'suvi_195', 'suvi_171', 'lasco_c2', 'lasco_c3', 'sdo_hmii']
+  },
+  storm: {
+    name: 'Storm Watch',
+    description: 'Track space weather events',
+    sources: ['enlil', 'density', 'pressure', 'ovation_north']
+  },
+  radio: {
+    name: 'HF Radio',
+    description: 'Radio propagation conditions',
+    sources: ['drap_global', 'drap_north', 'ovation_north', 'ovation_south']
+  },
+  earth: {
+    name: 'Earth Effects',
+    description: 'Impacts at Earth',
+    sources: ['density', 'velocity', 'pressure', 'drap_global', 'ovation_north']
+  },
+  minimal: {
+    name: 'Minimal',
+    description: 'Quick overview',
+    sources: ['suvi_304', 'enlil', 'ovation_north']
+  }
+};
+
 // Default sources for multi-view
-const DEFAULT_MULTIVIEW_SOURCES = ['suvi_304', 'lasco_c3', 'enlil', 'density', 'drap_global', 'ovation_north'];
+const DEFAULT_MULTIVIEW_SOURCES = MULTIVIEW_PRESETS.overview.sources;
 
 // Filename parsers for each pattern type
 function parseTimestamp(filename, pattern) {
@@ -490,6 +526,7 @@ export default function SpaceWeatherViewer() {
   const [loadedFrames, setLoadedFrames] = useState([]);
   const [allSourceFrames, setAllSourceFrames] = useState({});
   const [unifiedTimeline, setUnifiedTimeline] = useState([]);
+  const [sourceLoadStatus, setSourceLoadStatus] = useState({}); // 'loading' | 'ready' | 'error'
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(75); // 4x speed default
@@ -501,7 +538,21 @@ export default function SpaceWeatherViewer() {
   const [useLatestOnly, setUseLatestOnly] = useState(false);
   const [latestImageUrl, setLatestImageUrl] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [showExportModal, setShowExportModal] = useState(false);
   const intervalRef = useRef(null);
+
+  // Video export hook
+  const {
+    isExporting,
+    progress: exportProgress,
+    status: exportStatus,
+    error: exportError,
+    startSingleViewExport,
+    startMultiViewExport,
+    cancelExport,
+    clearError: clearExportError,
+    supportsMediaRecorder
+  } = useVideoExport();
 
   // Toggle source in multi-view selection
   const toggleMultiSource = (key) => {
@@ -580,52 +631,21 @@ export default function SpaceWeatherViewer() {
     setLoading(false);
   }, [hoursBack]);
 
-  // Load frames for multi-view mode
-  const loadMultiSources = useCallback(async (sources) => {
-    setLoading(true);
-    setLoadProgress(0);
-    setLoadingStatus('Fetching data sources...');
-    setAllSourceFrames({});
-    setUnifiedTimeline([]);
-    setCurrentFrame(0);
-    setIsPlaying(false);
-    setErrorMsg(null);
-
-    const allFrames = {};
+  // Build timeline from loaded sources
+  const buildTimelineFromFrames = useCallback((allFrames, sources) => {
     const allTimestamps = new Set();
-
-    // Fetch all selected frame lists
-    for (let i = 0; i < sources.length; i++) {
-      const key = sources[i];
-      const config = ANIMATION_SOURCES[key];
-      if (!config) continue;
-
-      setLoadingStatus(`Fetching ${config.shortName}...`);
-      setLoadProgress(Math.round((i / sources.length) * 30));
-
-      const frames = await fetchFrameList(key, hoursBack);
-      allFrames[key] = frames;
+    Object.values(allFrames).forEach(frames => {
       frames.forEach(f => allTimestamps.add(f.timestamp));
-    }
+    });
 
-    if (allTimestamps.size === 0) {
-      setErrorMsg('Could not load any frames from NOAA.');
-      setLoading(false);
-      return;
-    }
+    if (allTimestamps.size === 0) return [];
 
-    // Sort timestamps to create unified timeline
     const sortedTimestamps = Array.from(allTimestamps).sort((a, b) => a - b);
-
-    // Sample timestamps to avoid too many frames (max ~100)
     let sampledTimestamps = sortedTimestamps;
     if (sortedTimestamps.length > 100) {
       const step = Math.ceil(sortedTimestamps.length / 100);
       sampledTimestamps = sortedTimestamps.filter((_, i) => i % step === 0);
     }
-
-    setLoadingStatus('Building timeline...');
-    setLoadProgress(35);
 
     const timeline = sampledTimestamps.map(ts => ({
       timestamp: ts,
@@ -633,9 +653,9 @@ export default function SpaceWeatherViewer() {
       frames: {}
     }));
 
-    // For each timestamp, find closest frame from each source
     for (const key of sources) {
       const frames = allFrames[key];
+      if (!frames) continue;
       for (const timepoint of timeline) {
         const closest = findClosestFrame(frames, timepoint.timestamp);
         if (closest) {
@@ -644,20 +664,73 @@ export default function SpaceWeatherViewer() {
       }
     }
 
-    // Filter timeline to points with at least 1 source
-    const validTimeline = timeline.filter(t => Object.keys(t.frames).length >= 1);
+    return timeline.filter(t => Object.keys(t.frames).length >= 1);
+  }, []);
 
-    if (validTimeline.length < 3) {
-      setErrorMsg('Not enough synchronized frames available.');
-      setLoading(false);
-      return;
+  // Load frames for multi-view mode - progressive loading
+  const loadMultiSources = useCallback(async (sources) => {
+    // Initialize state - show grid immediately with loading placeholders
+    const initialStatus = {};
+    sources.forEach(key => { initialStatus[key] = 'loading'; });
+    setSourceLoadStatus(initialStatus);
+    setAllSourceFrames({});
+    setUnifiedTimeline([]);
+    setCurrentFrame(0);
+    setIsPlaying(false);
+    setErrorMsg(null);
+    setLoading(false); // Don't block UI - show grid with placeholders
+    setLoadProgress(0);
+    setLoadingStatus('Loading sources...');
+
+    const accumulatedFrames = {};
+
+    // Load sources one by one, updating UI progressively
+    for (let i = 0; i < sources.length; i++) {
+      const key = sources[i];
+      const config = ANIMATION_SOURCES[key];
+      if (!config) continue;
+
+      setLoadingStatus(`Loading ${config.shortName}...`);
+      setLoadProgress(Math.round(((i + 0.5) / sources.length) * 100));
+
+      try {
+        const frames = await fetchFrameList(key, hoursBack);
+
+        if (frames.length > 0) {
+          accumulatedFrames[key] = frames;
+
+          // Preload the most recent frame for this source immediately
+          const latestFrame = frames[frames.length - 1];
+          await preloadImage(latestFrame.url);
+
+          // Update state with this source ready
+          setSourceLoadStatus(prev => ({ ...prev, [key]: 'ready' }));
+          setAllSourceFrames({ ...accumulatedFrames });
+
+          // Rebuild timeline with all loaded sources
+          const newTimeline = buildTimelineFromFrames(accumulatedFrames, sources);
+          if (newTimeline.length > 0) {
+            setUnifiedTimeline(newTimeline);
+            // Jump to latest frame when first source loads
+            if (Object.keys(accumulatedFrames).length === 1) {
+              setCurrentFrame(newTimeline.length - 1);
+            }
+          }
+        } else {
+          setSourceLoadStatus(prev => ({ ...prev, [key]: 'error' }));
+        }
+      } catch (err) {
+        console.error(`Failed to load ${key}:`, err);
+        setSourceLoadStatus(prev => ({ ...prev, [key]: 'error' }));
+      }
+
+      setLoadProgress(Math.round(((i + 1) / sources.length) * 100));
     }
 
-    // Preload all images
-    setLoadingStatus('Preloading images...');
+    // After all sources loaded, preload remaining frames in background
     const allUrls = [];
-    validTimeline.forEach(t => {
-      Object.values(t.frames).forEach(f => {
+    Object.values(accumulatedFrames).forEach(frames => {
+      frames.forEach(f => {
         if (!imageCache.has(f.url)) {
           allUrls.push(f.url);
         }
@@ -665,17 +738,21 @@ export default function SpaceWeatherViewer() {
     });
 
     if (allUrls.length > 0) {
-      await preloadImagesInBatches(allUrls, (loaded, total) => {
-        setLoadProgress(35 + Math.round((loaded / total) * 65));
-        setLoadingStatus(`Loading images... ${loaded}/${total}`);
-      });
+      setLoadingStatus('Caching frames...');
+      // Preload in background without blocking
+      preloadImagesInBatches(allUrls, () => {}, 5, 50);
     }
 
-    setAllSourceFrames(allFrames);
-    setUnifiedTimeline(validTimeline);
-    setIsPlaying(true);
-    setLoading(false);
-  }, [hoursBack]);
+    setLoadingStatus('');
+
+    // Start playing if we have frames
+    const finalTimeline = buildTimelineFromFrames(accumulatedFrames, sources);
+    if (finalTimeline.length >= 3) {
+      setIsPlaying(true);
+    } else if (Object.keys(accumulatedFrames).length === 0) {
+      setErrorMsg('Could not load any frames from NOAA.');
+    }
+  }, [hoursBack, buildTimelineFromFrames]);
 
   // Effect to load based on mode
   useEffect(() => {
@@ -752,6 +829,7 @@ export default function SpaceWeatherViewer() {
     const config = ANIMATION_SOURCES[sourceKey];
     if (!config) return null;
     const Icon = config.icon;
+    const loadStatus = sourceLoadStatus[sourceKey];
 
     return (
       <div className={`relative bg-black rounded-lg overflow-hidden border-2 ${config.borderColor}`}>
@@ -759,14 +837,26 @@ export default function SpaceWeatherViewer() {
           <div className={`absolute top-0 left-0 right-0 bg-gradient-to-r ${config.color} px-2 py-1 flex items-center gap-1.5 z-10`}>
             <Icon className="w-3.5 h-3.5" />
             <span className="text-xs font-medium">{config.shortName}</span>
+            {loadStatus === 'loading' && (
+              <RefreshCw className="w-3 h-3 animate-spin ml-auto opacity-70" />
+            )}
           </div>
         )}
-        {frame ? (
+        {loadStatus === 'loading' ? (
+          <div className="aspect-video flex flex-col items-center justify-center text-slate-400 text-xs gap-2 bg-slate-900/50">
+            <RefreshCw className="w-6 h-6 animate-spin text-cyan-400/50" />
+            <span>Loading...</span>
+          </div>
+        ) : frame ? (
           <img
             src={frame.url}
             alt={config.name}
             className="w-full h-auto object-contain"
           />
+        ) : loadStatus === 'error' ? (
+          <div className="aspect-video flex items-center justify-center text-red-400 text-xs">
+            Failed to load
+          </div>
         ) : (
           <div className="aspect-video flex items-center justify-center text-slate-500 text-xs">
             No data
@@ -783,6 +873,29 @@ export default function SpaceWeatherViewer() {
     acc[cat].push({ key, ...source });
     return acc;
   }, {});
+
+  // Handle export
+  const handleExport = (exportConfig) => {
+    if (multiView) {
+      startMultiViewExport({
+        timeline: unifiedTimeline,
+        sources: selectedMultiSources,
+        sourceConfigs: ANIMATION_SOURCES,
+        format: exportConfig.format,
+        resolution: exportConfig.resolution,
+        frameDelay: exportConfig.frameDelay
+      });
+    } else {
+      startSingleViewExport({
+        frames: loadedFrames,
+        format: exportConfig.format,
+        resolution: exportConfig.resolution,
+        frameDelay: exportConfig.frameDelay,
+        sourceName: currentSourceConfig?.shortName,
+        sourceKey: selectedSource
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4">
@@ -894,6 +1007,23 @@ export default function SpaceWeatherViewer() {
 
             {showSourceSelector && (
               <div className="mt-2 p-4 rounded-xl bg-slate-800/50 border border-white/10">
+                {/* Preset buttons */}
+                <div className="mb-4">
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Quick Presets</div>
+                  <div className="flex flex-wrap gap-2">
+                    {Object.entries(MULTIVIEW_PRESETS).map(([key, preset]) => (
+                      <button
+                        key={key}
+                        onClick={() => setSelectedMultiSources([...preset.sources])}
+                        className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-700/70 text-slate-300 hover:bg-slate-600 hover:text-white transition-all"
+                        title={preset.description}
+                      >
+                        {preset.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {Object.entries(sourcesByCategory).map(([catKey, sources]) => (
                   <div key={catKey} className="mb-4 last:mb-0">
                     <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
@@ -995,7 +1125,22 @@ export default function SpaceWeatherViewer() {
           ) : multiView ? (
             /* Multi-View Grid */
             <div className="p-4">
-              {currentFrameData && (
+              {/* Progress indicator while loading */}
+              {loadingStatus && (
+                <div className="flex items-center justify-center gap-3 mb-4 bg-black/40 rounded-lg py-2 px-4">
+                  <RefreshCw className="w-4 h-4 text-cyan-400 animate-spin" />
+                  <span className="text-sm text-slate-400">{loadingStatus}</span>
+                  <div className="w-24 h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-300"
+                      style={{ width: `${loadProgress}%` }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Timestamp display */}
+              {currentFrameData && !loadingStatus && (
                 <div className="text-center mb-4 bg-black/40 rounded-lg py-2">
                   <span className="text-lg font-mono text-cyan-400">{displayTimestamp(currentFrameData)}</span>
                 </div>
@@ -1086,6 +1231,13 @@ export default function SpaceWeatherViewer() {
                     <option value={150}>2x</option>
                     <option value={75}>4x</option>
                   </select>
+                  <button
+                    onClick={() => setShowExportModal(true)}
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                    title="Export animation"
+                  >
+                    <Download className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
 
@@ -1174,6 +1326,22 @@ export default function SpaceWeatherViewer() {
           <a href="https://github.com/Barneyjm/space-weather-viewer" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">GitHub</a>
         </footer>
       </div>
+
+      {/* Export Modal */}
+      <ExportModal
+        isOpen={showExportModal}
+        onClose={() => setShowExportModal(false)}
+        isExporting={isExporting}
+        progress={exportProgress}
+        status={exportStatus}
+        error={exportError}
+        supportsWebM={supportsMediaRecorder}
+        onExport={handleExport}
+        onCancel={cancelExport}
+        onClearError={clearExportError}
+        frameCount={frameCount}
+        currentSpeed={speed}
+      />
     </div>
   );
 }
