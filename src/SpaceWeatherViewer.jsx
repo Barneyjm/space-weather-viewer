@@ -16,6 +16,7 @@ const ANIMATION_SOURCES = {
     name: 'Plasma Density',
     shortName: 'Density',
     description: 'Geospace Magnetosphere - Particle Density',
+    explainer: 'Shows the concentration of charged particles (ions and electrons) in near-Earth space. Higher density (brighter colors) indicates more particles from the solar wind interacting with Earth\'s magnetic field. Density increases during solar storms and can affect satellite operations.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/density/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/density/latest.png',
     icon: Globe,
@@ -26,6 +27,7 @@ const ANIMATION_SOURCES = {
     name: 'Plasma Velocity',
     shortName: 'Velocity',
     description: 'Geospace Magnetosphere - Solar Wind Velocity',
+    explainer: 'Displays the speed and direction of solar wind plasma flowing around Earth. Typical solar wind moves at 400 km/s, but can exceed 800 km/s during storms. Faster solar wind compresses Earth\'s magnetosphere and can trigger geomagnetic storms and auroras.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/velocity/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/velocity/latest.png',
     icon: Wind,
@@ -36,6 +38,7 @@ const ANIMATION_SOURCES = {
     name: 'Plasma Pressure',
     shortName: 'Pressure',
     description: 'Geospace Magnetosphere - Dynamic Pressure',
+    explainer: 'Shows the force exerted by solar wind on Earth\'s magnetic field, combining density and velocity effects. High pressure (bright colors) pushes the magnetosphere closer to Earth, potentially exposing satellites to harmful radiation and intensifying aurora activity.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/pressure/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/pressure/latest.png',
     icon: Gauge,
@@ -46,6 +49,7 @@ const ANIMATION_SOURCES = {
     name: 'Aurora North',
     shortName: 'Aurora N',
     description: 'OVATION Aurora Forecast - Northern Hemisphere',
+    explainer: 'Predicts where the Northern Lights (Aurora Borealis) will be visible. Brighter areas indicate higher probability of aurora activity. The aurora oval expands southward during geomagnetic storms, making the lights visible from lower latitudes.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/north/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg',
     icon: Waves,
@@ -56,6 +60,7 @@ const ANIMATION_SOURCES = {
     name: 'Aurora South',
     shortName: 'Aurora S',
     description: 'OVATION Aurora Forecast - Southern Hemisphere',
+    explainer: 'Predicts where the Southern Lights (Aurora Australis) will be visible. The southern aurora mirrors northern activity but is often harder to observe due to less populated landmass at high southern latitudes. Best viewed from Antarctica, southern New Zealand, and Tasmania.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/south/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/south/latest.jpg',
     icon: Waves,
@@ -820,14 +825,38 @@ export default function SpaceWeatherViewer() {
 
         {/* Info Footer */}
         <div className="mt-4 p-4 bg-slate-800/30 rounded-xl border border-white/5">
-          <div className="flex items-start gap-3">
-            <Zap className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-            <div className="text-xs text-slate-400">
-              <p className="mb-1"><strong className="text-slate-300">Geospace Model:</strong> Simulates Earth's magnetosphere using real-time solar wind data from the DSCOVR satellite.</p>
-              <p><strong className="text-slate-300">Parameters:</strong> Density shows particle concentration, Velocity shows plasma flow speed, Pressure shows dynamic force.</p>
-              {multiView && <p className="mt-1"><strong className="text-slate-300">Multi-View:</strong> All sources synchronized to the same timestamp for comparison.</p>}
+          {multiView ? (
+            <div className="text-xs text-slate-400 space-y-2">
+              <p className="text-slate-300 font-medium mb-2">About These Forecasts</p>
+              <div className="grid gap-2 md:grid-cols-2">
+                {Object.entries(ANIMATION_SOURCES).map(([key, source]) => {
+                  const Icon = source.icon;
+                  return (
+                    <div key={key} className={`p-2 rounded-lg bg-gradient-to-r ${source.color} bg-opacity-10 border border-white/5`}>
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <Icon className="w-3.5 h-3.5" />
+                        <span className="text-slate-300 font-medium">{source.name}</span>
+                      </div>
+                      <p className="text-slate-400 text-xs leading-relaxed">{source.explainer}</p>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="mt-2 text-slate-500">Data from NOAA's DSCOVR satellite and OVATION model, updated every few minutes.</p>
             </div>
-          </div>
+          ) : (
+            <div className="flex items-start gap-3">
+              {(() => {
+                const Icon = ANIMATION_SOURCES[selectedSource].icon;
+                return <Icon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />;
+              })()}
+              <div className="text-xs text-slate-400">
+                <p className="text-slate-300 font-medium mb-1">{ANIMATION_SOURCES[selectedSource].name}</p>
+                <p className="leading-relaxed">{ANIMATION_SOURCES[selectedSource].explainer}</p>
+                <p className="mt-2 text-slate-500">Data from NOAA Space Weather Prediction Center, updated every few minutes.</p>
+              </div>
+            </div>
+          )}
         </div>
 
         <footer className="mt-4 text-center text-xs text-slate-500">
