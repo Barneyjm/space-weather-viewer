@@ -8,6 +8,9 @@ const imageCache = new Map();
 const directoryCache = new Map();
 const DIRECTORY_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
+// Check if we're deployed (use API routes) or local (direct NOAA requests)
+const USE_API = import.meta.env.PROD;
+
 const ANIMATION_SOURCES = {
   density: {
     name: 'Plasma Density',
@@ -97,12 +100,41 @@ function formatTimestamp(date) {
   }) + ' UTC';
 }
 
-// Fetch directory listing and parse actual filenames
-async function fetchFrameList(baseUrl, hoursBack = 6) {
-  const isGeospace = baseUrl.includes('geospace');
-  const cutoffTime = new Date(Date.now() - hoursBack * 60 * 60 * 1000);
+// Fetch frames using API (production) or direct NOAA requests (development)
+async function fetchFrameList(sourceKey, hoursBack = 6) {
+  const sourceConfig = ANIMATION_SOURCES[sourceKey];
+  if (!sourceConfig) return [];
 
   try {
+    // Use cached API in production for better performance
+    if (USE_API) {
+      const cacheKey = `${sourceKey}-${hoursBack}`;
+      const cached = directoryCache.get(cacheKey);
+
+      if (cached && Date.now() - cached.timestamp < DIRECTORY_CACHE_TTL) {
+        return cached.frames;
+      }
+
+      const response = await fetch(`/api/frames/${sourceKey}?hours=${hoursBack}`);
+      if (!response.ok) return [];
+
+      const data = await response.json();
+      const frames = data.frames.map(f => ({
+        url: f.url,
+        time: new Date(f.timestamp),
+        timestamp: f.timestamp,
+        label: formatTimestamp(new Date(f.timestamp))
+      }));
+
+      directoryCache.set(cacheKey, { frames, timestamp: Date.now() });
+      return frames;
+    }
+
+    // Direct NOAA requests in development
+    const baseUrl = sourceConfig.baseUrl;
+    const isGeospace = baseUrl.includes('geospace');
+    const cutoffTime = new Date(Date.now() - hoursBack * 60 * 60 * 1000);
+
     const cacheKey = baseUrl;
     const cached = directoryCache.get(cacheKey);
     let html;
@@ -258,7 +290,7 @@ export default function SpaceWeatherViewer() {
     setLoadingStatus('Fetching frame list...');
     setLoadProgress(10);
 
-    const frames = await fetchFrameList(sourceConfig.baseUrl, hoursBack);
+    const frames = await fetchFrameList(source, hoursBack);
     setLoadProgress(30);
 
     if (frames.length === 0) {
@@ -311,7 +343,7 @@ export default function SpaceWeatherViewer() {
       setLoadingStatus(`Fetching ${config.shortName}...`);
       setLoadProgress(Math.round((i / sourceKeys.length) * 30));
 
-      const frames = await fetchFrameList(config.baseUrl, hoursBack);
+      const frames = await fetchFrameList(key, hoursBack);
       allFrames[key] = frames;
 
       // Collect all timestamps (use geospace as primary timeline since they're more consistent)
