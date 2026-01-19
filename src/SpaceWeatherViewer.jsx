@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check } from 'lucide-react';
 
 // Image cache to avoid re-fetching frames we already have
 const imageCache = new Map();
@@ -11,14 +11,134 @@ const DIRECTORY_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 // Check if we're deployed (use API routes) or local (direct NOAA requests)
 const USE_API = import.meta.env.PROD;
 
+// Source categories for organization
+const SOURCE_CATEGORIES = {
+  solar: { name: 'Solar Imagery', icon: Sun },
+  solarwind: { name: 'Solar Wind', icon: Wind },
+  magnetosphere: { name: 'Magnetosphere', icon: Globe },
+  ionosphere: { name: 'Ionosphere', icon: Radio },
+  aurora: { name: 'Aurora', icon: Waves }
+};
+
 const ANIMATION_SOURCES = {
+  // === SOLAR IMAGERY ===
+  suvi_304: {
+    name: 'SUVI 304nm',
+    shortName: 'SUVI 304',
+    category: 'solar',
+    description: 'Solar chromosphere - prominences and flares',
+    explainer: 'Shows the Sun\'s chromosphere at 304 Angstroms (He II). This dramatic orange view reveals solar prominences, flares, and coronal rain. Best for seeing material erupting from the Sun\'s surface.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/304/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/304/latest.png',
+    pattern: 'suvi',
+    icon: Sun,
+    color: 'from-orange-500 to-red-500',
+    borderColor: 'border-orange-500/50'
+  },
+  suvi_195: {
+    name: 'SUVI 195nm',
+    shortName: 'SUVI 195',
+    category: 'solar',
+    description: 'Solar corona - million degree plasma',
+    explainer: 'Shows the Sun\'s corona at 195 Angstroms (Fe XII). Reveals the million-degree outer atmosphere, coronal holes (dark areas), and active regions. Coronal holes are sources of fast solar wind.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/195/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/195/latest.png',
+    pattern: 'suvi',
+    icon: Sun,
+    color: 'from-green-500 to-emerald-500',
+    borderColor: 'border-green-500/50'
+  },
+  suvi_171: {
+    name: 'SUVI 171nm',
+    shortName: 'SUVI 171',
+    category: 'solar',
+    description: 'Quiet corona and coronal loops',
+    explainer: 'Shows the Sun at 171 Angstroms (Fe IX). Highlights the quiet corona and magnetic loop structures connecting active regions. Useful for tracking the overall structure of the Sun\'s magnetic field.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/171/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/171/latest.png',
+    pattern: 'suvi',
+    icon: Sun,
+    color: 'from-yellow-500 to-amber-500',
+    borderColor: 'border-yellow-500/50'
+  },
+  suvi_131: {
+    name: 'SUVI 131nm',
+    shortName: 'SUVI 131',
+    category: 'solar',
+    description: 'Hottest plasma - flare detection',
+    explainer: 'Shows extreme temperatures at 131 Angstroms (Fe XX/XXIII). Only the hottest plasma (10+ million degrees) glows at this wavelength, making it ideal for detecting and tracking solar flares.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/131/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/suvi/primary/131/latest.png',
+    pattern: 'suvi',
+    icon: Sun,
+    color: 'from-teal-500 to-cyan-500',
+    borderColor: 'border-teal-500/50'
+  },
+  lasco_c3: {
+    name: 'LASCO C3',
+    shortName: 'LASCO C3',
+    category: 'solar',
+    description: 'Wide-field coronagraph - CME tracking',
+    explainer: 'Coronagraph that blocks the Sun to reveal coronal mass ejections (CMEs) traveling into space. C3 has a wide field showing material out to 30 solar radii. Watch for bright expanding clouds heading toward Earth.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/lasco-c3/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/lasco-c3/latest.jpg',
+    pattern: 'lasco',
+    icon: Eye,
+    color: 'from-slate-400 to-slate-500',
+    borderColor: 'border-slate-400/50'
+  },
+  lasco_c2: {
+    name: 'LASCO C2',
+    shortName: 'LASCO C2',
+    category: 'solar',
+    description: 'Inner coronagraph - CME onset',
+    explainer: 'Inner coronagraph showing the corona from 2-6 solar radii. Better detail for seeing CME onset and structure near the Sun. Complements C3 for tracking eruptions from start to interplanetary space.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/lasco-c2/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/lasco-c2/latest.jpg',
+    pattern: 'lasco',
+    icon: Eye,
+    color: 'from-slate-500 to-slate-600',
+    borderColor: 'border-slate-500/50'
+  },
+  sdo_hmii: {
+    name: 'SDO Magnetogram',
+    shortName: 'SDO HMI',
+    category: 'solar',
+    description: 'Solar magnetic field intensity',
+    explainer: 'Shows the Sun\'s magnetic field - white and black areas are opposite polarities. Sunspots, active regions, and the magnetic complexity that can produce flares are all visible here.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/sdo-hmii/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/sdo-hmii/latest.jpg',
+    pattern: 'sdo',
+    icon: Compass,
+    color: 'from-gray-400 to-gray-600',
+    borderColor: 'border-gray-400/50'
+  },
+
+  // === SOLAR WIND ===
+  enlil: {
+    name: 'ENLIL Solar Wind',
+    shortName: 'ENLIL',
+    category: 'solarwind',
+    description: 'Heliospheric solar wind model',
+    explainer: 'A 3D model of the solar wind flowing through the inner solar system. Shows how CMEs and solar wind streams propagate from the Sun to Earth. The spiral pattern is caused by the Sun\'s rotation.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/enlil/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/enlil/latest.jpg',
+    pattern: 'enlil',
+    icon: Orbit,
+    color: 'from-blue-600 to-indigo-600',
+    borderColor: 'border-blue-600/50'
+  },
+
+  // === MAGNETOSPHERE ===
   density: {
     name: 'Plasma Density',
     shortName: 'Density',
-    description: 'Geospace Magnetosphere - Particle Density',
-    explainer: 'Shows the concentration of charged particles (ions and electrons) in near-Earth space. Higher density (brighter colors) indicates more particles from the solar wind interacting with Earth\'s magnetic field. Density increases during solar storms and can affect satellite operations.',
+    category: 'magnetosphere',
+    description: 'Geospace particle concentration',
+    explainer: 'Shows the concentration of charged particles (ions and electrons) in near-Earth space. Higher density (brighter colors) indicates more particles from the solar wind interacting with Earth\'s magnetic field.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/density/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/density/latest.png',
+    pattern: 'geospace',
     icon: Globe,
     color: 'from-blue-500 to-cyan-500',
     borderColor: 'border-blue-500/50'
@@ -26,10 +146,12 @@ const ANIMATION_SOURCES = {
   velocity: {
     name: 'Plasma Velocity',
     shortName: 'Velocity',
-    description: 'Geospace Magnetosphere - Solar Wind Velocity',
-    explainer: 'Displays the speed and direction of solar wind plasma flowing around Earth. Typical solar wind moves at 400 km/s, but can exceed 800 km/s during storms. Faster solar wind compresses Earth\'s magnetosphere and can trigger geomagnetic storms and auroras.',
+    category: 'magnetosphere',
+    description: 'Solar wind speed around Earth',
+    explainer: 'Displays the speed and direction of solar wind plasma flowing around Earth. Typical solar wind moves at 400 km/s, but can exceed 800 km/s during storms, compressing the magnetosphere.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/velocity/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/velocity/latest.png',
+    pattern: 'geospace',
     icon: Wind,
     color: 'from-emerald-500 to-teal-500',
     borderColor: 'border-emerald-500/50'
@@ -37,21 +159,55 @@ const ANIMATION_SOURCES = {
   pressure: {
     name: 'Plasma Pressure',
     shortName: 'Pressure',
-    description: 'Geospace Magnetosphere - Dynamic Pressure',
-    explainer: 'Shows the force exerted by solar wind on Earth\'s magnetic field, combining density and velocity effects. High pressure (bright colors) pushes the magnetosphere closer to Earth, potentially exposing satellites to harmful radiation and intensifying aurora activity.',
+    category: 'magnetosphere',
+    description: 'Dynamic pressure on magnetosphere',
+    explainer: 'Shows the force exerted by solar wind on Earth\'s magnetic field. High pressure pushes the magnetosphere closer to Earth, potentially exposing satellites to harmful radiation.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/pressure/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/geospace/pressure/latest.png',
+    pattern: 'geospace',
     icon: Gauge,
     color: 'from-orange-500 to-red-500',
     borderColor: 'border-orange-500/50'
   },
+
+  // === IONOSPHERE ===
+  drap_global: {
+    name: 'D-RAP Global',
+    shortName: 'D-RAP',
+    category: 'ionosphere',
+    description: 'HF radio absorption - global view',
+    explainer: 'D-Region Absorption Prediction shows where high-frequency radio signals are being absorbed by the ionosphere. Red areas indicate radio blackouts affecting aviation and emergency communications.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/d-rap/global/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/d-rap/global/latest.png',
+    pattern: 'drap',
+    icon: Radio,
+    color: 'from-red-500 to-rose-500',
+    borderColor: 'border-red-500/50'
+  },
+  drap_north: {
+    name: 'D-RAP North Pole',
+    shortName: 'D-RAP N',
+    category: 'ionosphere',
+    description: 'HF radio absorption - Arctic',
+    explainer: 'Radio absorption prediction for the Arctic region. Polar routes are particularly affected by solar particle events, which can cause complete HF radio blackout on transpolar flights.',
+    baseUrl: 'https://services.swpc.noaa.gov/images/animations/d-rap/north-pole/',
+    latestUrl: 'https://services.swpc.noaa.gov/images/animations/d-rap/north-pole/latest.png',
+    pattern: 'drap',
+    icon: Radio,
+    color: 'from-rose-500 to-pink-500',
+    borderColor: 'border-rose-500/50'
+  },
+
+  // === AURORA ===
   ovation_north: {
     name: 'Aurora North',
     shortName: 'Aurora N',
-    description: 'OVATION Aurora Forecast - Northern Hemisphere',
-    explainer: 'Predicts where the Northern Lights (Aurora Borealis) will be visible. Brighter areas indicate higher probability of aurora activity. The aurora oval expands southward during geomagnetic storms, making the lights visible from lower latitudes.',
+    category: 'aurora',
+    description: 'Northern Lights forecast',
+    explainer: 'Predicts where the Northern Lights (Aurora Borealis) will be visible. Brighter areas indicate higher probability. The aurora oval expands southward during geomagnetic storms.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/north/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg',
+    pattern: 'ovation',
     icon: Waves,
     color: 'from-purple-500 to-pink-500',
     borderColor: 'border-purple-500/50'
@@ -59,38 +215,109 @@ const ANIMATION_SOURCES = {
   ovation_south: {
     name: 'Aurora South',
     shortName: 'Aurora S',
-    description: 'OVATION Aurora Forecast - Southern Hemisphere',
-    explainer: 'Predicts where the Southern Lights (Aurora Australis) will be visible. The southern aurora mirrors northern activity but is often harder to observe due to less populated landmass at high southern latitudes. Best viewed from Antarctica, southern New Zealand, and Tasmania.',
+    category: 'aurora',
+    description: 'Southern Lights forecast',
+    explainer: 'Predicts where the Southern Lights (Aurora Australis) will be visible. Best viewed from Antarctica, southern New Zealand, and Tasmania during active periods.',
     baseUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/south/',
     latestUrl: 'https://services.swpc.noaa.gov/images/animations/ovation/south/latest.jpg',
+    pattern: 'ovation',
     icon: Waves,
     color: 'from-violet-500 to-fuchsia-500',
     borderColor: 'border-violet-500/50'
   }
 };
 
-// Parse timestamp from geospace filename
-function parseGeospaceTimestamp(filename) {
-  const match = filename.match(/_(\d{8}T\d{4})\.png$/);
-  if (!match) return null;
+// Default sources for multi-view
+const DEFAULT_MULTIVIEW_SOURCES = ['suvi_304', 'lasco_c3', 'enlil', 'density', 'drap_global', 'ovation_north'];
 
-  const ts = match[1];
-  const year = parseInt(ts.slice(0, 4));
-  const month = parseInt(ts.slice(4, 6)) - 1;
-  const day = parseInt(ts.slice(6, 8));
-  const hour = parseInt(ts.slice(9, 11));
-  const minute = parseInt(ts.slice(11, 13));
-
-  return new Date(Date.UTC(year, month, day, hour, minute));
-}
-
-// Parse timestamp from aurora filename
-function parseAuroraTimestamp(filename) {
-  const match = filename.match(/aurora_[NS]_(\d{4})-(\d{2})-(\d{2})_(\d{2})(\d{2})\.jpg$/);
-  if (!match) return null;
-
-  const [, year, month, day, hour, minute] = match;
-  return new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day), parseInt(hour), parseInt(minute)));
+// Filename parsers for each pattern type
+function parseTimestamp(filename, pattern) {
+  switch (pattern) {
+    case 'geospace': {
+      const match = filename.match(/_(\d{8}T\d{4})\.png$/);
+      if (!match) return null;
+      const ts = match[1];
+      return new Date(Date.UTC(
+        parseInt(ts.slice(0, 4)),
+        parseInt(ts.slice(4, 6)) - 1,
+        parseInt(ts.slice(6, 8)),
+        parseInt(ts.slice(9, 11)),
+        parseInt(ts.slice(11, 13))
+      ));
+    }
+    case 'ovation': {
+      const match = filename.match(/aurora_[NS]_(\d{4})-(\d{2})-(\d{2})_(\d{2})(\d{2})\.jpg$/);
+      if (!match) return null;
+      return new Date(Date.UTC(
+        parseInt(match[1]),
+        parseInt(match[2]) - 1,
+        parseInt(match[3]),
+        parseInt(match[4]),
+        parseInt(match[5])
+      ));
+    }
+    case 'suvi': {
+      const match = filename.match(/s(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/);
+      if (!match) return null;
+      return new Date(Date.UTC(
+        parseInt(match[1]),
+        parseInt(match[2]) - 1,
+        parseInt(match[3]),
+        parseInt(match[4]),
+        parseInt(match[5]),
+        parseInt(match[6])
+      ));
+    }
+    case 'lasco': {
+      const match = filename.match(/(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})_c[23]/);
+      if (!match) return null;
+      return new Date(Date.UTC(
+        parseInt(match[1]),
+        parseInt(match[2]) - 1,
+        parseInt(match[3]),
+        parseInt(match[4]),
+        parseInt(match[5])
+      ));
+    }
+    case 'sdo': {
+      const match = filename.match(/(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_512/);
+      if (!match) return null;
+      return new Date(Date.UTC(
+        parseInt(match[1]),
+        parseInt(match[2]) - 1,
+        parseInt(match[3]),
+        parseInt(match[4]),
+        parseInt(match[5]),
+        parseInt(match[6])
+      ));
+    }
+    case 'enlil': {
+      const match = filename.match(/_(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})\.jpg$/);
+      if (!match) return null;
+      return new Date(Date.UTC(
+        parseInt(match[1]),
+        parseInt(match[2]) - 1,
+        parseInt(match[3]),
+        parseInt(match[4]),
+        parseInt(match[5]),
+        parseInt(match[6])
+      ));
+    }
+    case 'drap': {
+      const match = filename.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
+      if (!match) return null;
+      return new Date(Date.UTC(
+        parseInt(match[1]),
+        parseInt(match[2]) - 1,
+        parseInt(match[3]),
+        parseInt(match[4]),
+        parseInt(match[5]),
+        parseInt(match[6])
+      ));
+    }
+    default:
+      return null;
+  }
 }
 
 // Get user's timezone abbreviation
@@ -151,7 +378,7 @@ async function fetchFrameList(sourceKey, hoursBack = 6) {
 
     // Direct NOAA requests in development
     const baseUrl = sourceConfig.baseUrl;
-    const isGeospace = baseUrl.includes('geospace');
+    const pattern = sourceConfig.pattern;
     const cutoffTime = new Date(Date.now() - hoursBack * 60 * 60 * 1000);
 
     const cacheKey = baseUrl;
@@ -175,12 +402,7 @@ async function fetchFrameList(sourceKey, hoursBack = 6) {
       const filename = match[1];
       if (filename.includes('latest')) continue;
 
-      let frameTime;
-      if (isGeospace) {
-        frameTime = parseGeospaceTimestamp(filename);
-      } else {
-        frameTime = parseAuroraTimestamp(filename);
-      }
+      const frameTime = parseTimestamp(filename, pattern);
 
       if (frameTime && frameTime >= cutoffTime) {
         frames.push({
@@ -201,7 +423,7 @@ async function fetchFrameList(sourceKey, hoursBack = 6) {
 }
 
 // Find closest frame to a given timestamp
-function findClosestFrame(frames, targetTimestamp, maxDiffMs = 10 * 60 * 1000) {
+function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
   if (!frames || frames.length === 0) return null;
 
   let closest = null;
@@ -215,12 +437,11 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 10 * 60 * 1000) {
     }
   }
 
-  // Only return if within maxDiff (default 10 minutes)
   return minDiff <= maxDiffMs ? closest : null;
 }
 
 // Preload a single image with caching
-async function preloadImage(url, timeout = 5000) {
+async function preloadImage(url, timeout = 8000) {
   if (imageCache.has(url)) return true;
 
   return new Promise((resolve) => {
@@ -262,14 +483,16 @@ async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDela
 
 export default function SpaceWeatherViewer() {
   const [multiView, setMultiView] = useState(false);
-  const [useLocalTime, setUseLocalTime] = useState(true); // Default to local time
-  const [selectedSource, setSelectedSource] = useState('density');
+  const [useLocalTime, setUseLocalTime] = useState(true);
+  const [selectedSource, setSelectedSource] = useState('suvi_304');
+  const [selectedMultiSources, setSelectedMultiSources] = useState(DEFAULT_MULTIVIEW_SOURCES);
+  const [showSourceSelector, setShowSourceSelector] = useState(false);
   const [loadedFrames, setLoadedFrames] = useState([]);
   const [allSourceFrames, setAllSourceFrames] = useState({});
   const [unifiedTimeline, setUnifiedTimeline] = useState([]);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [speed, setSpeed] = useState(300);
+  const [speed, setSpeed] = useState(75); // 4x speed default
   const [loading, setLoading] = useState(true);
   const [loadProgress, setLoadProgress] = useState(0);
   const [loadingStatus, setLoadingStatus] = useState('');
@@ -279,6 +502,17 @@ export default function SpaceWeatherViewer() {
   const [latestImageUrl, setLatestImageUrl] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const intervalRef = useRef(null);
+
+  // Toggle source in multi-view selection
+  const toggleMultiSource = (key) => {
+    setSelectedMultiSources(prev => {
+      if (prev.includes(key)) {
+        if (prev.length <= 1) return prev; // Keep at least one
+        return prev.filter(k => k !== key);
+      }
+      return [...prev, key];
+    });
+  };
 
   // Load frames for single-view mode
   const loadSingleSource = useCallback(async (source) => {
@@ -292,6 +526,11 @@ export default function SpaceWeatherViewer() {
     setLatestImageUrl(null);
 
     const sourceConfig = ANIMATION_SOURCES[source];
+    if (!sourceConfig) {
+      setErrorMsg('Invalid source selected');
+      setLoading(false);
+      return;
+    }
 
     const latestWorks = await new Promise((resolve) => {
       const img = new Image();
@@ -342,41 +581,31 @@ export default function SpaceWeatherViewer() {
   }, [hoursBack]);
 
   // Load frames for multi-view mode
-  const loadAllSources = useCallback(async () => {
+  const loadMultiSources = useCallback(async (sources) => {
     setLoading(true);
     setLoadProgress(0);
-    setLoadingStatus('Fetching all data sources...');
+    setLoadingStatus('Fetching data sources...');
     setAllSourceFrames({});
     setUnifiedTimeline([]);
     setCurrentFrame(0);
     setIsPlaying(false);
     setErrorMsg(null);
 
-    const sourceKeys = Object.keys(ANIMATION_SOURCES);
     const allFrames = {};
     const allTimestamps = new Set();
 
-    // Fetch all frame lists
-    for (let i = 0; i < sourceKeys.length; i++) {
-      const key = sourceKeys[i];
+    // Fetch all selected frame lists
+    for (let i = 0; i < sources.length; i++) {
+      const key = sources[i];
       const config = ANIMATION_SOURCES[key];
+      if (!config) continue;
+
       setLoadingStatus(`Fetching ${config.shortName}...`);
-      setLoadProgress(Math.round((i / sourceKeys.length) * 30));
+      setLoadProgress(Math.round((i / sources.length) * 30));
 
       const frames = await fetchFrameList(key, hoursBack);
       allFrames[key] = frames;
-
-      // Collect all timestamps (use geospace as primary timeline since they're more consistent)
-      if (key.startsWith('density') || key.startsWith('velocity') || key.startsWith('pressure')) {
-        frames.forEach(f => allTimestamps.add(f.timestamp));
-      }
-    }
-
-    // If no geospace frames, use aurora timestamps
-    if (allTimestamps.size === 0) {
-      Object.values(allFrames).forEach(frames => {
-        frames.forEach(f => allTimestamps.add(f.timestamp));
-      });
+      frames.forEach(f => allTimestamps.add(f.timestamp));
     }
 
     if (allTimestamps.size === 0) {
@@ -388,18 +617,24 @@ export default function SpaceWeatherViewer() {
     // Sort timestamps to create unified timeline
     const sortedTimestamps = Array.from(allTimestamps).sort((a, b) => a - b);
 
-    // Build unified timeline with frames from each source
+    // Sample timestamps to avoid too many frames (max ~100)
+    let sampledTimestamps = sortedTimestamps;
+    if (sortedTimestamps.length > 100) {
+      const step = Math.ceil(sortedTimestamps.length / 100);
+      sampledTimestamps = sortedTimestamps.filter((_, i) => i % step === 0);
+    }
+
     setLoadingStatus('Building timeline...');
     setLoadProgress(35);
 
-    const timeline = sortedTimestamps.map(ts => ({
+    const timeline = sampledTimestamps.map(ts => ({
       timestamp: ts,
       label: formatTimestamp(new Date(ts)),
       frames: {}
     }));
 
     // For each timestamp, find closest frame from each source
-    for (const key of sourceKeys) {
+    for (const key of sources) {
       const frames = allFrames[key];
       for (const timepoint of timeline) {
         const closest = findClosestFrame(frames, timepoint.timestamp);
@@ -409,8 +644,8 @@ export default function SpaceWeatherViewer() {
       }
     }
 
-    // Filter timeline to only include points where we have at least 2 sources
-    const validTimeline = timeline.filter(t => Object.keys(t.frames).length >= 2);
+    // Filter timeline to points with at least 1 source
+    const validTimeline = timeline.filter(t => Object.keys(t.frames).length >= 1);
 
     if (validTimeline.length < 3) {
       setErrorMsg('Not enough synchronized frames available.');
@@ -445,11 +680,20 @@ export default function SpaceWeatherViewer() {
   // Effect to load based on mode
   useEffect(() => {
     if (multiView) {
-      loadAllSources();
+      loadMultiSources(selectedMultiSources);
     } else {
       loadSingleSource(selectedSource);
     }
-  }, [multiView, selectedSource, loadSingleSource, loadAllSources, hoursBack]);
+  }, [multiView, selectedSource, selectedMultiSources, loadSingleSource, loadMultiSources]);
+
+  // Reload when hours change
+  useEffect(() => {
+    if (multiView) {
+      loadMultiSources(selectedMultiSources);
+    } else {
+      loadSingleSource(selectedSource);
+    }
+  }, [hoursBack]);
 
   // Animation loop
   useEffect(() => {
@@ -486,13 +730,14 @@ export default function SpaceWeatherViewer() {
   };
   const refresh = () => {
     if (multiView) {
-      loadAllSources();
+      loadMultiSources(selectedMultiSources);
     } else {
       loadSingleSource(selectedSource);
     }
   };
 
-  const SourceIcon = ANIMATION_SOURCES[selectedSource].icon;
+  const currentSourceConfig = ANIMATION_SOURCES[selectedSource];
+  const SourceIcon = currentSourceConfig?.icon || Sun;
   const currentFrameData = multiView ? unifiedTimeline[currentFrame] : loadedFrames[currentFrame];
 
   // Format timestamp for current frame based on timezone preference
@@ -505,6 +750,7 @@ export default function SpaceWeatherViewer() {
   // Render single viewer panel
   const renderSingleViewer = (sourceKey, frame, showLabel = true) => {
     const config = ANIMATION_SOURCES[sourceKey];
+    if (!config) return null;
     const Icon = config.icon;
 
     return (
@@ -518,7 +764,7 @@ export default function SpaceWeatherViewer() {
         {frame ? (
           <img
             src={frame.url}
-            alt={`${config.name}`}
+            alt={config.name}
             className="w-full h-auto object-contain"
           />
         ) : (
@@ -529,6 +775,14 @@ export default function SpaceWeatherViewer() {
       </div>
     );
   };
+
+  // Group sources by category
+  const sourcesByCategory = Object.entries(ANIMATION_SOURCES).reduce((acc, [key, source]) => {
+    const cat = source.category;
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push({ key, ...source });
+    return acc;
+  }, {});
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4">
@@ -541,7 +795,7 @@ export default function SpaceWeatherViewer() {
             </h1>
             <Globe className="w-8 h-8 text-cyan-400" />
           </div>
-          <p className="text-slate-400 text-sm">NOAA Space Weather Prediction Center • Geospace Model</p>
+          <p className="text-slate-400 text-sm">NOAA Space Weather Prediction Center • Real-time Data</p>
         </header>
 
         {/* View Mode Toggle */}
@@ -566,48 +820,120 @@ export default function SpaceWeatherViewer() {
             }`}
           >
             <Grid3X3 className="w-4 h-4" />
-            Multi View (Synced)
+            Multi View ({selectedMultiSources.length})
           </button>
         </div>
 
-        {/* Source Selector - only show in single view */}
+        {/* Source Selector - Single View */}
         {!multiView && (
           <div className="relative mb-4">
             <button
               onClick={() => setShowDropdown(!showDropdown)}
-              className={`w-full flex items-center justify-between gap-3 p-4 rounded-xl bg-gradient-to-r ${ANIMATION_SOURCES[selectedSource].color} bg-opacity-20 border border-white/10 hover:border-white/20 transition-all`}
+              className={`w-full flex items-center justify-between gap-3 p-4 rounded-xl bg-gradient-to-r ${currentSourceConfig?.color || 'from-slate-500 to-slate-600'} bg-opacity-20 border border-white/10 hover:border-white/20 transition-all`}
             >
               <div className="flex items-center gap-3">
                 <SourceIcon className="w-6 h-6" />
                 <div className="text-left">
-                  <div className="font-semibold">{ANIMATION_SOURCES[selectedSource].name}</div>
-                  <div className="text-xs text-white/70">{ANIMATION_SOURCES[selectedSource].description}</div>
+                  <div className="font-semibold">{currentSourceConfig?.name || 'Select Source'}</div>
+                  <div className="text-xs text-white/70">{currentSourceConfig?.description || ''}</div>
                 </div>
               </div>
               <ChevronDown className={`w-5 h-5 transition-transform ${showDropdown ? 'rotate-180' : ''}`} />
             </button>
 
             {showDropdown && (
-              <div className="absolute z-10 w-full mt-2 rounded-xl bg-slate-800 border border-white/10 overflow-hidden shadow-xl max-h-80 overflow-y-auto">
-                {Object.entries(ANIMATION_SOURCES).map(([key, source]) => {
-                  const Icon = source.icon;
-                  return (
-                    <button
-                      key={key}
-                      onClick={() => {
-                        setSelectedSource(key);
-                        setShowDropdown(false);
-                      }}
-                      className={`w-full flex items-center gap-3 p-4 hover:bg-white/5 transition-colors ${key === selectedSource ? 'bg-white/10' : ''}`}
-                    >
-                      <Icon className="w-5 h-5" />
-                      <div className="text-left">
-                        <div className="font-medium">{source.name}</div>
-                        <div className="text-xs text-slate-400">{source.description}</div>
-                      </div>
-                    </button>
-                  );
-                })}
+              <div className="absolute z-20 w-full mt-2 rounded-xl bg-slate-800 border border-white/10 overflow-hidden shadow-xl max-h-96 overflow-y-auto">
+                {Object.entries(sourcesByCategory).map(([catKey, sources]) => (
+                  <div key={catKey}>
+                    <div className="px-4 py-2 bg-slate-900/50 text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                      {(() => {
+                        const CatIcon = SOURCE_CATEGORIES[catKey]?.icon || Sun;
+                        return <CatIcon className="w-3.5 h-3.5" />;
+                      })()}
+                      {SOURCE_CATEGORIES[catKey]?.name || catKey}
+                    </div>
+                    {sources.map(source => {
+                      const Icon = source.icon;
+                      return (
+                        <button
+                          key={source.key}
+                          onClick={() => {
+                            setSelectedSource(source.key);
+                            setShowDropdown(false);
+                          }}
+                          className={`w-full flex items-center gap-3 p-3 hover:bg-white/5 transition-colors ${source.key === selectedSource ? 'bg-white/10' : ''}`}
+                        >
+                          <Icon className="w-5 h-5" />
+                          <div className="text-left flex-1">
+                            <div className="font-medium text-sm">{source.name}</div>
+                            <div className="text-xs text-slate-400">{source.description}</div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Source Selector - Multi View */}
+        {multiView && (
+          <div className="mb-4">
+            <button
+              onClick={() => setShowSourceSelector(!showSourceSelector)}
+              className="w-full flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-700/50 border border-white/10 hover:border-white/20 transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <Activity className="w-5 h-5 text-cyan-400" />
+                <span className="font-medium">Select Sources ({selectedMultiSources.length} selected)</span>
+              </div>
+              {showSourceSelector ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+            </button>
+
+            {showSourceSelector && (
+              <div className="mt-2 p-4 rounded-xl bg-slate-800/50 border border-white/10">
+                {Object.entries(sourcesByCategory).map(([catKey, sources]) => (
+                  <div key={catKey} className="mb-4 last:mb-0">
+                    <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                      {(() => {
+                        const CatIcon = SOURCE_CATEGORIES[catKey]?.icon || Sun;
+                        return <CatIcon className="w-3.5 h-3.5" />;
+                      })()}
+                      {SOURCE_CATEGORIES[catKey]?.name || catKey}
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                      {sources.map(source => {
+                        const isSelected = selectedMultiSources.includes(source.key);
+                        const Icon = source.icon;
+                        return (
+                          <button
+                            key={source.key}
+                            onClick={() => toggleMultiSource(source.key)}
+                            className={`flex items-center gap-2 p-2 rounded-lg text-left text-sm transition-all ${
+                              isSelected
+                                ? `bg-gradient-to-r ${source.color} text-white`
+                                : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                            }`}
+                          >
+                            {isSelected ? <Check className="w-4 h-4" /> : <Icon className="w-4 h-4" />}
+                            <span className="truncate">{source.shortName}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+                <button
+                  onClick={() => {
+                    setShowSourceSelector(false);
+                    loadMultiSources(selectedMultiSources);
+                  }}
+                  className="mt-4 w-full py-2 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-medium transition-colors"
+                >
+                  Apply Selection
+                </button>
               </div>
             )}
           </div>
@@ -669,16 +995,19 @@ export default function SpaceWeatherViewer() {
           ) : multiView ? (
             /* Multi-View Grid */
             <div className="p-4">
-              {/* Current timestamp display */}
               {currentFrameData && (
                 <div className="text-center mb-4 bg-black/40 rounded-lg py-2">
                   <span className="text-lg font-mono text-cyan-400">{displayTimestamp(currentFrameData)}</span>
                 </div>
               )}
 
-              {/* 2x3 Grid of viewers */}
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                {Object.keys(ANIMATION_SOURCES).map(key => (
+              <div className={`grid gap-3 ${
+                selectedMultiSources.length <= 2 ? 'grid-cols-1 md:grid-cols-2' :
+                selectedMultiSources.length <= 4 ? 'grid-cols-2' :
+                selectedMultiSources.length <= 6 ? 'grid-cols-2 lg:grid-cols-3' :
+                'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+              }`}>
+                {selectedMultiSources.map(key => (
                   <div key={key}>
                     {renderSingleViewer(
                       key,
@@ -690,12 +1019,11 @@ export default function SpaceWeatherViewer() {
               </div>
             </div>
           ) : useLatestOnly && latestImageUrl ? (
-            /* Single View - Latest Only */
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
                 <img
                   src={latestImageUrl}
-                  alt={`${ANIMATION_SOURCES[selectedSource].name} - Latest`}
+                  alt={`${currentSourceConfig?.name || 'Source'} - Latest`}
                   className="w-full h-auto object-contain"
                 />
                 <div className="absolute top-2 right-2 bg-green-600/80 backdrop-blur rounded-full px-3 py-1 text-xs flex items-center gap-1">
@@ -705,12 +1033,11 @@ export default function SpaceWeatherViewer() {
               </div>
             </div>
           ) : currentFrameData ? (
-            /* Single View - Animation */
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
                 <img
                   src={currentFrameData.url}
-                  alt={`${ANIMATION_SOURCES[selectedSource].name} - ${displayTimestamp(currentFrameData)}`}
+                  alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
                   className="w-full h-auto object-contain"
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur rounded-lg px-3 py-1.5 text-xs text-center">
@@ -722,7 +1049,7 @@ export default function SpaceWeatherViewer() {
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <img
                 src={latestImageUrl}
-                alt={`${ANIMATION_SOURCES[selectedSource].name} - Latest`}
+                alt={`${currentSourceConfig?.name || 'Source'} - Latest`}
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -733,31 +1060,16 @@ export default function SpaceWeatherViewer() {
             <div className="p-4 border-t border-white/10">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={prevFrame}
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-                    title="Previous frame"
-                  >
+                  <button onClick={prevFrame} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" title="Previous frame">
                     <SkipBack className="w-5 h-5" />
                   </button>
-                  <button
-                    onClick={togglePlay}
-                    className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg"
-                  >
+                  <button onClick={togglePlay} className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg">
                     {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
                   </button>
-                  <button
-                    onClick={nextFrame}
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-                    title="Next frame"
-                  >
+                  <button onClick={nextFrame} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" title="Next frame">
                     <SkipForward className="w-5 h-5" />
                   </button>
-                  <button
-                    onClick={refresh}
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors ml-2"
-                    title="Refresh data"
-                  >
+                  <button onClick={refresh} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors ml-2" title="Refresh data">
                     <RefreshCw className="w-5 h-5" />
                   </button>
                 </div>
@@ -826,10 +1138,12 @@ export default function SpaceWeatherViewer() {
         {/* Info Footer */}
         <div className="mt-4 p-4 bg-slate-800/30 rounded-xl border border-white/5">
           {multiView ? (
-            <div className="text-xs text-slate-400 space-y-2">
-              <p className="text-slate-300 font-medium mb-2">About These Forecasts</p>
-              <div className="grid gap-2 md:grid-cols-2">
-                {Object.entries(ANIMATION_SOURCES).map(([key, source]) => {
+            <div className="text-xs text-slate-400">
+              <p className="text-slate-300 font-medium mb-2">Selected Sources</p>
+              <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+                {selectedMultiSources.map(key => {
+                  const source = ANIMATION_SOURCES[key];
+                  if (!source) return null;
                   const Icon = source.icon;
                   return (
                     <div key={key} className={`p-2 rounded-lg bg-gradient-to-r ${source.color} bg-opacity-10 border border-white/5`}>
@@ -837,23 +1151,18 @@ export default function SpaceWeatherViewer() {
                         <Icon className="w-3.5 h-3.5" />
                         <span className="text-slate-300 font-medium">{source.name}</span>
                       </div>
-                      <p className="text-slate-400 text-xs leading-relaxed">{source.explainer}</p>
+                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">{source.explainer}</p>
                     </div>
                   );
                 })}
               </div>
-              <p className="mt-2 text-slate-500">Data from NOAA's DSCOVR satellite and OVATION model, updated every few minutes.</p>
             </div>
-          ) : (
+          ) : currentSourceConfig && (
             <div className="flex items-start gap-3">
-              {(() => {
-                const Icon = ANIMATION_SOURCES[selectedSource].icon;
-                return <Icon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />;
-              })()}
+              <SourceIcon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
               <div className="text-xs text-slate-400">
-                <p className="text-slate-300 font-medium mb-1">{ANIMATION_SOURCES[selectedSource].name}</p>
-                <p className="leading-relaxed">{ANIMATION_SOURCES[selectedSource].explainer}</p>
-                <p className="mt-2 text-slate-500">Data from NOAA Space Weather Prediction Center, updated every few minutes.</p>
+                <p className="text-slate-300 font-medium mb-1">{currentSourceConfig.name}</p>
+                <p className="leading-relaxed">{currentSourceConfig.explainer}</p>
               </div>
             </div>
           )}

@@ -1,15 +1,15 @@
 # Space Weather Viewer
 
-A real-time visualization app for NOAA Space Weather Prediction Center data. View plasma density, velocity, pressure, and aurora forecasts with synchronized animations.
+A real-time visualization app for NOAA Space Weather Prediction Center data. View solar imagery, magnetosphere models, radio absorption forecasts, and aurora predictions with synchronized animations.
 
 **Live Demo:** [space-weather-viewer.vercel.app](https://space-weather-viewer.vercel.app) *(deploy your own)*
 
-![Space Weather Viewer](https://services.swpc.noaa.gov/images/animations/geospace/density/latest.png)
+![Space Weather Viewer](https://services.swpc.noaa.gov/images/animations/suvi/primary/304/latest.png)
 
 ## Features
 
-- **5 Data Sources**: Plasma density, velocity, pressure, and aurora forecasts (north & south)
-- **Single & Multi-View Modes**: View one source at a time or all 5 synchronized by timestamp
+- **15 Data Sources** across 5 categories: Solar, Solar Wind, Magnetosphere, Ionosphere, Aurora
+- **Single & Multi-View Modes**: View one source at a time or customize which sources to display synchronized by timestamp
 - **Animation Controls**: Play/pause, speed control (0.5x-4x), frame-by-frame navigation
 - **Time Range Selection**: View last 3, 6, 12, or 24 hours of data
 - **Timezone Toggle**: Switch between UTC and local time
@@ -19,11 +19,29 @@ A real-time visualization app for NOAA Space Weather Prediction Center data. Vie
 
 All data comes from NOAA's Space Weather Prediction Center:
 
-- **Geospace Model** - Simulates Earth's magnetosphere using real-time solar wind data from the DSCOVR satellite
-  - Density: Particle concentration
-  - Velocity: Solar wind speed
-  - Pressure: Dynamic pressure
-- **OVATION Aurora Forecast** - Predicted aurora activity for northern and southern hemispheres
+### Solar Imagery
+- **SUVI 304nm** - Solar chromosphere showing prominences and flares
+- **SUVI 195nm** - Million-degree corona and coronal holes
+- **SUVI 171nm** - Quiet corona and magnetic loop structures
+- **SUVI 131nm** - Hottest plasma for flare detection
+- **LASCO C2/C3** - Coronagraphs for tracking CMEs
+- **SDO Magnetogram** - Solar magnetic field intensity
+
+### Solar Wind
+- **ENLIL** - 3D heliospheric solar wind model
+
+### Magnetosphere
+- **Plasma Density** - Particle concentration near Earth
+- **Plasma Velocity** - Solar wind speed around Earth
+- **Plasma Pressure** - Dynamic pressure on magnetosphere
+
+### Ionosphere
+- **D-RAP Global** - HF radio absorption worldwide
+- **D-RAP North Pole** - Arctic radio absorption
+
+### Aurora
+- **Aurora North** - Northern Lights forecast
+- **Aurora South** - Southern Lights forecast
 
 ## Tech Stack
 
@@ -68,4 +86,4 @@ MIT License - see [LICENSE](LICENSE)
 
 - **GitHub**: [github.com/Barneyjm/space-weather-viewer](https://github.com/Barneyjm/space-weather-viewer)
 - **NOAA SWPC**: [swpc.noaa.gov](https://www.swpc.noaa.gov/)
-- **Data Source**: [services.swpc.noaa.gov](https://services.swpc.noaa.gov/images/animations/geospace/)
+- **Data Source**: [services.swpc.noaa.gov](https://services.swpc.noaa.gov/images/animations/)
