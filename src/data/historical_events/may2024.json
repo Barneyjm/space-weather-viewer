@@ -1,0 +1,2794 @@
+{
+  "event_info": {
+    "name": "May 2024 Geomagnetic Storm",
+    "description": "G5 extreme storm. Historic aurora displays visible at low latitudes.",
+    "start": "2024-05-10",
+    "end": "2024-05-14",
+    "peak_flare": "X8.7",
+    "min_dst": -412
+  },
+  "data": [
+    {
+      "timestamp": "2024-05-10T00:00:00",
+      "solar_wind": {
+        "speed": 410.0,
+        "density": 5.4,
+        "temperature": 61023.0,
+        "pressure": 1.8154799999999998
+      },
+      "imf": {
+        "magnitude": 6.2,
+        "bx": -4.4,
+        "by": 4.1,
+        "bz": -3.0
+      },
+      "geomagnetic": {
+        "dst": 12.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.825572271225779
+      }
+    },
+    {
+      "timestamp": "2024-05-10T01:00:00",
+      "solar_wind": {
+        "speed": 398.0,
+        "density": 5.5,
+        "temperature": 61446.0,
+        "pressure": 1.7424439999999999
+      },
+      "imf": {
+        "magnitude": 5.8,
+        "bx": -3.8,
+        "by": 0.9,
+        "bz": -3.7
+      },
+      "geomagnetic": {
+        "dst": 10.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.758012124869419
+      }
+    },
+    {
+      "timestamp": "2024-05-10T02:00:00",
+      "solar_wind": {
+        "speed": 425.0,
+        "density": 6.6,
+        "temperature": 53903.0,
+        "pressure": 2.3842499999999998
+      },
+      "imf": {
+        "magnitude": 4.2,
+        "bx": -1.2,
+        "by": 3.6,
+        "bz": 0.1
+      },
+      "geomagnetic": {
+        "dst": 12.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.993792718837877
+      }
+    },
+    {
+      "timestamp": "2024-05-10T03:00:00",
+      "solar_wind": {
+        "speed": 430.0,
+        "density": 10.5,
+        "temperature": 31464.0,
+        "pressure": 3.8829
+      },
+      "imf": {
+        "magnitude": 1.5,
+        "bx": -1.2,
+        "by": 1.0,
+        "bz": -0.9
+      },
+      "geomagnetic": {
+        "dst": 21.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.117819312096547
+      }
+    },
+    {
+      "timestamp": "2024-05-10T04:00:00",
+      "solar_wind": {
+        "speed": 432.0,
+        "density": 12.0,
+        "temperature": 53708.0,
+        "pressure": 4.478976
+      },
+      "imf": {
+        "magnitude": 3.9,
+        "bx": -2.7,
+        "by": -1.9,
+        "bz": -3.4
+      },
+      "geomagnetic": {
+        "dst": 16.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.504918453709468
+      }
+    },
+    {
+      "timestamp": "2024-05-10T05:00:00",
+      "solar_wind": {
+        "speed": 430.0,
+        "density": 11.3,
+        "temperature": 58292.0,
+        "pressure": 4.17874
+      },
+      "imf": {
+        "magnitude": 1.1,
+        "bx": -0.6,
+        "by": -0.4,
+        "bz": -0.7
+      },
+      "geomagnetic": {
+        "dst": 7.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.052512141739456
+      }
+    },
+    {
+      "timestamp": "2024-05-10T06:00:00",
+      "solar_wind": {
+        "speed": 422.0,
+        "density": 9.0,
+        "temperature": 64435.0,
+        "pressure": 3.205512
+      },
+      "imf": {
+        "magnitude": 1.4,
+        "bx": -0.9,
+        "by": -0.5,
+        "bz": -1.0
+      },
+      "geomagnetic": {
+        "dst": 9.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.36814399001243
+      }
+    },
+    {
+      "timestamp": "2024-05-10T07:00:00",
+      "solar_wind": {
+        "speed": 416.0,
+        "density": 9.3,
+        "temperature": 54694.0,
+        "pressure": 3.2188416
+      },
+      "imf": {
+        "magnitude": 2.0,
+        "bx": -1.0,
+        "by": -1.0,
+        "bz": -1.2
+      },
+      "geomagnetic": {
+        "dst": 16.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.325684358877838
+      }
+    },
+    {
+      "timestamp": "2024-05-10T08:00:00",
+      "solar_wind": {
+        "speed": 412.0,
+        "density": 8.5,
+        "temperature": 51986.0,
+        "pressure": 2.8856479999999998
+      },
+      "imf": {
+        "magnitude": 2.1,
+        "bx": 0.2,
+        "by": -0.9,
+        "bz": 0.1
+      },
+      "geomagnetic": {
+        "dst": 13.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.708921952150448
+      }
+    },
+    {
+      "timestamp": "2024-05-10T09:00:00",
+      "solar_wind": {
+        "speed": 415.0,
+        "density": 8.0,
+        "temperature": 59926.0,
+        "pressure": 2.7556
+      },
+      "imf": {
+        "magnitude": 1.1,
+        "bx": -0.1,
+        "by": -0.7,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": 15.0,
+        "kp": 2.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.738043672531104
+      }
+    },
+    {
+      "timestamp": "2024-05-10T10:00:00",
+      "solar_wind": {
+        "speed": 421.0,
+        "density": 4.3,
+        "temperature": 72151.0,
+        "pressure": 1.5242725999999998
+      },
+      "imf": {
+        "magnitude": 3.7,
+        "bx": -3.0,
+        "by": -1.8,
+        "bz": -3.2
+      },
+      "geomagnetic": {
+        "dst": 13.0,
+        "kp": 2.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.051397755534918
+      }
+    },
+    {
+      "timestamp": "2024-05-10T11:00:00",
+      "solar_wind": {
+        "speed": 423.0,
+        "density": 3.5,
+        "temperature": 74277.0,
+        "pressure": 1.2525030000000001
+      },
+      "imf": {
+        "magnitude": 3.7,
+        "bx": -2.9,
+        "by": -1.9,
+        "bz": -3.1
+      },
+      "geomagnetic": {
+        "dst": 3.0,
+        "kp": 2.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.374456850708588
+      }
+    },
+    {
+      "timestamp": "2024-05-10T12:00:00",
+      "solar_wind": {
+        "speed": 409.0,
+        "density": 2.9,
+        "temperature": 87778.0,
+        "pressure": 0.9702297999999998
+      },
+      "imf": {
+        "magnitude": 3.2,
+        "bx": -1.9,
+        "by": -0.1,
+        "bz": -1.9
+      },
+      "geomagnetic": {
+        "dst": -1.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.0330654207435
+      }
+    },
+    {
+      "timestamp": "2024-05-10T13:00:00",
+      "solar_wind": {
+        "speed": 411.0,
+        "density": 3.2,
+        "temperature": 102376.0,
+        "pressure": 1.0810943999999998
+      },
+      "imf": {
+        "magnitude": 2.9,
+        "bx": 0.5,
+        "by": 0.5,
+        "bz": 0.6
+      },
+      "geomagnetic": {
+        "dst": 1.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.266110334163342
+      }
+    },
+    {
+      "timestamp": "2024-05-10T14:00:00",
+      "solar_wind": {
+        "speed": 446.0,
+        "density": 5.1,
+        "temperature": 119662.0,
+        "pressure": 2.0289432
+      },
+      "imf": {
+        "magnitude": 2.7,
+        "bx": -1.1,
+        "by": 0.9,
+        "bz": -1.0
+      },
+      "geomagnetic": {
+        "dst": 10.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.040344993991415
+      }
+    },
+    {
+      "timestamp": "2024-05-10T15:00:00",
+      "solar_wind": {
+        "speed": 455.0,
+        "density": 14.2,
+        "temperature": 56514.0,
+        "pressure": 5.879509999999999
+      },
+      "imf": {
+        "magnitude": 1.9,
+        "bx": -0.5,
+        "by": -0.5,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": 23.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.613060552344567
+      }
+    },
+    {
+      "timestamp": "2024-05-10T16:00:00",
+      "solar_wind": {
+        "speed": 449.0,
+        "density": 15.6,
+        "temperature": 49943.0,
+        "pressure": 6.2899512
+      },
+      "imf": {
+        "magnitude": 2.5,
+        "bx": 1.6,
+        "by": 1.0,
+        "bz": 1.9
+      },
+      "geomagnetic": {
+        "dst": 25.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.627752700264812
+      }
+    },
+    {
+      "timestamp": "2024-05-10T17:00:00",
+      "solar_wind": {
+        "speed": 571.0,
+        "density": 29.1,
+        "temperature": 365846.0,
+        "pressure": 18.9755862
+      },
+      "imf": {
+        "magnitude": 7.2,
+        "bx": -5.1,
+        "by": -1.9,
+        "bz": -5.9
+      },
+      "geomagnetic": {
+        "dst": 66.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 6.528254972589233
+      }
+    },
+    {
+      "timestamp": "2024-05-10T18:00:00",
+      "solar_wind": {
+        "speed": 697.0,
+        "density": 32.9,
+        "temperature": 871652.0,
+        "pressure": 31.966232200000004
+      },
+      "imf": {
+        "magnitude": 24.3,
+        "bx": -12.1,
+        "by": -14.1,
+        "bz": -18.0
+      },
+      "geomagnetic": {
+        "dst": -33.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 4.95886619586735
+      }
+    },
+    {
+      "timestamp": "2024-05-10T19:00:00",
+      "solar_wind": {
+        "speed": 664.0,
+        "density": 35.2,
+        "temperature": 963992.0,
+        "pressure": 31.039078400000005
+      },
+      "imf": {
+        "magnitude": 23.3,
+        "bx": 7.5,
+        "by": -23.0,
+        "bz": -1.2
+      },
+      "geomagnetic": {
+        "dst": -131.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.615430391788463
+      }
+    },
+    {
+      "timestamp": "2024-05-10T20:00:00",
+      "solar_wind": {
+        "speed": 702.0,
+        "density": 48.1,
+        "temperature": 303344.0,
+        "pressure": 47.407744799999996
+      },
+      "imf": {
+        "magnitude": 29.9,
+        "bx": -25.9,
+        "by": 3.1,
+        "bz": -26.9
+      },
+      "geomagnetic": {
+        "dst": -157.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 4.130778955601275
+      }
+    },
+    {
+      "timestamp": "2024-05-10T21:00:00",
+      "solar_wind": {
+        "speed": 697.0,
+        "density": 32.6,
+        "temperature": 192777.0,
+        "pressure": 31.6747468
+      },
+      "imf": {
+        "magnitude": 40.2,
+        "bx": -31.9,
+        "by": 0.3,
+        "bz": -35.0
+      },
+      "geomagnetic": {
+        "dst": -277.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 4.0
+      }
+    },
+    {
+      "timestamp": "2024-05-10T22:00:00",
+      "solar_wind": {
+        "speed": 729.0,
+        "density": 20.1,
+        "temperature": 217629.0,
+        "pressure": 21.3639282
+      },
+      "imf": {
+        "magnitude": 21.5,
+        "bx": -7.4,
+        "by": -11.9,
+        "bz": -13.7
+      },
+      "geomagnetic": {
+        "dst": -339.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.626892115925297
+      }
+    },
+    {
+      "timestamp": "2024-05-10T23:00:00",
+      "solar_wind": {
+        "speed": 740.0,
+        "density": 20.2,
+        "temperature": 127551.0,
+        "pressure": 22.12304
+      },
+      "imf": {
+        "magnitude": 67.8,
+        "bx": -24.0,
+        "by": 67.6,
+        "bz": 4.8
+      },
+      "geomagnetic": {
+        "dst": -308.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.130836634701139
+      }
+    },
+    {
+      "timestamp": "2024-05-11T00:00:00",
+      "solar_wind": {
+        "speed": 742.0,
+        "density": 14.7,
+        "temperature": 424750.0,
+        "pressure": 16.1865816
+      },
+      "imf": {
+        "magnitude": 51.1,
+        "bx": -46.5,
+        "by": 35.1,
+        "bz": -35.3
+      },
+      "geomagnetic": {
+        "dst": -313.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 4.382485623764712
+      }
+    },
+    {
+      "timestamp": "2024-05-11T01:00:00",
+      "solar_wind": {
+        "speed": 732.0,
+        "density": 25.2,
+        "temperature": 533137.0,
+        "pressure": 27.0055296
+      },
+      "imf": {
+        "magnitude": 42.9,
+        "bx": -26.7,
+        "by": -12.4,
+        "bz": -34.0
+      },
+      "geomagnetic": {
+        "dst": -390.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 4.118212923119436
+      }
+    },
+    {
+      "timestamp": "2024-05-11T02:00:00",
+      "solar_wind": {
+        "speed": 738.0,
+        "density": 38.4,
+        "temperature": 416056.0,
+        "pressure": 41.8286592
+      },
+      "imf": {
+        "magnitude": 22.3,
+        "bx": -18.9,
+        "by": -0.8,
+        "bz": -20.5
+      },
+      "geomagnetic": {
+        "dst": -406.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 4.5920633253441
+      }
+    },
+    {
+      "timestamp": "2024-05-11T03:00:00",
+      "solar_wind": {
+        "speed": 748.0,
+        "density": 17.5,
+        "temperature": 217724.0,
+        "pressure": 19.582639999999998
+      },
+      "imf": {
+        "magnitude": 31.4,
+        "bx": -17.0,
+        "by": -14.8,
+        "bz": -22.8
+      },
+      "geomagnetic": {
+        "dst": -395.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 4.9889070172878185
+      }
+    },
+    {
+      "timestamp": "2024-05-11T04:00:00",
+      "solar_wind": {
+        "speed": 704.0,
+        "density": 8.4,
+        "temperature": 183194.0,
+        "pressure": 8.3263488
+      },
+      "imf": {
+        "magnitude": 37.1,
+        "bx": -10.5,
+        "by": -27.9,
+        "bz": -18.9
+      },
+      "geomagnetic": {
+        "dst": -389.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.000574271910689
+      }
+    },
+    {
+      "timestamp": "2024-05-11T05:00:00",
+      "solar_wind": {
+        "speed": 700.0,
+        "density": 19.9,
+        "temperature": 217474.0,
+        "pressure": 19.502
+      },
+      "imf": {
+        "magnitude": 37.6,
+        "bx": 13.7,
+        "by": -34.1,
+        "bz": 5.9
+      },
+      "geomagnetic": {
+        "dst": -358.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.268391521964551
+      }
+    },
+    {
+      "timestamp": "2024-05-11T06:00:00",
+      "solar_wind": {
+        "speed": 692.0,
+        "density": 31.7,
+        "temperature": 397715.0,
+        "pressure": 30.359977599999997
+      },
+      "imf": {
+        "magnitude": 28.6,
+        "bx": -6.4,
+        "by": -16.8,
+        "bz": -9.9
+      },
+      "geomagnetic": {
+        "dst": -320.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.673576368153921
+      }
+    },
+    {
+      "timestamp": "2024-05-11T07:00:00",
+      "solar_wind": {
+        "speed": 689.0,
+        "density": 33.9,
+        "temperature": 384618.0,
+        "pressure": 32.1860838
+      },
+      "imf": {
+        "magnitude": 31.2,
+        "bx": -21.4,
+        "by": 22.9,
+        "bz": -18.0
+      },
+      "geomagnetic": {
+        "dst": -374.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 4.9537191035939925
+      }
+    },
+    {
+      "timestamp": "2024-05-11T08:00:00",
+      "solar_wind": {
+        "speed": 709.0,
+        "density": 22.6,
+        "temperature": 351270.0,
+        "pressure": 22.7211812
+      },
+      "imf": {
+        "magnitude": 26.2,
+        "bx": -18.1,
+        "by": 21.1,
+        "bz": -15.5
+      },
+      "geomagnetic": {
+        "dst": -364.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.421428338560851
+      }
+    },
+    {
+      "timestamp": "2024-05-11T09:00:00",
+      "solar_wind": {
+        "speed": 691.0,
+        "density": 13.1,
+        "temperature": 192210.0,
+        "pressure": 12.510002199999999
+      },
+      "imf": {
+        "magnitude": 37.2,
+        "bx": -36.3,
+        "by": 11.9,
+        "bz": -35.2
+      },
+      "geomagnetic": {
+        "dst": -297.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 4.562303175936228
+      }
+    },
+    {
+      "timestamp": "2024-05-11T10:00:00",
+      "solar_wind": {
+        "speed": 691.0,
+        "density": 32.8,
+        "temperature": 345442.0,
+        "pressure": 31.3227536
+      },
+      "imf": {
+        "magnitude": 13.6,
+        "bx": -13.0,
+        "by": 3.6,
+        "bz": -12.7
+      },
+      "geomagnetic": {
+        "dst": -318.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 5.394632572177533
+      }
+    },
+    {
+      "timestamp": "2024-05-11T11:00:00",
+      "solar_wind": {
+        "speed": 759.0,
+        "density": 17.8,
+        "temperature": 526728.0,
+        "pressure": 20.5084836
+      },
+      "imf": {
+        "magnitude": 6.9,
+        "bx": -1.9,
+        "by": 6.0,
+        "bz": -1.3
+      },
+      "geomagnetic": {
+        "dst": -268.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 7.030394249181561
+      }
+    },
+    {
+      "timestamp": "2024-05-11T12:00:00",
+      "solar_wind": {
+        "speed": 809.0,
+        "density": 12.5,
+        "temperature": 145543.0,
+        "pressure": 16.362025
+      },
+      "imf": {
+        "magnitude": 20.6,
+        "bx": -17.6,
+        "by": 10.9,
+        "bz": -16.5
+      },
+      "geomagnetic": {
+        "dst": -258.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.612269344279987
+      }
+    },
+    {
+      "timestamp": "2024-05-11T13:00:00",
+      "solar_wind": {
+        "speed": 804.0,
+        "density": 8.5,
+        "temperature": 102221.0,
+        "pressure": 10.989072
+      },
+      "imf": {
+        "magnitude": 27.3,
+        "bx": -23.2,
+        "by": 8.7,
+        "bz": -22.3
+      },
+      "geomagnetic": {
+        "dst": -279.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.482961443137165
+      }
+    },
+    {
+      "timestamp": "2024-05-11T14:00:00",
+      "solar_wind": {
+        "speed": 770.0,
+        "density": 7.9,
+        "temperature": 103817.0,
+        "pressure": 9.367820000000002
+      },
+      "imf": {
+        "magnitude": 24.3,
+        "bx": -21.5,
+        "by": 12.3,
+        "bz": -19.8
+      },
+      "geomagnetic": {
+        "dst": -281.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.8183718426879425
+      }
+    },
+    {
+      "timestamp": "2024-05-11T15:00:00",
+      "solar_wind": {
+        "speed": 793.0,
+        "density": 7.5,
+        "temperature": 78844.0,
+        "pressure": 9.432735
+      },
+      "imf": {
+        "magnitude": 16.9,
+        "bx": -14.8,
+        "by": 2.4,
+        "bz": -14.6
+      },
+      "geomagnetic": {
+        "dst": -265.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.280149306574872
+      }
+    },
+    {
+      "timestamp": "2024-05-11T16:00:00",
+      "solar_wind": {
+        "speed": 785.0,
+        "density": 5.2,
+        "temperature": 68683.0,
+        "pressure": 6.408740000000001
+      },
+      "imf": {
+        "magnitude": 11.8,
+        "bx": -6.5,
+        "by": -4.7,
+        "bz": -7.9
+      },
+      "geomagnetic": {
+        "dst": -270.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.429473042429705
+      }
+    },
+    {
+      "timestamp": "2024-05-11T17:00:00",
+      "solar_wind": {
+        "speed": 796.0,
+        "density": 4.5,
+        "temperature": 96238.0,
+        "pressure": 5.7025440000000005
+      },
+      "imf": {
+        "magnitude": 8.9,
+        "bx": -3.0,
+        "by": -4.7,
+        "bz": -4.6
+      },
+      "geomagnetic": {
+        "dst": -248.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 8.019113449979315
+      }
+    },
+    {
+      "timestamp": "2024-05-11T18:00:00",
+      "solar_wind": {
+        "speed": 863.0,
+        "density": 8.3,
+        "temperature": 172716.0,
+        "pressure": 12.3631654
+      },
+      "imf": {
+        "magnitude": 7.8,
+        "bx": -0.6,
+        "by": 7.5,
+        "bz": 2.0
+      },
+      "geomagnetic": {
+        "dst": -203.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.7880845457033
+      }
+    },
+    {
+      "timestamp": "2024-05-11T19:00:00",
+      "solar_wind": {
+        "speed": 880.0,
+        "density": 8.5,
+        "temperature": 456683.0,
+        "pressure": 13.1648
+      },
+      "imf": {
+        "magnitude": 2.9,
+        "bx": -0.2,
+        "by": 2.7,
+        "bz": 0.8
+      },
+      "geomagnetic": {
+        "dst": -198.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.7143018687735925
+      }
+    },
+    {
+      "timestamp": "2024-05-11T20:00:00",
+      "solar_wind": {
+        "speed": 896.0,
+        "density": 7.0,
+        "temperature": 382027.0,
+        "pressure": 11.239424
+      },
+      "imf": {
+        "magnitude": 3.7,
+        "bx": -0.8,
+        "by": 2.4,
+        "bz": 0.2
+      },
+      "geomagnetic": {
+        "dst": -190.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.9013483045321005
+      }
+    },
+    {
+      "timestamp": "2024-05-11T21:00:00",
+      "solar_wind": {
+        "speed": 894.0,
+        "density": 8.1,
+        "temperature": 252303.0,
+        "pressure": 12.947623199999997
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": 0.0,
+        "by": 2.0,
+        "bz": 0.9
+      },
+      "geomagnetic": {
+        "dst": -169.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.73376919744779
+      }
+    },
+    {
+      "timestamp": "2024-05-11T22:00:00",
+      "solar_wind": {
+        "speed": 887.0,
+        "density": 7.0,
+        "temperature": 190396.0,
+        "pressure": 11.014766
+      },
+      "imf": {
+        "magnitude": 10.8,
+        "bx": 7.5,
+        "by": -0.5,
+        "bz": 8.0
+      },
+      "geomagnetic": {
+        "dst": -157.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.925557289905337
+      }
+    },
+    {
+      "timestamp": "2024-05-11T23:00:00",
+      "solar_wind": {
+        "speed": 882.0,
+        "density": 1.7,
+        "temperature": 758667.0,
+        "pressure": 2.6449415999999997
+      },
+      "imf": {
+        "magnitude": 8.5,
+        "bx": 0.3,
+        "by": 7.0,
+        "bz": 3.5
+      },
+      "geomagnetic": {
+        "dst": -167.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 9.83790022933634
+      }
+    },
+    {
+      "timestamp": "2024-05-12T00:00:00",
+      "solar_wind": {
+        "speed": 938.0,
+        "density": 2.0,
+        "temperature": 630171.0,
+        "pressure": 3.519376
+      },
+      "imf": {
+        "magnitude": 6.9,
+        "bx": -1.6,
+        "by": 5.0,
+        "bz": 0.5
+      },
+      "geomagnetic": {
+        "dst": -150.0,
+        "kp": 6.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 9.421217342173254
+      }
+    },
+    {
+      "timestamp": "2024-05-12T01:00:00",
+      "solar_wind": {
+        "speed": 1006.0,
+        "density": 2.5,
+        "temperature": 206127.0,
+        "pressure": 5.06018
+      },
+      "imf": {
+        "magnitude": 7.1,
+        "bx": -3.9,
+        "by": -1.7,
+        "bz": -4.9
+      },
+      "geomagnetic": {
+        "dst": -142.0,
+        "kp": 6.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.121022209852459
+      }
+    },
+    {
+      "timestamp": "2024-05-12T02:00:00",
+      "solar_wind": {
+        "speed": 960.0,
+        "density": 4.5,
+        "temperature": 82940.0,
+        "pressure": 8.2944
+      },
+      "imf": {
+        "magnitude": 4.0,
+        "bx": -2.2,
+        "by": -2.3,
+        "bz": -3.2
+      },
+      "geomagnetic": {
+        "dst": -135.0,
+        "kp": 6.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 7.775948553724339
+      }
+    },
+    {
+      "timestamp": "2024-05-12T03:00:00",
+      "solar_wind": {
+        "speed": 935.0,
+        "density": 6.6,
+        "temperature": 24903.0,
+        "pressure": 11.539769999999999
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": 2.2,
+        "by": -0.5,
+        "bz": 2.2
+      },
+      "geomagnetic": {
+        "dst": -138.0,
+        "kp": 7.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.869839743872595
+      }
+    },
+    {
+      "timestamp": "2024-05-12T04:00:00",
+      "solar_wind": {
+        "speed": 926.0,
+        "density": 9.0,
+        "temperature": 27470.0,
+        "pressure": 15.434567999999999
+      },
+      "imf": {
+        "magnitude": 6.1,
+        "bx": 2.3,
+        "by": -1.6,
+        "bz": 1.9
+      },
+      "geomagnetic": {
+        "dst": -138.0,
+        "kp": 7.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.530606075824505
+      }
+    },
+    {
+      "timestamp": "2024-05-12T05:00:00",
+      "solar_wind": {
+        "speed": 909.0,
+        "density": 3.1,
+        "temperature": 21688.0,
+        "pressure": 5.1229422
+      },
+      "imf": {
+        "magnitude": 6.0,
+        "bx": 3.0,
+        "by": -0.3,
+        "bz": 3.0
+      },
+      "geomagnetic": {
+        "dst": -143.0,
+        "kp": 7.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.90024380499013
+      }
+    },
+    {
+      "timestamp": "2024-05-12T06:00:00",
+      "solar_wind": {
+        "speed": 886.0,
+        "density": 2.2,
+        "temperature": 13036.0,
+        "pressure": 3.4539824
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": 2.8,
+        "by": -0.1,
+        "bz": 2.8
+      },
+      "geomagnetic": {
+        "dst": -132.0,
+        "kp": 3.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 9.448028545551015
+      }
+    },
+    {
+      "timestamp": "2024-05-12T07:00:00",
+      "solar_wind": {
+        "speed": 876.0,
+        "density": 1.5,
+        "temperature": 16024.0,
+        "pressure": 2.302128
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": 1.9,
+        "by": -0.8,
+        "bz": 1.8
+      },
+      "geomagnetic": {
+        "dst": -132.0,
+        "kp": 3.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.047008050842706
+      }
+    },
+    {
+      "timestamp": "2024-05-12T08:00:00",
+      "solar_wind": {
+        "speed": 853.0,
+        "density": 1.3,
+        "temperature": 152116.0,
+        "pressure": 1.8917834000000002
+      },
+      "imf": {
+        "magnitude": 4.4,
+        "bx": 1.0,
+        "by": 0.1,
+        "bz": 1.0
+      },
+      "geomagnetic": {
+        "dst": -131.0,
+        "kp": 3.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.350340510410138
+      }
+    },
+    {
+      "timestamp": "2024-05-12T09:00:00",
+      "solar_wind": {
+        "speed": 855.0,
+        "density": 1.7,
+        "temperature": 65402.0,
+        "pressure": 2.4854849999999997
+      },
+      "imf": {
+        "magnitude": 5.8,
+        "bx": 1.0,
+        "by": -0.2,
+        "bz": 1.0
+      },
+      "geomagnetic": {
+        "dst": -114.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 9.931024917559604
+      }
+    },
+    {
+      "timestamp": "2024-05-12T10:00:00",
+      "solar_wind": {
+        "speed": 878.0,
+        "density": 3.1,
+        "temperature": 121802.0,
+        "pressure": 4.7794808
+      },
+      "imf": {
+        "magnitude": 10.4,
+        "bx": 5.1,
+        "by": 1.8,
+        "bz": 5.3
+      },
+      "geomagnetic": {
+        "dst": -104.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.994320902358748
+      }
+    },
+    {
+      "timestamp": "2024-05-12T11:00:00",
+      "solar_wind": {
+        "speed": 875.0,
+        "density": 1.4,
+        "temperature": 404251.0,
+        "pressure": 2.14375
+      },
+      "imf": {
+        "magnitude": 9.7,
+        "bx": 4.4,
+        "by": 0.1,
+        "bz": 4.4
+      },
+      "geomagnetic": {
+        "dst": -108.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.156099609845267
+      }
+    },
+    {
+      "timestamp": "2024-05-12T12:00:00",
+      "solar_wind": {
+        "speed": 874.0,
+        "density": 1.0,
+        "temperature": 628208.0,
+        "pressure": 1.527752
+      },
+      "imf": {
+        "magnitude": 8.8,
+        "bx": 3.3,
+        "by": 2.0,
+        "bz": 3.5
+      },
+      "geomagnetic": {
+        "dst": -108.0,
+        "kp": 2.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.690993222441454
+      }
+    },
+    {
+      "timestamp": "2024-05-12T13:00:00",
+      "solar_wind": {
+        "speed": 859.0,
+        "density": 0.9,
+        "temperature": 556381.0,
+        "pressure": 1.3281858
+      },
+      "imf": {
+        "magnitude": 7.7,
+        "bx": 2.6,
+        "by": 2.3,
+        "bz": 2.9
+      },
+      "geomagnetic": {
+        "dst": -104.0,
+        "kp": 2.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.920166763978555
+      }
+    },
+    {
+      "timestamp": "2024-05-12T14:00:00",
+      "solar_wind": {
+        "speed": 862.0,
+        "density": 1.0,
+        "temperature": 530791.0,
+        "pressure": 1.4860879999999999
+      },
+      "imf": {
+        "magnitude": 6.0,
+        "bx": -0.4,
+        "by": 3.2,
+        "bz": 0.1
+      },
+      "geomagnetic": {
+        "dst": -102.0,
+        "kp": 2.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.735876296301695
+      }
+    },
+    {
+      "timestamp": "2024-05-12T15:00:00",
+      "solar_wind": {
+        "speed": 852.0,
+        "density": 0.9,
+        "temperature": 678631.0,
+        "pressure": 1.3066271999999999
+      },
+      "imf": {
+        "magnitude": 6.0,
+        "bx": 0.4,
+        "by": 3.1,
+        "bz": 1.0
+      },
+      "geomagnetic": {
+        "dst": -96.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.947277063183359
+      }
+    },
+    {
+      "timestamp": "2024-05-12T16:00:00",
+      "solar_wind": {
+        "speed": 840.0,
+        "density": 1.1,
+        "temperature": 994196.0,
+        "pressure": 1.55232
+      },
+      "imf": {
+        "magnitude": 5.4,
+        "bx": 1.3,
+        "by": 2.7,
+        "bz": 2.0
+      },
+      "geomagnetic": {
+        "dst": -97.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.665182658877098
+      }
+    },
+    {
+      "timestamp": "2024-05-12T17:00:00",
+      "solar_wind": {
+        "speed": 854.0,
+        "density": 1.4,
+        "temperature": 1235003.0,
+        "pressure": 2.0420848
+      },
+      "imf": {
+        "magnitude": 5.3,
+        "bx": 0.8,
+        "by": 3.6,
+        "bz": 1.9
+      },
+      "geomagnetic": {
+        "dst": -93.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.231138803570001
+      }
+    },
+    {
+      "timestamp": "2024-05-12T18:00:00",
+      "solar_wind": {
+        "speed": 900.0,
+        "density": 1.8,
+        "temperature": 1103747.0,
+        "pressure": 2.916
+      },
+      "imf": {
+        "magnitude": 5.4,
+        "bx": -0.9,
+        "by": 5.3,
+        "bz": 0.9
+      },
+      "geomagnetic": {
+        "dst": -87.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.693542078745788
+      }
+    },
+    {
+      "timestamp": "2024-05-12T19:00:00",
+      "solar_wind": {
+        "speed": 872.0,
+        "density": 2.0,
+        "temperature": 728125.0,
+        "pressure": 3.041536
+      },
+      "imf": {
+        "magnitude": 6.1,
+        "bx": -1.0,
+        "by": 5.9,
+        "bz": 1.2
+      },
+      "geomagnetic": {
+        "dst": -82.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.631833090752096
+      }
+    },
+    {
+      "timestamp": "2024-05-12T20:00:00",
+      "solar_wind": {
+        "speed": 863.0,
+        "density": 2.3,
+        "temperature": 540616.0,
+        "pressure": 3.425937399999999
+      },
+      "imf": {
+        "magnitude": 6.6,
+        "bx": -3.9,
+        "by": 6.4,
+        "bz": -1.5
+      },
+      "geomagnetic": {
+        "dst": -75.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.18418115193069
+      }
+    },
+    {
+      "timestamp": "2024-05-12T21:00:00",
+      "solar_wind": {
+        "speed": 834.0,
+        "density": 3.1,
+        "temperature": 163092.0,
+        "pressure": 4.312447199999999
+      },
+      "imf": {
+        "magnitude": 8.2,
+        "bx": -7.2,
+        "by": 6.6,
+        "bz": -4.9
+      },
+      "geomagnetic": {
+        "dst": -77.0,
+        "kp": 6.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.320170764159966
+      }
+    },
+    {
+      "timestamp": "2024-05-12T22:00:00",
+      "solar_wind": {
+        "speed": 834.0,
+        "density": 4.5,
+        "temperature": 162215.0,
+        "pressure": 6.260004
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": -2.8,
+        "by": 3.1,
+        "bz": -1.7
+      },
+      "geomagnetic": {
+        "dst": -86.0,
+        "kp": 6.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.35009063960293
+      }
+    },
+    {
+      "timestamp": "2024-05-12T23:00:00",
+      "solar_wind": {
+        "speed": 829.0,
+        "density": 6.9,
+        "temperature": 108901.0,
+        "pressure": 9.4839258
+      },
+      "imf": {
+        "magnitude": 6.6,
+        "bx": 0.7,
+        "by": 5.4,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -81.0,
+        "kp": 6.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.107301872881093
+      }
+    },
+    {
+      "timestamp": "2024-05-13T00:00:00",
+      "solar_wind": {
+        "speed": 809.0,
+        "density": 6.2,
+        "temperature": 69373.0,
+        "pressure": 8.1155644
+      },
+      "imf": {
+        "magnitude": 8.0,
+        "bx": -0.7,
+        "by": 4.6,
+        "bz": 1.2
+      },
+      "geomagnetic": {
+        "dst": -74.0,
+        "kp": 5.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.30097845057932
+      }
+    },
+    {
+      "timestamp": "2024-05-13T01:00:00",
+      "solar_wind": {
+        "speed": 810.0,
+        "density": 6.6,
+        "temperature": 87850.0,
+        "pressure": 8.660519999999998
+      },
+      "imf": {
+        "magnitude": 6.9,
+        "bx": -2.8,
+        "by": 2.4,
+        "bz": -2.0
+      },
+      "geomagnetic": {
+        "dst": -76.0,
+        "kp": 5.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 7.903498869868109
+      }
+    },
+    {
+      "timestamp": "2024-05-13T02:00:00",
+      "solar_wind": {
+        "speed": 804.0,
+        "density": 6.8,
+        "temperature": 83164.0,
+        "pressure": 8.7912576
+      },
+      "imf": {
+        "magnitude": 7.1,
+        "bx": -1.9,
+        "by": 2.1,
+        "bz": -1.3
+      },
+      "geomagnetic": {
+        "dst": -83.0,
+        "kp": 5.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 7.99317753972295
+      }
+    },
+    {
+      "timestamp": "2024-05-13T03:00:00",
+      "solar_wind": {
+        "speed": 799.0,
+        "density": 7.6,
+        "temperature": 85480.0,
+        "pressure": 9.703695199999999
+      },
+      "imf": {
+        "magnitude": 5.3,
+        "bx": -3.1,
+        "by": 2.8,
+        "bz": -2.4
+      },
+      "geomagnetic": {
+        "dst": -88.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 7.709170260916428
+      }
+    },
+    {
+      "timestamp": "2024-05-13T04:00:00",
+      "solar_wind": {
+        "speed": 785.0,
+        "density": 8.9,
+        "temperature": 72699.0,
+        "pressure": 10.968805
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": -4.8,
+        "by": 3.1,
+        "bz": -4.1
+      },
+      "geomagnetic": {
+        "dst": -93.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 7.32955645403382
+      }
+    },
+    {
+      "timestamp": "2024-05-13T05:00:00",
+      "solar_wind": {
+        "speed": 769.0,
+        "density": 7.6,
+        "temperature": 55258.0,
+        "pressure": 8.9886872
+      },
+      "imf": {
+        "magnitude": 6.6,
+        "bx": -5.5,
+        "by": 4.4,
+        "bz": -4.6
+      },
+      "geomagnetic": {
+        "dst": -86.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 7.4848444366215725
+      }
+    },
+    {
+      "timestamp": "2024-05-13T06:00:00",
+      "solar_wind": {
+        "speed": 748.0,
+        "density": 4.7,
+        "temperature": 39587.0,
+        "pressure": 5.259337599999999
+      },
+      "imf": {
+        "magnitude": 8.0,
+        "bx": -6.8,
+        "by": 3.8,
+        "bz": -6.2
+      },
+      "geomagnetic": {
+        "dst": -84.0,
+        "kp": 3.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 7.886904151455744
+      }
+    },
+    {
+      "timestamp": "2024-05-13T07:00:00",
+      "solar_wind": {
+        "speed": 717.0,
+        "density": 7.4,
+        "temperature": 45617.0,
+        "pressure": 7.6085172000000005
+      },
+      "imf": {
+        "magnitude": 8.5,
+        "bx": -2.9,
+        "by": 0.5,
+        "bz": -2.9
+      },
+      "geomagnetic": {
+        "dst": -67.0,
+        "kp": 3.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 7.922985781674419
+      }
+    },
+    {
+      "timestamp": "2024-05-13T08:00:00",
+      "solar_wind": {
+        "speed": 706.0,
+        "density": 8.9,
+        "temperature": 64247.0,
+        "pressure": 8.8721608
+      },
+      "imf": {
+        "magnitude": 8.8,
+        "bx": 4.1,
+        "by": 1.4,
+        "bz": 4.3
+      },
+      "geomagnetic": {
+        "dst": -63.0,
+        "kp": 3.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.189625310380244
+      }
+    },
+    {
+      "timestamp": "2024-05-13T09:00:00",
+      "solar_wind": {
+        "speed": 698.0,
+        "density": 7.3,
+        "temperature": 56622.0,
+        "pressure": 7.1131784
+      },
+      "imf": {
+        "magnitude": 9.3,
+        "bx": 4.0,
+        "by": 1.1,
+        "bz": 4.1
+      },
+      "geomagnetic": {
+        "dst": -59.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.46845707618794
+      }
+    },
+    {
+      "timestamp": "2024-05-13T10:00:00",
+      "solar_wind": {
+        "speed": 685.0,
+        "density": 6.7,
+        "temperature": 59830.0,
+        "pressure": 6.287615
+      },
+      "imf": {
+        "magnitude": 8.5,
+        "bx": 4.8,
+        "by": 1.7,
+        "bz": 5.0
+      },
+      "geomagnetic": {
+        "dst": -57.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.628238334598914
+      }
+    },
+    {
+      "timestamp": "2024-05-13T11:00:00",
+      "solar_wind": {
+        "speed": 676.0,
+        "density": 6.8,
+        "temperature": 85765.0,
+        "pressure": 6.2148736
+      },
+      "imf": {
+        "magnitude": 4.0,
+        "bx": 2.8,
+        "by": 2.6,
+        "bz": 3.0
+      },
+      "geomagnetic": {
+        "dst": -61.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.64346417206828
+      }
+    },
+    {
+      "timestamp": "2024-05-13T12:00:00",
+      "solar_wind": {
+        "speed": 633.0,
+        "density": 5.6,
+        "temperature": 53267.0,
+        "pressure": 4.487716799999999
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": 4.2,
+        "by": 1.7,
+        "bz": 4.4
+      },
+      "geomagnetic": {
+        "dst": -59.0,
+        "kp": 3.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.080570145280863
+      }
+    },
+    {
+      "timestamp": "2024-05-13T13:00:00",
+      "solar_wind": {
+        "speed": 634.0,
+        "density": 4.6,
+        "temperature": 61932.0,
+        "pressure": 3.6979951999999994
+      },
+      "imf": {
+        "magnitude": 4.1,
+        "bx": 3.6,
+        "by": 1.5,
+        "bz": 3.8
+      },
+      "geomagnetic": {
+        "dst": -63.0,
+        "kp": 3.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.3508124155594
+      }
+    },
+    {
+      "timestamp": "2024-05-13T14:00:00",
+      "solar_wind": {
+        "speed": 628.0,
+        "density": 3.2,
+        "temperature": 45788.0,
+        "pressure": 2.5240576
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": 4.0,
+        "by": 1.7,
+        "bz": 4.3
+      },
+      "geomagnetic": {
+        "dst": -57.0,
+        "kp": 3.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.907879608873047
+      }
+    },
+    {
+      "timestamp": "2024-05-13T15:00:00",
+      "solar_wind": {
+        "speed": 623.0,
+        "density": 4.6,
+        "temperature": 21910.0,
+        "pressure": 3.5707867999999996
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": 4.1,
+        "by": 1.6,
+        "bz": 4.5
+      },
+      "geomagnetic": {
+        "dst": -51.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.400538710573421
+      }
+    },
+    {
+      "timestamp": "2024-05-13T16:00:00",
+      "solar_wind": {
+        "speed": 619.0,
+        "density": 3.7,
+        "temperature": 30224.0,
+        "pressure": 2.8353914
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": 4.6,
+        "by": -0.4,
+        "bz": 4.6
+      },
+      "geomagnetic": {
+        "dst": -54.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.73480197115214
+      }
+    },
+    {
+      "timestamp": "2024-05-13T17:00:00",
+      "solar_wind": {
+        "speed": 611.0,
+        "density": 2.9,
+        "temperature": 55619.0,
+        "pressure": 2.1652617999999997
+      },
+      "imf": {
+        "magnitude": 4.2,
+        "bx": 2.5,
+        "by": -2.0,
+        "bz": 2.0
+      },
+      "geomagnetic": {
+        "dst": -55.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.140746822884678
+      }
+    },
+    {
+      "timestamp": "2024-05-13T18:00:00",
+      "solar_wind": {
+        "speed": 609.0,
+        "density": 3.9,
+        "temperature": 29170.0,
+        "pressure": 2.8928717999999995
+      },
+      "imf": {
+        "magnitude": 5.3,
+        "bx": 4.2,
+        "by": -1.9,
+        "bz": 3.8
+      },
+      "geomagnetic": {
+        "dst": -55.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.705244693769655
+      }
+    },
+    {
+      "timestamp": "2024-05-13T19:00:00",
+      "solar_wind": {
+        "speed": 598.0,
+        "density": 4.7,
+        "temperature": 19300.0,
+        "pressure": 3.3614775999999997
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": 4.4,
+        "by": -2.0,
+        "bz": 4.0
+      },
+      "geomagnetic": {
+        "dst": -51.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.486970388703101
+      }
+    },
+    {
+      "timestamp": "2024-05-13T20:00:00",
+      "solar_wind": {
+        "speed": 594.0,
+        "density": 4.5,
+        "temperature": 16034.0,
+        "pressure": 3.1755240000000002
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": 4.0,
+        "by": -2.5,
+        "bz": 3.3
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.569124720671866
+      }
+    },
+    {
+      "timestamp": "2024-05-13T21:00:00",
+      "solar_wind": {
+        "speed": 587.0,
+        "density": 5.3,
+        "temperature": 17249.0,
+        "pressure": 3.6524313999999993
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": 4.2,
+        "by": -1.3,
+        "bz": 4.0
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.368393931665029
+      }
+    },
+    {
+      "timestamp": "2024-05-13T22:00:00",
+      "solar_wind": {
+        "speed": 580.0,
+        "density": 4.9,
+        "temperature": 20379.0,
+        "pressure": 3.2967200000000005
+      },
+      "imf": {
+        "magnitude": 5.3,
+        "bx": 4.3,
+        "by": 0.2,
+        "bz": 4.8
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.514973193561243
+      }
+    },
+    {
+      "timestamp": "2024-05-13T23:00:00",
+      "solar_wind": {
+        "speed": 572.0,
+        "density": 4.1,
+        "temperature": 24954.0,
+        "pressure": 2.6829088
+      },
+      "imf": {
+        "magnitude": 5.1,
+        "bx": 3.9,
+        "by": 1.1,
+        "bz": 4.7
+      },
+      "geomagnetic": {
+        "dst": -46.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.816678365080525
+      }
+    },
+    {
+      "timestamp": "2024-05-14T00:00:00",
+      "solar_wind": {
+        "speed": 579.0,
+        "density": 4.8,
+        "temperature": 35931.0,
+        "pressure": 3.2183135999999997
+      },
+      "imf": {
+        "magnitude": 6.8,
+        "bx": 4.0,
+        "by": 1.5,
+        "bz": 5.0
+      },
+      "geomagnetic": {
+        "dst": -45.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.549738145970176
+      }
+    },
+    {
+      "timestamp": "2024-05-14T01:00:00",
+      "solar_wind": {
+        "speed": 577.0,
+        "density": 3.9,
+        "temperature": 26744.0,
+        "pressure": 2.5968462
+      },
+      "imf": {
+        "magnitude": 7.2,
+        "bx": 3.3,
+        "by": 2.7,
+        "bz": 4.6
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.865292540992597
+      }
+    },
+    {
+      "timestamp": "2024-05-14T02:00:00",
+      "solar_wind": {
+        "speed": 572.0,
+        "density": 3.0,
+        "temperature": 28089.0,
+        "pressure": 1.9631040000000002
+      },
+      "imf": {
+        "magnitude": 6.9,
+        "bx": 2.1,
+        "by": 3.9,
+        "bz": 3.6
+      },
+      "geomagnetic": {
+        "dst": -49.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.292467436532256
+      }
+    },
+    {
+      "timestamp": "2024-05-14T03:00:00",
+      "solar_wind": {
+        "speed": 566.0,
+        "density": 2.2,
+        "temperature": 27692.0,
+        "pressure": 1.4095664
+      },
+      "imf": {
+        "magnitude": 6.6,
+        "bx": 1.6,
+        "by": 4.1,
+        "bz": 3.0
+      },
+      "geomagnetic": {
+        "dst": -51.0,
+        "kp": 1.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.822214394832582
+      }
+    },
+    {
+      "timestamp": "2024-05-14T04:00:00",
+      "solar_wind": {
+        "speed": 560.0,
+        "density": 1.9,
+        "temperature": 25838.0,
+        "pressure": 1.1916799999999999
+      },
+      "imf": {
+        "magnitude": 6.3,
+        "bx": 1.6,
+        "by": 3.9,
+        "bz": 2.7
+      },
+      "geomagnetic": {
+        "dst": -46.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.101087104007128
+      }
+    },
+    {
+      "timestamp": "2024-05-14T05:00:00",
+      "solar_wind": {
+        "speed": 553.0,
+        "density": 2.1,
+        "temperature": 35363.0,
+        "pressure": 1.2843977999999998
+      },
+      "imf": {
+        "magnitude": 5.4,
+        "bx": 0.1,
+        "by": 3.3,
+        "bz": 0.8
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.97577567078319
+      }
+    },
+    {
+      "timestamp": "2024-05-14T06:00:00",
+      "solar_wind": {
+        "speed": 551.0,
+        "density": 1.7,
+        "temperature": 38087.0,
+        "pressure": 1.0322434
+      },
+      "imf": {
+        "magnitude": 5.4,
+        "bx": 1.3,
+        "by": 3.6,
+        "bz": 2.0
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.345317446736455
+      }
+    },
+    {
+      "timestamp": "2024-05-14T07:00:00",
+      "solar_wind": {
+        "speed": 552.0,
+        "density": 0.9,
+        "temperature": 88198.0,
+        "pressure": 0.5484671999999999
+      },
+      "imf": {
+        "magnitude": 4.9,
+        "bx": 4.7,
+        "by": 0.5,
+        "bz": 4.8
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.486119253844489
+      }
+    },
+    {
+      "timestamp": "2024-05-14T08:00:00",
+      "solar_wind": {
+        "speed": 551.0,
+        "density": 0.8,
+        "temperature": 92907.0,
+        "pressure": 0.48576159999999996
+      },
+      "imf": {
+        "magnitude": 4.6,
+        "bx": 4.2,
+        "by": -0.9,
+        "bz": 4.1
+      },
+      "geomagnetic": {
+        "dst": -46.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.717931768647288
+      }
+    },
+    {
+      "timestamp": "2024-05-14T09:00:00",
+      "solar_wind": {
+        "speed": 539.0,
+        "density": 0.7,
+        "temperature": 87669.0,
+        "pressure": 0.4067294
+      },
+      "imf": {
+        "magnitude": 4.4,
+        "bx": 3.9,
+        "by": -1.5,
+        "bz": 3.8
+      },
+      "geomagnetic": {
+        "dst": -49.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.06474620880049
+      }
+    },
+    {
+      "timestamp": "2024-05-14T10:00:00",
+      "solar_wind": {
+        "speed": 538.0,
+        "density": 0.8,
+        "temperature": 107816.0,
+        "pressure": 0.4631104
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": 4.3,
+        "by": -0.0,
+        "bz": 4.3
+      },
+      "geomagnetic": {
+        "dst": -51.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 12.810282578209687
+      }
+    },
+    {
+      "timestamp": "2024-05-14T11:00:00",
+      "solar_wind": {
+        "speed": 531.0,
+        "density": 0.8,
+        "temperature": 132484.0,
+        "pressure": 0.45113759999999997
+      },
+      "imf": {
+        "magnitude": 3.6,
+        "bx": 2.6,
+        "by": -0.6,
+        "bz": 2.6
+      },
+      "geomagnetic": {
+        "dst": -53.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 12.861223098201402
+      }
+    },
+    {
+      "timestamp": "2024-05-14T12:00:00",
+      "solar_wind": {
+        "speed": 528.0,
+        "density": 0.8,
+        "temperature": 168401.0,
+        "pressure": 0.44605439999999996
+      },
+      "imf": {
+        "magnitude": 2.9,
+        "bx": -0.1,
+        "by": -0.9,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": -54.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 12.831995390494823
+      }
+    },
+    {
+      "timestamp": "2024-05-14T13:00:00",
+      "solar_wind": {
+        "speed": 514.0,
+        "density": 0.9,
+        "temperature": 163603.0,
+        "pressure": 0.47555279999999994
+      },
+      "imf": {
+        "magnitude": 3.2,
+        "bx": 0.7,
+        "by": 0.2,
+        "bz": 0.7
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.758926414020154
+      }
+    },
+    {
+      "timestamp": "2024-05-14T14:00:00",
+      "solar_wind": {
+        "speed": 507.0,
+        "density": 0.9,
+        "temperature": 137592.0,
+        "pressure": 0.4626882
+      },
+      "imf": {
+        "magnitude": 3.3,
+        "bx": 0.3,
+        "by": 0.4,
+        "bz": 0.4
+      },
+      "geomagnetic": {
+        "dst": -45.0,
+        "kp": 2.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.812052999069637
+      }
+    },
+    {
+      "timestamp": "2024-05-14T15:00:00",
+      "solar_wind": {
+        "speed": 524.0,
+        "density": 0.9,
+        "temperature": 101641.0,
+        "pressure": 0.4942368
+      },
+      "imf": {
+        "magnitude": 2.7,
+        "bx": -0.1,
+        "by": 1.4,
+        "bz": 0.2
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 1.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.684645201523505
+      }
+    },
+    {
+      "timestamp": "2024-05-14T16:00:00",
+      "solar_wind": {
+        "speed": 516.0,
+        "density": 0.7,
+        "temperature": 70818.0,
+        "pressure": 0.3727584
+      },
+      "imf": {
+        "magnitude": 3.2,
+        "bx": 1.3,
+        "by": 0.8,
+        "bz": 1.5
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 1.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.238539874348092
+      }
+    },
+    {
+      "timestamp": "2024-05-14T17:00:00",
+      "solar_wind": {
+        "speed": 537.0,
+        "density": 0.8,
+        "temperature": 74273.0,
+        "pressure": 0.4613904
+      },
+      "imf": {
+        "magnitude": 3.4,
+        "bx": 2.1,
+        "by": 1.2,
+        "bz": 2.5
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 1.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.817506763144074
+      }
+    },
+    {
+      "timestamp": "2024-05-14T18:00:00",
+      "solar_wind": {
+        "speed": 523.0,
+        "density": 0.9,
+        "temperature": 127932.0,
+        "pressure": 0.4923522
+      },
+      "imf": {
+        "magnitude": 2.8,
+        "bx": 0.5,
+        "by": -0.3,
+        "bz": 0.4
+      },
+      "geomagnetic": {
+        "dst": -45.0,
+        "kp": 2.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 12.69198989258947
+      }
+    },
+    {
+      "timestamp": "2024-05-14T19:00:00",
+      "solar_wind": {
+        "speed": 510.0,
+        "density": 0.8,
+        "temperature": 104349.0,
+        "pressure": 0.41616
+      },
+      "imf": {
+        "magnitude": 3.2,
+        "bx": 0.1,
+        "by": -0.4,
+        "bz": -0.0
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 2.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.019451238635275
+      }
+    },
+    {
+      "timestamp": "2024-05-14T20:00:00",
+      "solar_wind": {
+        "speed": 511.0,
+        "density": 0.8,
+        "temperature": 63902.0,
+        "pressure": 0.4177936
+      },
+      "imf": {
+        "magnitude": 3.4,
+        "bx": 1.9,
+        "by": -0.2,
+        "bz": 2.0
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 2.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.011725246872905
+      }
+    },
+    {
+      "timestamp": "2024-05-14T21:00:00",
+      "solar_wind": {
+        "speed": 512.0,
+        "density": 0.8,
+        "temperature": 60964.0,
+        "pressure": 0.4194304
+      },
+      "imf": {
+        "magnitude": 3.4,
+        "bx": 2.4,
+        "by": -0.5,
+        "bz": 2.4
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 0.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.004018931015406
+      }
+    },
+    {
+      "timestamp": "2024-05-14T22:00:00",
+      "solar_wind": {
+        "speed": 504.0,
+        "density": 0.8,
+        "temperature": 83206.0,
+        "pressure": 0.4064256
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": 1.0,
+        "by": 0.8,
+        "bz": 1.4
+      },
+      "geomagnetic": {
+        "dst": -38.0,
+        "kp": 0.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.066225405997315
+      }
+    },
+    {
+      "timestamp": "2024-05-14T23:00:00",
+      "solar_wind": {
+        "speed": 504.0,
+        "density": 0.8,
+        "temperature": 71497.0,
+        "pressure": 0.4064256
+      },
+      "imf": {
+        "magnitude": 3.4,
+        "bx": 0.6,
+        "by": 1.4,
+        "bz": 1.3
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 0.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.066225405997315
+      }
+    }
+  ],
+  "generated_at": "2026-01-20T03:26:58.283301Z",
+  "summary": {
+    "time_range": {
+      "start": "2024-05-10T00:00:00",
+      "end": "2024-05-14T23:00:00",
+      "hours": 120
+    },
+    "solar_wind": {
+      "max_speed": 1006.0,
+      "min_speed": 398.0,
+      "avg_speed": 674.8416666666667,
+      "max_density": 48.1
+    },
+    "geomagnetic": {
+      "min_dst": -406.0,
+      "max_storm_level": 5
+    },
+    "imf": {
+      "min_bz": -35.3,
+      "max_bz": 8.0
+    }
+  }
+}

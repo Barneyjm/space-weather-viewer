@@ -1,0 +1,3346 @@
+{
+  "event_info": {
+    "name": "Halloween Solar Storms 2003",
+    "description": "Series of powerful flares causing widespread effects. X17 and X28 class flares.",
+    "start": "2003-10-28",
+    "end": "2003-11-02",
+    "peak_flare": "X28 (estimated X45)",
+    "min_dst": -383
+  },
+  "data": [
+    {
+      "timestamp": "2003-10-28T00:00:00",
+      "solar_wind": {
+        "speed": 476.0,
+        "density": 0.9,
+        "temperature": 140807.0,
+        "pressure": 0.4078368
+      },
+      "imf": {
+        "magnitude": 10.0,
+        "bx": -0.6,
+        "by": -5.1,
+        "bz": 0.3
+      },
+      "geomagnetic": {
+        "dst": -24.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.059365047820041
+      }
+    },
+    {
+      "timestamp": "2003-10-28T01:00:00",
+      "solar_wind": {
+        "speed": 475.0,
+        "density": 0.9,
+        "temperature": 205018.0,
+        "pressure": 0.40612499999999996
+      },
+      "imf": {
+        "magnitude": 9.6,
+        "bx": -1.1,
+        "by": -4.6,
+        "bz": -0.1
+      },
+      "geomagnetic": {
+        "dst": -24.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 13.041607062026396
+      }
+    },
+    {
+      "timestamp": "2003-10-28T02:00:00",
+      "solar_wind": {
+        "speed": 535.0,
+        "density": 1.8,
+        "temperature": 284107.0,
+        "pressure": 1.03041
+      },
+      "imf": {
+        "magnitude": 13.5,
+        "bx": -4.7,
+        "by": -6.8,
+        "bz": -3.1
+      },
+      "geomagnetic": {
+        "dst": -14.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.68585096114358
+      }
+    },
+    {
+      "timestamp": "2003-10-28T03:00:00",
+      "solar_wind": {
+        "speed": 597.0,
+        "density": 2.2,
+        "temperature": 143155.0,
+        "pressure": 1.5681996000000002
+      },
+      "imf": {
+        "magnitude": 18.8,
+        "bx": -5.0,
+        "by": -12.1,
+        "bz": -1.6
+      },
+      "geomagnetic": {
+        "dst": -18.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.318555171294815
+      }
+    },
+    {
+      "timestamp": "2003-10-28T04:00:00",
+      "solar_wind": {
+        "speed": 606.0,
+        "density": 4.6,
+        "temperature": 122689.0,
+        "pressure": 3.378571199999999
+      },
+      "imf": {
+        "magnitude": 19.1,
+        "bx": -2.0,
+        "by": -13.9,
+        "bz": 2.8
+      },
+      "geomagnetic": {
+        "dst": -4.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.47968222430975
+      }
+    },
+    {
+      "timestamp": "2003-10-28T05:00:00",
+      "solar_wind": {
+        "speed": 607.0,
+        "density": 5.1,
+        "temperature": 82678.0,
+        "pressure": 3.7581797999999997
+      },
+      "imf": {
+        "magnitude": 18.2,
+        "bx": -4.9,
+        "by": -13.4,
+        "bz": 0.3
+      },
+      "geomagnetic": {
+        "dst": -1.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.327967840763941
+      }
+    },
+    {
+      "timestamp": "2003-10-28T06:00:00",
+      "solar_wind": {
+        "speed": 620.0,
+        "density": 5.4,
+        "temperature": 81715.0,
+        "pressure": 4.15152
+      },
+      "imf": {
+        "magnitude": 18.3,
+        "bx": -4.7,
+        "by": -14.1,
+        "bz": 1.4
+      },
+      "geomagnetic": {
+        "dst": -1.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.188340983505887
+      }
+    },
+    {
+      "timestamp": "2003-10-28T07:00:00",
+      "solar_wind": {
+        "speed": 622.0,
+        "density": 6.1,
+        "temperature": 78061.0,
+        "pressure": 4.719984799999999
+      },
+      "imf": {
+        "magnitude": 18.2,
+        "bx": -9.9,
+        "by": -14.7,
+        "bz": -3.5
+      },
+      "geomagnetic": {
+        "dst": -5.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.421876363625383
+      }
+    },
+    {
+      "timestamp": "2003-10-28T08:00:00",
+      "solar_wind": {
+        "speed": 612.0,
+        "density": 7.4,
+        "temperature": 67934.0,
+        "pressure": 5.5432512
+      },
+      "imf": {
+        "magnitude": 16.9,
+        "bx": -10.3,
+        "by": -14.1,
+        "bz": -4.0
+      },
+      "geomagnetic": {
+        "dst": -14.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.143094896006646
+      }
+    },
+    {
+      "timestamp": "2003-10-28T09:00:00",
+      "solar_wind": {
+        "speed": 653.0,
+        "density": 4.2,
+        "temperature": 324969.0,
+        "pressure": 3.5818355999999993
+      },
+      "imf": {
+        "magnitude": 12.5,
+        "bx": 0.0,
+        "by": -5.4,
+        "bz": 3.1
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.396139372680553
+      }
+    },
+    {
+      "timestamp": "2003-10-28T10:00:00",
+      "solar_wind": {
+        "speed": 759.0,
+        "density": 1.4,
+        "temperature": 695918.0,
+        "pressure": 1.6130267999999999
+      },
+      "imf": {
+        "magnitude": 10.9,
+        "bx": 3.8,
+        "by": -0.3,
+        "bz": 4.6
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.603372178268565
+      }
+    },
+    {
+      "timestamp": "2003-10-28T11:00:00",
+      "solar_wind": {
+        "speed": 767.0,
+        "density": 1.7,
+        "temperature": 959563.0,
+        "pressure": 2.0001825999999996
+      },
+      "imf": {
+        "magnitude": 11.2,
+        "bx": 6.8,
+        "by": 4.6,
+        "bz": 5.2
+      },
+      "geomagnetic": {
+        "dst": -24.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.263328708116308
+      }
+    },
+    {
+      "timestamp": "2003-10-28T12:00:00",
+      "solar_wind": {
+        "speed": 800.0,
+        "density": 1.6,
+        "temperature": 761813.0,
+        "pressure": 2.048
+      },
+      "imf": {
+        "magnitude": 11.1,
+        "bx": 9.4,
+        "by": 7.1,
+        "bz": 6.8
+      },
+      "geomagnetic": {
+        "dst": -20.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.226655973268992
+      }
+    },
+    {
+      "timestamp": "2003-10-28T13:00:00",
+      "solar_wind": {
+        "speed": 809.0,
+        "density": 1.8,
+        "temperature": 730583.0,
+        "pressure": 2.3561316
+      },
+      "imf": {
+        "magnitude": 8.2,
+        "bx": 6.5,
+        "by": 7.1,
+        "bz": 3.7
+      },
+      "geomagnetic": {
+        "dst": -16.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.011772697518861
+      }
+    },
+    {
+      "timestamp": "2003-10-28T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.5,
+        "bx": 3.8,
+        "by": 6.9,
+        "bz": 1.0
+      },
+      "geomagnetic": {
+        "dst": -8.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 7.6,
+        "bx": 4.2,
+        "by": 6.8,
+        "bz": 1.8
+      },
+      "geomagnetic": {
+        "dst": -4.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 7.7,
+        "bx": -2.9,
+        "by": 1.0,
+        "bz": -3.4
+      },
+      "geomagnetic": {
+        "dst": -4.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.4,
+        "bx": -0.3,
+        "by": -0.7,
+        "bz": -0.1
+      },
+      "geomagnetic": {
+        "dst": -9.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.4,
+        "bx": 1.6,
+        "by": 4.4,
+        "bz": 0.5
+      },
+      "geomagnetic": {
+        "dst": -16.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 7.9,
+        "bx": -0.2,
+        "by": 1.2,
+        "bz": -0.5
+      },
+      "geomagnetic": {
+        "dst": -18.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 9.4,
+        "bx": 0.6,
+        "by": 1.1,
+        "bz": 0.4
+      },
+      "geomagnetic": {
+        "dst": -19.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.4,
+        "bx": 2.1,
+        "by": 0.7,
+        "bz": 2.0
+      },
+      "geomagnetic": {
+        "dst": -22.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 9.2,
+        "bx": 1.2,
+        "by": 3.3,
+        "bz": 0.7
+      },
+      "geomagnetic": {
+        "dst": -14.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-28T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 6.9,
+        "bx": -0.2,
+        "by": 2.6,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": -20.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 7.9,
+        "bx": -3.9,
+        "by": 3.2,
+        "bz": -4.5
+      },
+      "geomagnetic": {
+        "dst": -34.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 7.6,
+        "bx": -2.7,
+        "by": -0.8,
+        "bz": -2.6
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.3,
+        "bx": -1.2,
+        "by": -2.8,
+        "bz": -0.5
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.8,
+        "bx": -2.2,
+        "by": -6.5,
+        "bz": -0.4
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.3,
+        "bx": -2.2,
+        "by": 0.4,
+        "bz": -2.5
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.8,
+        "bx": -2.2,
+        "by": -5.1,
+        "bz": -0.3
+      },
+      "geomagnetic": {
+        "dst": -30.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 18.8,
+        "bx": -14.4,
+        "by": -16.6,
+        "bz": -8.2
+      },
+      "geomagnetic": {
+        "dst": -10.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 13.8,
+        "bx": 7.7,
+        "by": 13.1,
+        "bz": 1.9
+      },
+      "geomagnetic": {
+        "dst": -105.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 12.0,
+        "bx": -5.4,
+        "by": -10.0,
+        "bz": -0.7
+      },
+      "geomagnetic": {
+        "dst": -130.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 26.4,
+        "bx": -6.2,
+        "by": -19.2,
+        "bz": 3.9
+      },
+      "geomagnetic": {
+        "dst": -151.0,
+        "kp": 8.0,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 23.5,
+        "bx": 2.7,
+        "by": -13.9,
+        "bz": 11.1
+      },
+      "geomagnetic": {
+        "dst": -151.0,
+        "kp": 8.0,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 26.4,
+        "bx": 5.5,
+        "by": -16.1,
+        "bz": 15.4
+      },
+      "geomagnetic": {
+        "dst": -147.0,
+        "kp": 8.0,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 37.3,
+        "bx": 3.2,
+        "by": -22.7,
+        "bz": 15.9
+      },
+      "geomagnetic": {
+        "dst": -111.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 38.9,
+        "bx": 8.7,
+        "by": -6.6,
+        "bz": 13.1
+      },
+      "geomagnetic": {
+        "dst": -79.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 41.9,
+        "bx": -0.6,
+        "by": -14.7,
+        "bz": 6.1
+      },
+      "geomagnetic": {
+        "dst": -99.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 45.5,
+        "bx": -6.8,
+        "by": -25.9,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -107.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 46.6,
+        "bx": -6.5,
+        "by": -26.8,
+        "bz": 2.5
+      },
+      "geomagnetic": {
+        "dst": -124.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 44.1,
+        "bx": -6.4,
+        "by": -20.8,
+        "bz": -0.4
+      },
+      "geomagnetic": {
+        "dst": -126.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 41.4,
+        "bx": -16.4,
+        "by": -6.6,
+        "bz": -15.2
+      },
+      "geomagnetic": {
+        "dst": -169.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 39.5,
+        "bx": -24.6,
+        "by": 6.4,
+        "bz": -26.5
+      },
+      "geomagnetic": {
+        "dst": -213.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 33.3,
+        "bx": -22.2,
+        "by": 11.1,
+        "bz": -24.6
+      },
+      "geomagnetic": {
+        "dst": -253.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 30.1,
+        "bx": -17.1,
+        "by": 17.8,
+        "bz": -20.2
+      },
+      "geomagnetic": {
+        "dst": -268.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 25.6,
+        "bx": -18.6,
+        "by": 12.1,
+        "bz": -20.7
+      },
+      "geomagnetic": {
+        "dst": -281.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-29T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 21.3,
+        "bx": -16.2,
+        "by": 9.3,
+        "bz": -17.9
+      },
+      "geomagnetic": {
+        "dst": -350.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 18.8,
+        "bx": -11.8,
+        "by": 11.2,
+        "bz": -13.9
+      },
+      "geomagnetic": {
+        "dst": -353.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 17.5,
+        "bx": -9.2,
+        "by": 12.7,
+        "bz": -12.0
+      },
+      "geomagnetic": {
+        "dst": -341.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 9.1,
+        "bx": -4.4,
+        "by": 6.3,
+        "bz": -6.1
+      },
+      "geomagnetic": {
+        "dst": -335.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 10.3,
+        "bx": 9.2,
+        "by": 1.3,
+        "bz": 9.2
+      },
+      "geomagnetic": {
+        "dst": -303.0,
+        "kp": 7.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 12.7,
+        "bx": 11.8,
+        "by": 3.4,
+        "bz": 11.3
+      },
+      "geomagnetic": {
+        "dst": -273.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 11.6,
+        "bx": 9.8,
+        "by": 4.2,
+        "bz": 8.9
+      },
+      "geomagnetic": {
+        "dst": -244.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 10.4,
+        "bx": 7.1,
+        "by": 2.8,
+        "bz": 6.5
+      },
+      "geomagnetic": {
+        "dst": -220.0,
+        "kp": 5.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 9.6,
+        "bx": 6.5,
+        "by": 1.4,
+        "bz": 6.6
+      },
+      "geomagnetic": {
+        "dst": -203.0,
+        "kp": 5.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 10.1,
+        "bx": 8.9,
+        "by": 3.6,
+        "bz": 8.1
+      },
+      "geomagnetic": {
+        "dst": -192.0,
+        "kp": 5.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 8.7,
+        "bx": 8.2,
+        "by": 6.6,
+        "bz": 5.7
+      },
+      "geomagnetic": {
+        "dst": -178.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 5.8,
+        "bx": 5.0,
+        "by": 4.3,
+        "bz": 3.3
+      },
+      "geomagnetic": {
+        "dst": -164.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": 1.9,
+        "by": 2.2,
+        "bz": 1.0
+      },
+      "geomagnetic": {
+        "dst": -155.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 5.7,
+        "bx": -1.0,
+        "by": 1.1,
+        "bz": -1.7
+      },
+      "geomagnetic": {
+        "dst": -156.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 5.6,
+        "bx": -0.5,
+        "by": 1.0,
+        "bz": -1.1
+      },
+      "geomagnetic": {
+        "dst": -148.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 6.4,
+        "bx": -0.8,
+        "by": 2.2,
+        "bz": -1.9
+      },
+      "geomagnetic": {
+        "dst": -138.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 6.2,
+        "bx": 0.5,
+        "by": 3.0,
+        "bz": -0.7
+      },
+      "geomagnetic": {
+        "dst": -129.0,
+        "kp": 7.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 9.2,
+        "bx": -1.1,
+        "by": 3.6,
+        "bz": -2.4
+      },
+      "geomagnetic": {
+        "dst": -111.0,
+        "kp": 7.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 18.0,
+        "bx": -0.2,
+        "by": 11.8,
+        "bz": -3.7
+      },
+      "geomagnetic": {
+        "dst": -97.0,
+        "kp": 7.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 33.8,
+        "bx": 0.0,
+        "by": 23.0,
+        "bz": -5.7
+      },
+      "geomagnetic": {
+        "dst": -111.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 36.6,
+        "bx": -24.6,
+        "by": 1.4,
+        "bz": -25.4
+      },
+      "geomagnetic": {
+        "dst": -142.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 34.4,
+        "bx": -28.2,
+        "by": -8.4,
+        "bz": -27.1
+      },
+      "geomagnetic": {
+        "dst": -240.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 31.3,
+        "bx": -26.9,
+        "by": -5.3,
+        "bz": -26.4
+      },
+      "geomagnetic": {
+        "dst": -316.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 11.5,
+        "bx": -1.1,
+        "by": 11.1,
+        "bz": -2.8
+      },
+      "geomagnetic": {
+        "dst": -383.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-30T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 4.5,
+        "bx": -1.8,
+        "by": 3.3,
+        "bz": -2.3
+      },
+      "geomagnetic": {
+        "dst": -371.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 29.7,
+        "bx": -11.9,
+        "by": -25.2,
+        "bz": -7.8
+      },
+      "geomagnetic": {
+        "dst": -307.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T01:00:00",
+      "solar_wind": {
+        "speed": 1161.0,
+        "density": null,
+        "temperature": 1307434.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 20.9,
+        "bx": 10.3,
+        "by": -15.9,
+        "bz": 13.7
+      },
+      "geomagnetic": {
+        "dst": -246.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T02:00:00",
+      "solar_wind": {
+        "speed": 1183.0,
+        "density": null,
+        "temperature": 804493.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 27.4,
+        "bx": 18.8,
+        "by": 20.7,
+        "bz": 14.4
+      },
+      "geomagnetic": {
+        "dst": -244.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T03:00:00",
+      "solar_wind": {
+        "speed": 1189.0,
+        "density": null,
+        "temperature": 48703.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 26.4,
+        "bx": 22.9,
+        "by": 14.9,
+        "bz": 19.5
+      },
+      "geomagnetic": {
+        "dst": -241.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T04:00:00",
+      "solar_wind": {
+        "speed": 1159.0,
+        "density": null,
+        "temperature": 65668.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 24.1,
+        "bx": 20.9,
+        "by": 17.6,
+        "bz": 16.1
+      },
+      "geomagnetic": {
+        "dst": -196.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T05:00:00",
+      "solar_wind": {
+        "speed": 1157.0,
+        "density": null,
+        "temperature": 249711.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 18.8,
+        "bx": 16.6,
+        "by": 11.8,
+        "bz": 13.2
+      },
+      "geomagnetic": {
+        "dst": -131.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T06:00:00",
+      "solar_wind": {
+        "speed": 1157.0,
+        "density": null,
+        "temperature": 163509.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 16.4,
+        "bx": 14.3,
+        "by": 6.8,
+        "bz": 12.6
+      },
+      "geomagnetic": {
+        "dst": -106.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T07:00:00",
+      "solar_wind": {
+        "speed": 1110.0,
+        "density": null,
+        "temperature": 102270.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 14.8,
+        "bx": 14.0,
+        "by": 2.5,
+        "bz": 14.4
+      },
+      "geomagnetic": {
+        "dst": -113.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T08:00:00",
+      "solar_wind": {
+        "speed": 1074.0,
+        "density": null,
+        "temperature": 71172.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 16.1,
+        "bx": 13.3,
+        "by": -1.7,
+        "bz": 16.0
+      },
+      "geomagnetic": {
+        "dst": -113.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T09:00:00",
+      "solar_wind": {
+        "speed": 1062.0,
+        "density": null,
+        "temperature": 55325.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 16.7,
+        "bx": 13.7,
+        "by": -0.9,
+        "bz": 16.2
+      },
+      "geomagnetic": {
+        "dst": -109.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T10:00:00",
+      "solar_wind": {
+        "speed": 1044.0,
+        "density": null,
+        "temperature": 48263.0,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 17.0,
+        "bx": 11.8,
+        "by": -4.5,
+        "bz": 16.1
+      },
+      "geomagnetic": {
+        "dst": -113.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "2003-10-31T11:00:00",
+      "solar_wind": {
+        "speed": 1003.0,
+        "density": 7.8,
+        "temperature": 85705.0,
+        "pressure": 15.6937404
+      },
+      "imf": {
+        "magnitude": 13.9,
+        "bx": 4.9,
+        "by": -9.0,
+        "bz": 10.6
+      },
+      "geomagnetic": {
+        "dst": -55.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 7.5116297777545755
+      }
+    },
+    {
+      "timestamp": "2003-10-31T12:00:00",
+      "solar_wind": {
+        "speed": 994.0,
+        "density": 6.4,
+        "temperature": 74495.0,
+        "pressure": 12.646860799999999
+      },
+      "imf": {
+        "magnitude": 8.8,
+        "bx": 3.9,
+        "by": -4.4,
+        "bz": 6.7
+      },
+      "geomagnetic": {
+        "dst": -77.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.761358958094305
+      }
+    },
+    {
+      "timestamp": "2003-10-31T13:00:00",
+      "solar_wind": {
+        "speed": 968.0,
+        "density": 4.9,
+        "temperature": 46084.0,
+        "pressure": 9.182835200000001
+      },
+      "imf": {
+        "magnitude": 11.5,
+        "bx": 5.3,
+        "by": -5.9,
+        "bz": 8.8
+      },
+      "geomagnetic": {
+        "dst": -80.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.14702927816034
+      }
+    },
+    {
+      "timestamp": "2003-10-31T14:00:00",
+      "solar_wind": {
+        "speed": 941.0,
+        "density": 5.2,
+        "temperature": 50129.0,
+        "pressure": 9.209002400000001
+      },
+      "imf": {
+        "magnitude": 10.7,
+        "bx": 3.2,
+        "by": -6.4,
+        "bz": 6.4
+      },
+      "geomagnetic": {
+        "dst": -88.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.143517523697426
+      }
+    },
+    {
+      "timestamp": "2003-10-31T15:00:00",
+      "solar_wind": {
+        "speed": 920.0,
+        "density": 5.4,
+        "temperature": 40147.0,
+        "pressure": 9.14112
+      },
+      "imf": {
+        "magnitude": 10.7,
+        "bx": 2.3,
+        "by": -6.1,
+        "bz": 4.9
+      },
+      "geomagnetic": {
+        "dst": -80.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.152651539206412
+      }
+    },
+    {
+      "timestamp": "2003-10-31T16:00:00",
+      "solar_wind": {
+        "speed": 900.0,
+        "density": 5.1,
+        "temperature": 40575.0,
+        "pressure": 8.261999999999999
+      },
+      "imf": {
+        "magnitude": 10.5,
+        "bx": 2.6,
+        "by": -5.9,
+        "bz": 4.8
+      },
+      "geomagnetic": {
+        "dst": -76.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.27851709102593
+      }
+    },
+    {
+      "timestamp": "2003-10-31T17:00:00",
+      "solar_wind": {
+        "speed": 885.0,
+        "density": 4.2,
+        "temperature": 29387.0,
+        "pressure": 6.57909
+      },
+      "imf": {
+        "magnitude": 9.8,
+        "bx": 1.2,
+        "by": -5.4,
+        "bz": 2.8
+      },
+      "geomagnetic": {
+        "dst": -68.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.569201043832484
+      }
+    },
+    {
+      "timestamp": "2003-10-31T18:00:00",
+      "solar_wind": {
+        "speed": 881.0,
+        "density": 3.7,
+        "temperature": 32041.0,
+        "pressure": 5.7435914
+      },
+      "imf": {
+        "magnitude": 9.7,
+        "bx": 2.2,
+        "by": -3.8,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -70.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.747360853313019
+      }
+    },
+    {
+      "timestamp": "2003-10-31T19:00:00",
+      "solar_wind": {
+        "speed": 877.0,
+        "density": 3.3,
+        "temperature": 30195.0,
+        "pressure": 5.076251399999999
+      },
+      "imf": {
+        "magnitude": 10.5,
+        "bx": 1.9,
+        "by": -6.1,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -66.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.912599231711326
+      }
+    },
+    {
+      "timestamp": "2003-10-31T20:00:00",
+      "solar_wind": {
+        "speed": 869.0,
+        "density": 2.1,
+        "temperature": 25559.0,
+        "pressure": 3.1716761999999994
+      },
+      "imf": {
+        "magnitude": 10.3,
+        "bx": 1.2,
+        "by": -6.2,
+        "bz": 2.3
+      },
+      "geomagnetic": {
+        "dst": -63.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.570882759704041
+      }
+    },
+    {
+      "timestamp": "2003-10-31T21:00:00",
+      "solar_wind": {
+        "speed": 858.0,
+        "density": 2.6,
+        "temperature": 19299.0,
+        "pressure": 3.8280528000000005
+      },
+      "imf": {
+        "magnitude": 9.6,
+        "bx": -1.2,
+        "by": -4.9,
+        "bz": -0.5
+      },
+      "geomagnetic": {
+        "dst": -52.0,
+        "kp": 4.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.209869782194964
+      }
+    },
+    {
+      "timestamp": "2003-10-31T22:00:00",
+      "solar_wind": {
+        "speed": 848.0,
+        "density": 2.8,
+        "temperature": 19224.0,
+        "pressure": 4.0269824
+      },
+      "imf": {
+        "magnitude": 8.7,
+        "bx": -2.2,
+        "by": -4.7,
+        "bz": -1.5
+      },
+      "geomagnetic": {
+        "dst": -55.0,
+        "kp": 4.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 8.961981249731446
+      }
+    },
+    {
+      "timestamp": "2003-10-31T23:00:00",
+      "solar_wind": {
+        "speed": 835.0,
+        "density": 2.1,
+        "temperature": 15684.0,
+        "pressure": 2.9283449999999998
+      },
+      "imf": {
+        "magnitude": 8.0,
+        "bx": -2.5,
+        "by": -4.6,
+        "bz": -1.8
+      },
+      "geomagnetic": {
+        "dst": -66.0,
+        "kp": 4.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.350713621365246
+      }
+    },
+    {
+      "timestamp": "2003-11-01T00:00:00",
+      "solar_wind": {
+        "speed": 804.0,
+        "density": 1.7,
+        "temperature": 17520.0,
+        "pressure": 2.1978144
+      },
+      "imf": {
+        "magnitude": 7.2,
+        "bx": -1.2,
+        "by": -3.6,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": -69.0,
+        "kp": 5.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.997870760284494
+      }
+    },
+    {
+      "timestamp": "2003-11-01T01:00:00",
+      "solar_wind": {
+        "speed": 801.0,
+        "density": 1.5,
+        "temperature": 14982.0,
+        "pressure": 1.924803
+      },
+      "imf": {
+        "magnitude": 4.6,
+        "bx": -1.8,
+        "by": -1.7,
+        "bz": -1.5
+      },
+      "geomagnetic": {
+        "dst": -69.0,
+        "kp": 5.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.022563010562749
+      }
+    },
+    {
+      "timestamp": "2003-11-01T02:00:00",
+      "solar_wind": {
+        "speed": 789.0,
+        "density": 1.9,
+        "temperature": 12216.0,
+        "pressure": 2.3655798
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -3.6,
+        "by": -2.2,
+        "bz": -3.2
+      },
+      "geomagnetic": {
+        "dst": -61.0,
+        "kp": 5.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.403856878822017
+      }
+    },
+    {
+      "timestamp": "2003-11-01T03:00:00",
+      "solar_wind": {
+        "speed": 770.0,
+        "density": 1.6,
+        "temperature": 16531.0,
+        "pressure": 1.89728
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -2.3,
+        "by": -1.8,
+        "bz": -1.9
+      },
+      "geomagnetic": {
+        "dst": -62.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.967043926318803
+      }
+    },
+    {
+      "timestamp": "2003-11-01T04:00:00",
+      "solar_wind": {
+        "speed": 757.0,
+        "density": 1.6,
+        "temperature": 9225.0,
+        "pressure": 1.8337568
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": -2.4,
+        "by": -2.4,
+        "bz": -1.7
+      },
+      "geomagnetic": {
+        "dst": -61.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.057361239156
+      }
+    },
+    {
+      "timestamp": "2003-11-01T05:00:00",
+      "solar_wind": {
+        "speed": 742.0,
+        "density": 1.5,
+        "temperature": 11789.0,
+        "pressure": 1.6516920000000002
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": -2.1,
+        "by": -2.0,
+        "bz": -1.5
+      },
+      "geomagnetic": {
+        "dst": -62.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.257654601279453
+      }
+    },
+    {
+      "timestamp": "2003-11-01T06:00:00",
+      "solar_wind": {
+        "speed": 730.0,
+        "density": 1.5,
+        "temperature": 12500.0,
+        "pressure": 1.5987
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": -2.6,
+        "by": -1.8,
+        "bz": -2.0
+      },
+      "geomagnetic": {
+        "dst": -56.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.209341425929098
+      }
+    },
+    {
+      "timestamp": "2003-11-01T07:00:00",
+      "solar_wind": {
+        "speed": 710.0,
+        "density": 1.4,
+        "temperature": 10813.0,
+        "pressure": 1.4114799999999998
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": -1.4,
+        "by": -2.0,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.691689790730168
+      }
+    },
+    {
+      "timestamp": "2003-11-01T08:00:00",
+      "solar_wind": {
+        "speed": 699.0,
+        "density": 1.5,
+        "temperature": 9101.0,
+        "pressure": 1.465803
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -1.7,
+        "by": -1.1,
+        "bz": -1.4
+      },
+      "geomagnetic": {
+        "dst": -47.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.465229723743722
+      }
+    },
+    {
+      "timestamp": "2003-11-01T09:00:00",
+      "solar_wind": {
+        "speed": 690.0,
+        "density": 1.4,
+        "temperature": 10178.0,
+        "pressure": 1.33308
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": -2.0,
+        "by": -2.4,
+        "bz": -1.0
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.700081153972702
+      }
+    },
+    {
+      "timestamp": "2003-11-01T10:00:00",
+      "solar_wind": {
+        "speed": 680.0,
+        "density": 1.4,
+        "temperature": 9870.0,
+        "pressure": 1.2947199999999999
+      },
+      "imf": {
+        "magnitude": 4.5,
+        "bx": -2.0,
+        "by": -2.4,
+        "bz": -1.0
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.74752187276141
+      }
+    },
+    {
+      "timestamp": "2003-11-01T11:00:00",
+      "solar_wind": {
+        "speed": 667.0,
+        "density": 1.3,
+        "temperature": 12009.0,
+        "pressure": 1.1567114
+      },
+      "imf": {
+        "magnitude": 4.6,
+        "bx": -1.4,
+        "by": -2.2,
+        "bz": -0.4
+      },
+      "geomagnetic": {
+        "dst": -38.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.062792621844457
+      }
+    },
+    {
+      "timestamp": "2003-11-01T12:00:00",
+      "solar_wind": {
+        "speed": 657.0,
+        "density": 1.5,
+        "temperature": 12384.0,
+        "pressure": 1.294947
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": -1.0,
+        "by": -1.7,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.918507095668584
+      }
+    },
+    {
+      "timestamp": "2003-11-01T13:00:00",
+      "solar_wind": {
+        "speed": 645.0,
+        "density": 1.7,
+        "temperature": 11457.0,
+        "pressure": 1.4144849999999998
+      },
+      "imf": {
+        "magnitude": 4.5,
+        "bx": -1.1,
+        "by": -1.4,
+        "bz": -0.5
+      },
+      "geomagnetic": {
+        "dst": -46.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.709410020734392
+      }
+    },
+    {
+      "timestamp": "2003-11-01T14:00:00",
+      "solar_wind": {
+        "speed": 634.0,
+        "density": 1.9,
+        "temperature": 11625.0,
+        "pressure": 1.5274328
+      },
+      "imf": {
+        "magnitude": 4.4,
+        "bx": -1.2,
+        "by": -0.9,
+        "bz": -0.9
+      },
+      "geomagnetic": {
+        "dst": -46.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.502290476496109
+      }
+    },
+    {
+      "timestamp": "2003-11-01T15:00:00",
+      "solar_wind": {
+        "speed": 631.0,
+        "density": 1.9,
+        "temperature": 10780.0,
+        "pressure": 1.5130118
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": -1.5,
+        "by": -1.7,
+        "bz": -1.0
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.496773932177232
+      }
+    },
+    {
+      "timestamp": "2003-11-01T16:00:00",
+      "solar_wind": {
+        "speed": 627.0,
+        "density": 1.7,
+        "temperature": 13171.0,
+        "pressure": 1.3366386
+      },
+      "imf": {
+        "magnitude": 4.4,
+        "bx": -0.9,
+        "by": -2.7,
+        "bz": -0.1
+      },
+      "geomagnetic": {
+        "dst": -35.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.88789940498084
+      }
+    },
+    {
+      "timestamp": "2003-11-01T17:00:00",
+      "solar_wind": {
+        "speed": 615.0,
+        "density": 2.4,
+        "temperature": 12344.0,
+        "pressure": 1.8154799999999998
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": -0.6,
+        "by": -1.6,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.37361215886387
+      }
+    },
+    {
+      "timestamp": "2003-11-01T18:00:00",
+      "solar_wind": {
+        "speed": 638.0,
+        "density": 2.2,
+        "temperature": 12960.0,
+        "pressure": 1.7909936000000002
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": -2.7,
+        "by": -3.8,
+        "bz": -1.9
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.054486999982831
+      }
+    },
+    {
+      "timestamp": "2003-11-01T19:00:00",
+      "solar_wind": {
+        "speed": 610.0,
+        "density": 2.4,
+        "temperature": 11654.0,
+        "pressure": 1.7860800000000001
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -2.9,
+        "by": -2.8,
+        "bz": -2.4
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.96269338495834
+      }
+    },
+    {
+      "timestamp": "2003-11-01T20:00:00",
+      "solar_wind": {
+        "speed": 610.0,
+        "density": 2.6,
+        "temperature": 13096.0,
+        "pressure": 1.93492
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -3.1,
+        "by": -2.7,
+        "bz": -2.7
+      },
+      "geomagnetic": {
+        "dst": -36.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.786568731364227
+      }
+    },
+    {
+      "timestamp": "2003-11-01T21:00:00",
+      "solar_wind": {
+        "speed": 596.0,
+        "density": 2.3,
+        "temperature": 13955.0,
+        "pressure": 1.6339935999999997
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -1.3,
+        "by": -3.2,
+        "bz": -0.8
+      },
+      "geomagnetic": {
+        "dst": -33.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.415988317472983
+      }
+    },
+    {
+      "timestamp": "2003-11-01T22:00:00",
+      "solar_wind": {
+        "speed": 595.0,
+        "density": 2.2,
+        "temperature": 14915.0,
+        "pressure": 1.5577100000000002
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": -2.6,
+        "by": -3.0,
+        "bz": -2.2
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.21032850242394
+      }
+    },
+    {
+      "timestamp": "2003-11-01T23:00:00",
+      "solar_wind": {
+        "speed": 591.0,
+        "density": 2.5,
+        "temperature": 19284.0,
+        "pressure": 1.7464049999999998
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": -2.7,
+        "by": -2.7,
+        "bz": -2.3
+      },
+      "geomagnetic": {
+        "dst": -37.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.015774442762794
+      }
+    },
+    {
+      "timestamp": "2003-11-02T00:00:00",
+      "solar_wind": {
+        "speed": 578.0,
+        "density": 2.4,
+        "temperature": 29904.0,
+        "pressure": 1.6036031999999998
+      },
+      "imf": {
+        "magnitude": 4.6,
+        "bx": -0.9,
+        "by": -2.1,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.486946412540721
+      }
+    },
+    {
+      "timestamp": "2003-11-02T01:00:00",
+      "solar_wind": {
+        "speed": 577.0,
+        "density": 2.6,
+        "temperature": 41793.0,
+        "pressure": 1.7312308
+      },
+      "imf": {
+        "magnitude": 4.2,
+        "bx": 0.0,
+        "by": -2.6,
+        "bz": 0.5
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.49036168412581
+      }
+    },
+    {
+      "timestamp": "2003-11-02T02:00:00",
+      "solar_wind": {
+        "speed": 569.0,
+        "density": 2.8,
+        "temperature": 49088.0,
+        "pressure": 1.8130616
+      },
+      "imf": {
+        "magnitude": 4.5,
+        "bx": 0.3,
+        "by": -2.2,
+        "bz": 0.8
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.41721033618701
+      }
+    },
+    {
+      "timestamp": "2003-11-02T03:00:00",
+      "solar_wind": {
+        "speed": 570.0,
+        "density": 3.3,
+        "temperature": 58548.0,
+        "pressure": 2.1443399999999997
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": -2.7,
+        "by": 0.3,
+        "bz": -2.9
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.59893777849776
+      }
+    },
+    {
+      "timestamp": "2003-11-02T04:00:00",
+      "solar_wind": {
+        "speed": 581.0,
+        "density": 3.1,
+        "temperature": 52401.0,
+        "pressure": 2.0928782
+      },
+      "imf": {
+        "magnitude": 4.9,
+        "bx": -3.8,
+        "by": -4.1,
+        "bz": -2.7
+      },
+      "geomagnetic": {
+        "dst": -27.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.67089507991358
+      }
+    },
+    {
+      "timestamp": "2003-11-02T05:00:00",
+      "solar_wind": {
+        "speed": 551.0,
+        "density": 2.3,
+        "temperature": 73341.0,
+        "pressure": 1.3965645999999998
+      },
+      "imf": {
+        "magnitude": 5.5,
+        "bx": -1.9,
+        "by": -3.8,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": -30.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.708913114555282
+      }
+    },
+    {
+      "timestamp": "2003-11-02T06:00:00",
+      "solar_wind": {
+        "speed": 552.0,
+        "density": 2.5,
+        "temperature": 71446.0,
+        "pressure": 1.52352
+      },
+      "imf": {
+        "magnitude": 5.1,
+        "bx": -2.2,
+        "by": -3.6,
+        "bz": -0.8
+      },
+      "geomagnetic": {
+        "dst": -26.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.52705463114198
+      }
+    },
+    {
+      "timestamp": "2003-11-02T07:00:00",
+      "solar_wind": {
+        "speed": 540.0,
+        "density": 2.2,
+        "temperature": 81695.0,
+        "pressure": 1.28304
+      },
+      "imf": {
+        "magnitude": 4.9,
+        "bx": -0.6,
+        "by": -2.5,
+        "bz": 0.6
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.97753477672807
+      }
+    },
+    {
+      "timestamp": "2003-11-02T08:00:00",
+      "solar_wind": {
+        "speed": 540.0,
+        "density": 2.2,
+        "temperature": 77807.0,
+        "pressure": 1.28304
+      },
+      "imf": {
+        "magnitude": 4.1,
+        "bx": -1.4,
+        "by": -2.7,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.933799578414414
+      }
+    },
+    {
+      "timestamp": "2003-11-02T09:00:00",
+      "solar_wind": {
+        "speed": 553.0,
+        "density": 2.5,
+        "temperature": 80253.0,
+        "pressure": 1.5290449999999998
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": -3.4,
+        "by": -4.0,
+        "bz": -1.7
+      },
+      "geomagnetic": {
+        "dst": -22.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.338126640103884
+      }
+    },
+    {
+      "timestamp": "2003-11-02T10:00:00",
+      "solar_wind": {
+        "speed": 553.0,
+        "density": 2.3,
+        "temperature": 75075.0,
+        "pressure": 1.4067214
+      },
+      "imf": {
+        "magnitude": 4.5,
+        "bx": -3.2,
+        "by": -4.2,
+        "bz": -1.3
+      },
+      "geomagnetic": {
+        "dst": -27.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.551196682498547
+      }
+    },
+    {
+      "timestamp": "2003-11-02T11:00:00",
+      "solar_wind": {
+        "speed": 552.0,
+        "density": 1.6,
+        "temperature": 91106.0,
+        "pressure": 0.9750528
+      },
+      "imf": {
+        "magnitude": 5.3,
+        "bx": -3.5,
+        "by": -4.7,
+        "bz": -1.4
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.132024171055392
+      }
+    },
+    {
+      "timestamp": "2003-11-02T12:00:00",
+      "solar_wind": {
+        "speed": 547.0,
+        "density": 1.5,
+        "temperature": 104629.0,
+        "pressure": 0.8976270000000001
+      },
+      "imf": {
+        "magnitude": 5.5,
+        "bx": -3.2,
+        "by": -4.8,
+        "bz": -1.1
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.338631371331331
+      }
+    },
+    {
+      "timestamp": "2003-11-02T13:00:00",
+      "solar_wind": {
+        "speed": 547.0,
+        "density": 1.6,
+        "temperature": 88684.0,
+        "pressure": 0.9574687999999999
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": -4.1,
+        "by": -4.1,
+        "bz": -2.6
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.908097619740225
+      }
+    },
+    {
+      "timestamp": "2003-11-02T14:00:00",
+      "solar_wind": {
+        "speed": 556.0,
+        "density": 1.9,
+        "temperature": 56397.0,
+        "pressure": 1.1747168
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": -4.2,
+        "by": -4.5,
+        "bz": -2.6
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.575311661599741
+      }
+    },
+    {
+      "timestamp": "2003-11-02T15:00:00",
+      "solar_wind": {
+        "speed": 536.0,
+        "density": 1.9,
+        "temperature": 58574.0,
+        "pressure": 1.0917247999999997
+      },
+      "imf": {
+        "magnitude": 5.1,
+        "bx": -3.1,
+        "by": -4.6,
+        "bz": -1.6
+      },
+      "geomagnetic": {
+        "dst": -29.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.900600677879103
+      }
+    },
+    {
+      "timestamp": "2003-11-02T16:00:00",
+      "solar_wind": {
+        "speed": 530.0,
+        "density": 2.6,
+        "temperature": 69634.0,
+        "pressure": 1.4606800000000002
+      },
+      "imf": {
+        "magnitude": 5.1,
+        "bx": -3.3,
+        "by": -4.3,
+        "bz": -2.1
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.330100436689147
+      }
+    },
+    {
+      "timestamp": "2003-11-02T17:00:00",
+      "solar_wind": {
+        "speed": 523.0,
+        "density": 2.7,
+        "temperature": 72154.0,
+        "pressure": 1.4770565999999998
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": -4.8,
+        "by": -2.2,
+        "bz": -4.4
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.876651344361786
+      }
+    },
+    {
+      "timestamp": "2003-11-02T18:00:00",
+      "solar_wind": {
+        "speed": 532.0,
+        "density": 2.8,
+        "temperature": 62675.0,
+        "pressure": 1.5849344
+      },
+      "imf": {
+        "magnitude": 5.1,
+        "bx": -5.0,
+        "by": -2.0,
+        "bz": -4.7
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 4.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.718131876056788
+      }
+    },
+    {
+      "timestamp": "2003-11-02T19:00:00",
+      "solar_wind": {
+        "speed": 504.0,
+        "density": 2.5,
+        "temperature": 73850.0,
+        "pressure": 1.2700799999999999
+      },
+      "imf": {
+        "magnitude": 4.6,
+        "bx": -2.4,
+        "by": -3.5,
+        "bz": -1.8
+      },
+      "geomagnetic": {
+        "dst": -21.0,
+        "kp": 4.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.612387869716548
+      }
+    },
+    {
+      "timestamp": "2003-11-02T20:00:00",
+      "solar_wind": {
+        "speed": 498.0,
+        "density": 2.6,
+        "temperature": 76101.0,
+        "pressure": 1.2896208
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": -2.4,
+        "by": -3.6,
+        "bz": -1.8
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 4.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.587865722289603
+      }
+    },
+    {
+      "timestamp": "2003-11-02T21:00:00",
+      "solar_wind": {
+        "speed": 497.0,
+        "density": 2.9,
+        "temperature": 73773.0,
+        "pressure": 1.4326522
+      },
+      "imf": {
+        "magnitude": 4.9,
+        "bx": -2.6,
+        "by": -3.7,
+        "bz": -2.1
+      },
+      "geomagnetic": {
+        "dst": -22.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.360469577310552
+      }
+    },
+    {
+      "timestamp": "2003-11-02T22:00:00",
+      "solar_wind": {
+        "speed": 498.0,
+        "density": 3.2,
+        "temperature": 95000.0,
+        "pressure": 1.5872256
+      },
+      "imf": {
+        "magnitude": 4.6,
+        "bx": -3.0,
+        "by": -3.1,
+        "bz": -2.6
+      },
+      "geomagnetic": {
+        "dst": -26.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.103906405844263
+      }
+    },
+    {
+      "timestamp": "2003-11-02T23:00:00",
+      "solar_wind": {
+        "speed": 494.0,
+        "density": 3.1,
+        "temperature": 102497.0,
+        "pressure": 1.5130232000000001
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -3.4,
+        "by": -3.0,
+        "bz": -3.0
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.100657724494086
+      }
+    }
+  ],
+  "generated_at": "2026-01-20T03:26:56.896644Z",
+  "summary": {
+    "time_range": {
+      "start": "2003-10-28T00:00:00",
+      "end": "2003-11-02T23:00:00",
+      "hours": 144
+    },
+    "solar_wind": {
+      "max_speed": 1189.0,
+      "min_speed": 475.0,
+      "avg_speed": 720.9294117647058,
+      "max_density": 7.8
+    },
+    "geomagnetic": {
+      "min_dst": -383.0,
+      "max_storm_level": 5
+    },
+    "imf": {
+      "min_bz": -27.1,
+      "max_bz": 19.5
+    }
+  }
+}
