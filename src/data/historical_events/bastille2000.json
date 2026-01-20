@@ -1,0 +1,2242 @@
+{
+  "event_info": {
+    "name": "Bastille Day Event 2000",
+    "description": "Major solar event causing satellite anomalies and spectacular auroras.",
+    "start": "2000-07-14",
+    "end": "2000-07-17",
+    "peak_flare": "X5.7",
+    "min_dst": -301
+  },
+  "data": [
+    {
+      "timestamp": "2000-07-14T00:00:00",
+      "solar_wind": {
+        "speed": 606.0,
+        "density": 2.8,
+        "temperature": 321609.0,
+        "pressure": 2.0565216
+      },
+      "imf": {
+        "magnitude": 5.1,
+        "bx": -1.2,
+        "by": -0.8,
+        "bz": -1.2
+      },
+      "geomagnetic": {
+        "dst": -29.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.980687527612998
+      }
+    },
+    {
+      "timestamp": "2000-07-14T01:00:00",
+      "solar_wind": {
+        "speed": 611.0,
+        "density": 3.4,
+        "temperature": 200127.0,
+        "pressure": 2.5385827999999995
+      },
+      "imf": {
+        "magnitude": 4.2,
+        "bx": 0.4,
+        "by": -2.9,
+        "bz": 0.4
+      },
+      "geomagnetic": {
+        "dst": -20.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.899269190906763
+      }
+    },
+    {
+      "timestamp": "2000-07-14T02:00:00",
+      "solar_wind": {
+        "speed": 615.0,
+        "density": 3.7,
+        "temperature": 174932.0,
+        "pressure": 2.798865
+      },
+      "imf": {
+        "magnitude": 3.7,
+        "bx": 1.3,
+        "by": -2.5,
+        "bz": 1.4
+      },
+      "geomagnetic": {
+        "dst": -12.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.753945244277888
+      }
+    },
+    {
+      "timestamp": "2000-07-14T03:00:00",
+      "solar_wind": {
+        "speed": 616.0,
+        "density": 3.4,
+        "temperature": 148701.0,
+        "pressure": 2.5803008
+      },
+      "imf": {
+        "magnitude": 2.8,
+        "bx": 0.4,
+        "by": -2.4,
+        "bz": 0.6
+      },
+      "geomagnetic": {
+        "dst": -14.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.874851147710041
+      }
+    },
+    {
+      "timestamp": "2000-07-14T04:00:00",
+      "solar_wind": {
+        "speed": 614.0,
+        "density": 2.7,
+        "temperature": 116372.0,
+        "pressure": 2.0357784
+      },
+      "imf": {
+        "magnitude": 2.5,
+        "bx": 0.2,
+        "by": -2.2,
+        "bz": 0.5
+      },
+      "geomagnetic": {
+        "dst": -20.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.235934602992625
+      }
+    },
+    {
+      "timestamp": "2000-07-14T05:00:00",
+      "solar_wind": {
+        "speed": 607.0,
+        "density": 2.5,
+        "temperature": 96452.0,
+        "pressure": 1.842245
+      },
+      "imf": {
+        "magnitude": 3.9,
+        "bx": -3.7,
+        "by": -1.0,
+        "bz": -3.6
+      },
+      "geomagnetic": {
+        "dst": -19.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.694064756988633
+      }
+    },
+    {
+      "timestamp": "2000-07-14T06:00:00",
+      "solar_wind": {
+        "speed": 591.0,
+        "density": 2.5,
+        "temperature": 156759.0,
+        "pressure": 1.7464049999999998
+      },
+      "imf": {
+        "magnitude": 3.4,
+        "bx": -0.2,
+        "by": -0.7,
+        "bz": 0.0
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.476500067129884
+      }
+    },
+    {
+      "timestamp": "2000-07-14T07:00:00",
+      "solar_wind": {
+        "speed": 598.0,
+        "density": 2.5,
+        "temperature": 96207.0,
+        "pressure": 1.7880199999999997
+      },
+      "imf": {
+        "magnitude": 2.4,
+        "bx": -0.6,
+        "by": -1.6,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": -17.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.39759507691139
+      }
+    },
+    {
+      "timestamp": "2000-07-14T08:00:00",
+      "solar_wind": {
+        "speed": 585.0,
+        "density": 2.5,
+        "temperature": 132193.0,
+        "pressure": 1.7111249999999998
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": 0.0,
+        "by": 0.8,
+        "bz": -0.2
+      },
+      "geomagnetic": {
+        "dst": -17.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.467077044651717
+      }
+    },
+    {
+      "timestamp": "2000-07-14T09:00:00",
+      "solar_wind": {
+        "speed": 584.0,
+        "density": 2.6,
+        "temperature": 129547.0,
+        "pressure": 1.7734912
+      },
+      "imf": {
+        "magnitude": 3.6,
+        "bx": -1.0,
+        "by": -0.2,
+        "bz": -1.0
+      },
+      "geomagnetic": {
+        "dst": -17.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.247155111895609
+      }
+    },
+    {
+      "timestamp": "2000-07-14T10:00:00",
+      "solar_wind": {
+        "speed": 594.0,
+        "density": 2.8,
+        "temperature": 85218.0,
+        "pressure": 1.9758816
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": -3.6,
+        "by": 0.8,
+        "bz": -4.1
+      },
+      "geomagnetic": {
+        "dst": -17.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.503100680539044
+      }
+    },
+    {
+      "timestamp": "2000-07-14T11:00:00",
+      "solar_wind": {
+        "speed": 593.0,
+        "density": 2.7,
+        "temperature": 132907.0,
+        "pressure": 1.8989046
+      },
+      "imf": {
+        "magnitude": 2.7,
+        "bx": -1.3,
+        "by": 0.8,
+        "bz": -1.7
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.004303677500769
+      }
+    },
+    {
+      "timestamp": "2000-07-14T12:00:00",
+      "solar_wind": {
+        "speed": 573.0,
+        "density": 2.5,
+        "temperature": 196404.0,
+        "pressure": 1.641645
+      },
+      "imf": {
+        "magnitude": 3.3,
+        "bx": -1.0,
+        "by": 1.8,
+        "bz": -1.7
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.227423616593766
+      }
+    },
+    {
+      "timestamp": "2000-07-14T13:00:00",
+      "solar_wind": {
+        "speed": 575.0,
+        "density": 2.3,
+        "temperature": 127602.0,
+        "pressure": 1.5208749999999995
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": 1.7,
+        "by": 3.1,
+        "bz": 0.8
+      },
+      "geomagnetic": {
+        "dst": -24.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.698303738358083
+      }
+    },
+    {
+      "timestamp": "2000-07-14T14:00:00",
+      "solar_wind": {
+        "speed": 580.0,
+        "density": 2.3,
+        "temperature": 126417.0,
+        "pressure": 1.5474399999999997
+      },
+      "imf": {
+        "magnitude": 4.2,
+        "bx": -0.6,
+        "by": 3.2,
+        "bz": -1.6
+      },
+      "geomagnetic": {
+        "dst": -19.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.339410722190433
+      }
+    },
+    {
+      "timestamp": "2000-07-14T15:00:00",
+      "solar_wind": {
+        "speed": 670.0,
+        "density": 4.9,
+        "temperature": 371385.0,
+        "pressure": 4.399220000000001
+      },
+      "imf": {
+        "magnitude": 5.7,
+        "bx": -1.3,
+        "by": 3.4,
+        "bz": -2.2
+      },
+      "geomagnetic": {
+        "dst": -7.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.72415130148779
+      }
+    },
+    {
+      "timestamp": "2000-07-14T16:00:00",
+      "solar_wind": {
+        "speed": 735.0,
+        "density": 6.7,
+        "temperature": 676964.0,
+        "pressure": 7.239015
+      },
+      "imf": {
+        "magnitude": 7.6,
+        "bx": 2.8,
+        "by": 6.1,
+        "bz": 1.7
+      },
+      "geomagnetic": {
+        "dst": -9.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.44598654431335
+      }
+    },
+    {
+      "timestamp": "2000-07-14T17:00:00",
+      "solar_wind": {
+        "speed": 767.0,
+        "density": 16.7,
+        "temperature": 411102.0,
+        "pressure": 19.6488526
+      },
+      "imf": {
+        "magnitude": 8.5,
+        "bx": -6.9,
+        "by": 3.2,
+        "bz": -7.4
+      },
+      "geomagnetic": {
+        "dst": -1.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 6.324159028633865
+      }
+    },
+    {
+      "timestamp": "2000-07-14T18:00:00",
+      "solar_wind": {
+        "speed": 778.0,
+        "density": 24.3,
+        "temperature": 235968.0,
+        "pressure": 29.416802399999998
+      },
+      "imf": {
+        "magnitude": 8.7,
+        "bx": -4.0,
+        "by": -7.9,
+        "bz": -3.4
+      },
+      "geomagnetic": {
+        "dst": 1.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 6.394684681553845
+      }
+    },
+    {
+      "timestamp": "2000-07-14T19:00:00",
+      "solar_wind": {
+        "speed": 782.0,
+        "density": 26.6,
+        "temperature": 131783.0,
+        "pressure": 32.533076799999996
+      },
+      "imf": {
+        "magnitude": 9.3,
+        "bx": -0.9,
+        "by": -9.2,
+        "bz": -0.6
+      },
+      "geomagnetic": {
+        "dst": 3.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 6.646364670893357
+      }
+    },
+    {
+      "timestamp": "2000-07-14T20:00:00",
+      "solar_wind": {
+        "speed": 777.0,
+        "density": 22.2,
+        "temperature": 119995.0,
+        "pressure": 26.805567599999996
+      },
+      "imf": {
+        "magnitude": 7.8,
+        "bx": 2.4,
+        "by": -7.3,
+        "bz": 2.4
+      },
+      "geomagnetic": {
+        "dst": -14.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 6.9263928937029435
+      }
+    },
+    {
+      "timestamp": "2000-07-14T21:00:00",
+      "solar_wind": {
+        "speed": 765.0,
+        "density": 12.5,
+        "temperature": 194974.0,
+        "pressure": 14.630625
+      },
+      "imf": {
+        "magnitude": 2.0,
+        "bx": 1.4,
+        "by": -1.3,
+        "bz": 1.4
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 7.591889349080779
+      }
+    },
+    {
+      "timestamp": "2000-07-14T22:00:00",
+      "solar_wind": {
+        "speed": 754.0,
+        "density": 15.6,
+        "temperature": 172035.0,
+        "pressure": 17.737699199999998
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": 3.0,
+        "by": -3.1,
+        "bz": 2.9
+      },
+      "geomagnetic": {
+        "dst": -23.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 7.373573095764169
+      }
+    },
+    {
+      "timestamp": "2000-07-14T23:00:00",
+      "solar_wind": {
+        "speed": 738.0,
+        "density": 14.9,
+        "temperature": 95783.0,
+        "pressure": 16.2303912
+      },
+      "imf": {
+        "magnitude": 4.4,
+        "bx": 3.4,
+        "by": -2.7,
+        "bz": 3.3
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 7.473459259669108
+      }
+    },
+    {
+      "timestamp": "2000-07-15T00:00:00",
+      "solar_wind": {
+        "speed": 745.0,
+        "density": 10.9,
+        "temperature": 73996.0,
+        "pressure": 12.099545
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": 2.4,
+        "by": -2.5,
+        "bz": 2.4
+      },
+      "geomagnetic": {
+        "dst": -33.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 7.813559728164903
+      }
+    },
+    {
+      "timestamp": "2000-07-15T01:00:00",
+      "solar_wind": {
+        "speed": 719.0,
+        "density": 10.7,
+        "temperature": 82122.0,
+        "pressure": 11.0629654
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": 2.7,
+        "by": -3.3,
+        "bz": 2.8
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 7.920315735513569
+      }
+    },
+    {
+      "timestamp": "2000-07-15T02:00:00",
+      "solar_wind": {
+        "speed": 741.0,
+        "density": 5.8,
+        "temperature": 308912.0,
+        "pressure": 6.3693396
+      },
+      "imf": {
+        "magnitude": 7.5,
+        "bx": 2.9,
+        "by": -4.5,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.61137229966234
+      }
+    },
+    {
+      "timestamp": "2000-07-15T03:00:00",
+      "solar_wind": {
+        "speed": 721.0,
+        "density": 4.3,
+        "temperature": 96307.0,
+        "pressure": 4.4706326
+      },
+      "imf": {
+        "magnitude": 6.7,
+        "bx": 0.1,
+        "by": -5.3,
+        "bz": 0.6
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.0858193299246
+      }
+    },
+    {
+      "timestamp": "2000-07-15T04:00:00",
+      "solar_wind": {
+        "speed": 758.0,
+        "density": 3.3,
+        "temperature": 119417.0,
+        "pressure": 3.7921224
+      },
+      "imf": {
+        "magnitude": 7.3,
+        "bx": 1.5,
+        "by": -4.7,
+        "bz": 2.2
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.315269089589526
+      }
+    },
+    {
+      "timestamp": "2000-07-15T05:00:00",
+      "solar_wind": {
+        "speed": 745.0,
+        "density": 6.3,
+        "temperature": 127009.0,
+        "pressure": 6.993315
+      },
+      "imf": {
+        "magnitude": 7.3,
+        "bx": 4.3,
+        "by": -2.7,
+        "bz": 4.9
+      },
+      "geomagnetic": {
+        "dst": -16.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.490290788453779
+      }
+    },
+    {
+      "timestamp": "2000-07-15T06:00:00",
+      "solar_wind": {
+        "speed": 718.0,
+        "density": 5.3,
+        "temperature": 296535.0,
+        "pressure": 5.464554399999999
+      },
+      "imf": {
+        "magnitude": 7.4,
+        "bx": 1.9,
+        "by": -5.8,
+        "bz": 3.4
+      },
+      "geomagnetic": {
+        "dst": -18.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.813616126638237
+      }
+    },
+    {
+      "timestamp": "2000-07-15T07:00:00",
+      "solar_wind": {
+        "speed": 705.0,
+        "density": 3.8,
+        "temperature": 352419.0,
+        "pressure": 3.777389999999999
+      },
+      "imf": {
+        "magnitude": 8.0,
+        "bx": -4.2,
+        "by": -6.1,
+        "bz": -2.6
+      },
+      "geomagnetic": {
+        "dst": -21.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 8.860042487474571
+      }
+    },
+    {
+      "timestamp": "2000-07-15T08:00:00",
+      "solar_wind": {
+        "speed": 660.0,
+        "density": 3.2,
+        "temperature": 49113.0,
+        "pressure": 2.7878399999999997
+      },
+      "imf": {
+        "magnitude": 7.0,
+        "bx": -4.4,
+        "by": -4.3,
+        "bz": -3.2
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.172725525779326
+      }
+    },
+    {
+      "timestamp": "2000-07-15T09:00:00",
+      "solar_wind": {
+        "speed": 678.0,
+        "density": 3.5,
+        "temperature": 98944.0,
+        "pressure": 3.217788
+      },
+      "imf": {
+        "magnitude": 8.0,
+        "bx": -4.7,
+        "by": -5.6,
+        "bz": -3.0
+      },
+      "geomagnetic": {
+        "dst": -38.0,
+        "kp": 4.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.009409881198327
+      }
+    },
+    {
+      "timestamp": "2000-07-15T10:00:00",
+      "solar_wind": {
+        "speed": 677.0,
+        "density": 2.8,
+        "temperature": 388853.0,
+        "pressure": 2.5666423999999997
+      },
+      "imf": {
+        "magnitude": 9.1,
+        "bx": -5.0,
+        "by": -5.0,
+        "bz": -3.4
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 4.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 9.253553568772231
+      }
+    },
+    {
+      "timestamp": "2000-07-15T11:00:00",
+      "solar_wind": {
+        "speed": 694.0,
+        "density": 8.7,
+        "temperature": 124652.0,
+        "pressure": 8.3804664
+      },
+      "imf": {
+        "magnitude": 9.9,
+        "bx": -5.3,
+        "by": -3.6,
+        "bz": -4.3
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 4.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 7.606518161020719
+      }
+    },
+    {
+      "timestamp": "2000-07-15T12:00:00",
+      "solar_wind": {
+        "speed": 683.0,
+        "density": 7.9,
+        "temperature": 394420.0,
+        "pressure": 7.3705262000000005
+      },
+      "imf": {
+        "magnitude": 9.5,
+        "bx": -5.7,
+        "by": -1.8,
+        "bz": -5.4
+      },
+      "geomagnetic": {
+        "dst": -49.0,
+        "kp": 8.0,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.601966039574359
+      }
+    },
+    {
+      "timestamp": "2000-07-15T13:00:00",
+      "solar_wind": {
+        "speed": 610.0,
+        "density": 12.5,
+        "temperature": 428086.0,
+        "pressure": 9.302499999999998
+      },
+      "imf": {
+        "magnitude": 9.7,
+        "bx": -3.5,
+        "by": -0.6,
+        "bz": -3.5
+      },
+      "geomagnetic": {
+        "dst": -57.0,
+        "kp": 8.0,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.599124268313567
+      }
+    },
+    {
+      "timestamp": "2000-07-15T14:00:00",
+      "solar_wind": {
+        "speed": 866.0,
+        "density": 20.1,
+        "temperature": 1501458.0,
+        "pressure": 30.1482312
+      },
+      "imf": {
+        "magnitude": 22.1,
+        "bx": 9.7,
+        "by": 9.5,
+        "bz": 7.3
+      },
+      "geomagnetic": {
+        "dst": -24.0,
+        "kp": 8.0,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.804156121566482
+      }
+    },
+    {
+      "timestamp": "2000-07-15T15:00:00",
+      "solar_wind": {
+        "speed": 858.0,
+        "density": 18.2,
+        "temperature": 917271.0,
+        "pressure": 26.7963696
+      },
+      "imf": {
+        "magnitude": 11.4,
+        "bx": -2.1,
+        "by": 4.0,
+        "bz": -3.2
+      },
+      "geomagnetic": {
+        "dst": 7.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.510106270566121
+      }
+    },
+    {
+      "timestamp": "2000-07-15T16:00:00",
+      "solar_wind": {
+        "speed": 1010.0,
+        "density": 5.1,
+        "temperature": 945610.0,
+        "pressure": 10.405019999999999
+      },
+      "imf": {
+        "magnitude": 3.6,
+        "bx": 3.5,
+        "by": 1.5,
+        "bz": 3.3
+      },
+      "geomagnetic": {
+        "dst": -36.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.994239152248538
+      }
+    },
+    {
+      "timestamp": "2000-07-15T17:00:00",
+      "solar_wind": {
+        "speed": 991.0,
+        "density": 9.8,
+        "temperature": 1800631.0,
+        "pressure": 19.248787600000004
+      },
+      "imf": {
+        "magnitude": 2.0,
+        "bx": -1.0,
+        "by": 1.4,
+        "bz": -1.2
+      },
+      "geomagnetic": {
+        "dst": -46.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.112107655848365
+      }
+    },
+    {
+      "timestamp": "2000-07-15T18:00:00",
+      "solar_wind": {
+        "speed": 993.0,
+        "density": 15.0,
+        "temperature": 1868463.0,
+        "pressure": 29.581469999999996
+      },
+      "imf": {
+        "magnitude": 9.4,
+        "bx": 5.3,
+        "by": 6.2,
+        "bz": 4.8
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 6.823749425878092
+      }
+    },
+    {
+      "timestamp": "2000-07-15T19:00:00",
+      "solar_wind": {
+        "speed": 1000.0,
+        "density": 20.6,
+        "temperature": 493636.0,
+        "pressure": 41.2
+      },
+      "imf": {
+        "magnitude": 38.0,
+        "bx": -34.7,
+        "by": 13.2,
+        "bz": -35.3
+      },
+      "geomagnetic": {
+        "dst": -60.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 4.0
+      }
+    },
+    {
+      "timestamp": "2000-07-15T20:00:00",
+      "solar_wind": {
+        "speed": 1040.0,
+        "density": 5.9,
+        "temperature": 167332.0,
+        "pressure": 12.76288
+      },
+      "imf": {
+        "magnitude": 49.4,
+        "bx": -45.2,
+        "by": 17.6,
+        "bz": -45.3
+      },
+      "geomagnetic": {
+        "dst": -197.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 4.066436288555235
+      }
+    },
+    {
+      "timestamp": "2000-07-15T21:00:00",
+      "solar_wind": {
+        "speed": 1107.0,
+        "density": 7.2,
+        "temperature": 150037.0,
+        "pressure": 17.6464656
+      },
+      "imf": {
+        "magnitude": 47.5,
+        "bx": -20.5,
+        "by": 38.7,
+        "bz": -19.9
+      },
+      "geomagnetic": {
+        "dst": -289.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 5.278495364437003
+      }
+    },
+    {
+      "timestamp": "2000-07-15T22:00:00",
+      "solar_wind": {
+        "speed": 1089.0,
+        "density": 5.7,
+        "temperature": 100515.0,
+        "pressure": 13.519499399999999
+      },
+      "imf": {
+        "magnitude": 45.6,
+        "bx": -13.5,
+        "by": 38.1,
+        "bz": -12.6
+      },
+      "geomagnetic": {
+        "dst": -280.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.136812497225835
+      }
+    },
+    {
+      "timestamp": "2000-07-15T23:00:00",
+      "solar_wind": {
+        "speed": 1079.0,
+        "density": 9.7,
+        "temperature": 49785.0,
+        "pressure": 22.586275399999995
+      },
+      "imf": {
+        "magnitude": 45.6,
+        "bx": -8.7,
+        "by": 29.2,
+        "bz": -8.2
+      },
+      "geomagnetic": {
+        "dst": -280.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 6.106943449062535
+      }
+    },
+    {
+      "timestamp": "2000-07-16T00:00:00",
+      "solar_wind": {
+        "speed": 1030.0,
+        "density": 8.1,
+        "temperature": 97358.0,
+        "pressure": 17.186579999999996
+      },
+      "imf": {
+        "magnitude": 47.2,
+        "bx": -2.5,
+        "by": 31.8,
+        "bz": -2.5
+      },
+      "geomagnetic": {
+        "dst": -300.0,
+        "kp": 7.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 7.056114727166784
+      }
+    },
+    {
+      "timestamp": "2000-07-16T01:00:00",
+      "solar_wind": {
+        "speed": 1012.0,
+        "density": 2.1,
+        "temperature": 389399.0,
+        "pressure": 4.301404799999999
+      },
+      "imf": {
+        "magnitude": 47.3,
+        "bx": 11.5,
+        "by": 34.7,
+        "bz": 10.5
+      },
+      "geomagnetic": {
+        "dst": -300.0,
+        "kp": 7.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 9.139097032751867
+      }
+    },
+    {
+      "timestamp": "2000-07-16T02:00:00",
+      "solar_wind": {
+        "speed": 970.0,
+        "density": 1.3,
+        "temperature": 62893.0,
+        "pressure": 2.4463399999999997
+      },
+      "imf": {
+        "magnitude": 44.8,
+        "bx": 20.1,
+        "by": 33.5,
+        "bz": 17.9
+      },
+      "geomagnetic": {
+        "dst": -278.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 9.954940463211964
+      }
+    },
+    {
+      "timestamp": "2000-07-16T03:00:00",
+      "solar_wind": {
+        "speed": 949.0,
+        "density": 1.9,
+        "temperature": 53907.0,
+        "pressure": 3.4222837999999993
+      },
+      "imf": {
+        "magnitude": 40.3,
+        "bx": 22.4,
+        "by": 33.0,
+        "bz": 18.9
+      },
+      "geomagnetic": {
+        "dst": -259.0,
+        "kp": 6.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 9.461236060468043
+      }
+    },
+    {
+      "timestamp": "2000-07-16T04:00:00",
+      "solar_wind": {
+        "speed": 915.0,
+        "density": 2.8,
+        "temperature": 35007.0,
+        "pressure": 4.68846
+      },
+      "imf": {
+        "magnitude": 39.0,
+        "bx": 24.9,
+        "by": 32.8,
+        "bz": 20.0
+      },
+      "geomagnetic": {
+        "dst": -232.0,
+        "kp": 6.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 9.020562223766216
+      }
+    },
+    {
+      "timestamp": "2000-07-16T05:00:00",
+      "solar_wind": {
+        "speed": 883.0,
+        "density": 2.2,
+        "temperature": 24129.0,
+        "pressure": 3.4306316
+      },
+      "imf": {
+        "magnitude": 37.2,
+        "bx": 30.9,
+        "by": 26.5,
+        "bz": 26.0
+      },
+      "geomagnetic": {
+        "dst": -208.0,
+        "kp": 6.0,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 9.457744249983671
+      }
+    },
+    {
+      "timestamp": "2000-07-16T06:00:00",
+      "solar_wind": {
+        "speed": 842.0,
+        "density": 1.2,
+        "temperature": 30608.0,
+        "pressure": 1.7015136000000002
+      },
+      "imf": {
+        "magnitude": 33.1,
+        "bx": 29.8,
+        "by": 21.1,
+        "bz": 25.4
+      },
+      "geomagnetic": {
+        "dst": -195.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.517918153808985
+      }
+    },
+    {
+      "timestamp": "2000-07-16T07:00:00",
+      "solar_wind": {
+        "speed": 806.0,
+        "density": 1.5,
+        "temperature": 21337.0,
+        "pressure": 1.948908
+      },
+      "imf": {
+        "magnitude": 29.5,
+        "bx": 28.4,
+        "by": 15.7,
+        "bz": 24.9
+      },
+      "geomagnetic": {
+        "dst": -178.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.303791755355329
+      }
+    },
+    {
+      "timestamp": "2000-07-16T08:00:00",
+      "solar_wind": {
+        "speed": 804.0,
+        "density": 0.8,
+        "temperature": 25065.0,
+        "pressure": 1.0342656000000001
+      },
+      "imf": {
+        "magnitude": 26.6,
+        "bx": 25.8,
+        "by": 14.6,
+        "bz": 22.3
+      },
+      "geomagnetic": {
+        "dst": -174.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.341953684689495
+      }
+    },
+    {
+      "timestamp": "2000-07-16T09:00:00",
+      "solar_wind": {
+        "speed": 816.0,
+        "density": 0.7,
+        "temperature": 19580.0,
+        "pressure": 0.9321984
+      },
+      "imf": {
+        "magnitude": 24.3,
+        "bx": 24.2,
+        "by": 8.2,
+        "bz": 22.8
+      },
+      "geomagnetic": {
+        "dst": -165.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.521918470634875
+      }
+    },
+    {
+      "timestamp": "2000-07-16T10:00:00",
+      "solar_wind": {
+        "speed": 788.0,
+        "density": 0.7,
+        "temperature": 63977.0,
+        "pressure": 0.8693215999999999
+      },
+      "imf": {
+        "magnitude": 22.1,
+        "bx": 21.8,
+        "by": 4.9,
+        "bz": 21.5
+      },
+      "geomagnetic": {
+        "dst": -157.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.644475502046145
+      }
+    },
+    {
+      "timestamp": "2000-07-16T11:00:00",
+      "solar_wind": {
+        "speed": 790.0,
+        "density": 1.2,
+        "temperature": 101281.0,
+        "pressure": 1.4978399999999998
+      },
+      "imf": {
+        "magnitude": 20.3,
+        "bx": 20.1,
+        "by": 5.0,
+        "bz": 19.6
+      },
+      "geomagnetic": {
+        "dst": -148.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.723070985780666
+      }
+    },
+    {
+      "timestamp": "2000-07-16T12:00:00",
+      "solar_wind": {
+        "speed": 781.0,
+        "density": 2.2,
+        "temperature": 35476.0,
+        "pressure": 2.6838284
+      },
+      "imf": {
+        "magnitude": 18.1,
+        "bx": 17.5,
+        "by": 1.8,
+        "bz": 18.0
+      },
+      "geomagnetic": {
+        "dst": -142.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 9.81616864941129
+      }
+    },
+    {
+      "timestamp": "2000-07-16T13:00:00",
+      "solar_wind": {
+        "speed": 772.0,
+        "density": 2.2,
+        "temperature": 193438.0,
+        "pressure": 2.6223296
+      },
+      "imf": {
+        "magnitude": 14.3,
+        "bx": 13.4,
+        "by": -0.3,
+        "bz": 14.3
+      },
+      "geomagnetic": {
+        "dst": -135.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 9.85070662616744
+      }
+    },
+    {
+      "timestamp": "2000-07-16T14:00:00",
+      "solar_wind": {
+        "speed": 784.0,
+        "density": 1.0,
+        "temperature": 137577.0,
+        "pressure": 1.229312
+      },
+      "imf": {
+        "magnitude": 11.5,
+        "bx": 10.1,
+        "by": -2.1,
+        "bz": 11.2
+      },
+      "geomagnetic": {
+        "dst": -138.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.048916245351103
+      }
+    },
+    {
+      "timestamp": "2000-07-16T15:00:00",
+      "solar_wind": {
+        "speed": 770.0,
+        "density": 0.5,
+        "temperature": 74856.0,
+        "pressure": 0.5929
+      },
+      "imf": {
+        "magnitude": 9.7,
+        "bx": 8.2,
+        "by": -3.1,
+        "bz": 9.3
+      },
+      "geomagnetic": {
+        "dst": -138.0,
+        "kp": 3.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 12.33961475862125
+      }
+    },
+    {
+      "timestamp": "2000-07-16T16:00:00",
+      "solar_wind": {
+        "speed": 739.0,
+        "density": 0.6,
+        "temperature": 47425.0,
+        "pressure": 0.6553452
+      },
+      "imf": {
+        "magnitude": 8.4,
+        "bx": 7.7,
+        "by": -0.7,
+        "bz": 8.0
+      },
+      "geomagnetic": {
+        "dst": -131.0,
+        "kp": 3.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 12.153809040817006
+      }
+    },
+    {
+      "timestamp": "2000-07-16T17:00:00",
+      "solar_wind": {
+        "speed": 736.0,
+        "density": 0.7,
+        "temperature": 36998.0,
+        "pressure": 0.7583743999999999
+      },
+      "imf": {
+        "magnitude": 7.5,
+        "bx": 6.8,
+        "by": -0.7,
+        "bz": 7.0
+      },
+      "geomagnetic": {
+        "dst": -125.0,
+        "kp": 3.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.887876813743041
+      }
+    },
+    {
+      "timestamp": "2000-07-16T18:00:00",
+      "solar_wind": {
+        "speed": 743.0,
+        "density": 0.7,
+        "temperature": 28813.0,
+        "pressure": 0.7728686
+      },
+      "imf": {
+        "magnitude": 6.7,
+        "bx": 5.8,
+        "by": -1.5,
+        "bz": 6.0
+      },
+      "geomagnetic": {
+        "dst": -124.0,
+        "kp": 2.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.853825746290429
+      }
+    },
+    {
+      "timestamp": "2000-07-16T19:00:00",
+      "solar_wind": {
+        "speed": 724.0,
+        "density": 0.7,
+        "temperature": 32093.0,
+        "pressure": 0.7338463999999999
+      },
+      "imf": {
+        "magnitude": 5.7,
+        "bx": 3.3,
+        "by": -1.0,
+        "bz": 3.4
+      },
+      "geomagnetic": {
+        "dst": -123.0,
+        "kp": 2.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.94724320846505
+      }
+    },
+    {
+      "timestamp": "2000-07-16T20:00:00",
+      "solar_wind": {
+        "speed": 744.0,
+        "density": 0.5,
+        "temperature": 24547.0,
+        "pressure": 0.553536
+      },
+      "imf": {
+        "magnitude": 5.8,
+        "bx": 3.9,
+        "by": -2.5,
+        "bz": 3.9
+      },
+      "geomagnetic": {
+        "dst": -120.0,
+        "kp": 2.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 12.468727784761818
+      }
+    },
+    {
+      "timestamp": "2000-07-16T21:00:00",
+      "solar_wind": {
+        "speed": 734.0,
+        "density": 0.5,
+        "temperature": 43676.0,
+        "pressure": 0.538756
+      },
+      "imf": {
+        "magnitude": 5.6,
+        "bx": 3.8,
+        "by": -2.1,
+        "bz": 3.8
+      },
+      "geomagnetic": {
+        "dst": -116.0,
+        "kp": 1.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 12.519962123155844
+      }
+    },
+    {
+      "timestamp": "2000-07-16T22:00:00",
+      "solar_wind": {
+        "speed": 736.0,
+        "density": 0.5,
+        "temperature": 68225.0,
+        "pressure": 0.541696
+      },
+      "imf": {
+        "magnitude": 5.4,
+        "bx": 3.8,
+        "by": -2.2,
+        "bz": 3.8
+      },
+      "geomagnetic": {
+        "dst": -117.0,
+        "kp": 1.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 12.50964275852692
+      }
+    },
+    {
+      "timestamp": "2000-07-16T23:00:00",
+      "solar_wind": {
+        "speed": 704.0,
+        "density": 0.6,
+        "temperature": 126013.0,
+        "pressure": 0.5947391999999999
+      },
+      "imf": {
+        "magnitude": 5.6,
+        "bx": 3.2,
+        "by": -2.2,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -116.0,
+        "kp": 1.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 12.333825398776831
+      }
+    },
+    {
+      "timestamp": "2000-07-17T00:00:00",
+      "solar_wind": {
+        "speed": 684.0,
+        "density": 0.8,
+        "temperature": 130262.0,
+        "pressure": 0.7485696
+      },
+      "imf": {
+        "magnitude": 5.8,
+        "bx": 2.7,
+        "by": -1.7,
+        "bz": 2.7
+      },
+      "geomagnetic": {
+        "dst": -113.0,
+        "kp": 3.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.911338883571075
+      }
+    },
+    {
+      "timestamp": "2000-07-17T01:00:00",
+      "solar_wind": {
+        "speed": 675.0,
+        "density": 1.1,
+        "temperature": 112445.0,
+        "pressure": 1.002375
+      },
+      "imf": {
+        "magnitude": 6.0,
+        "bx": 0.2,
+        "by": -2.5,
+        "bz": 0.3
+      },
+      "geomagnetic": {
+        "dst": -110.0,
+        "kp": 3.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.395903327283103
+      }
+    },
+    {
+      "timestamp": "2000-07-17T02:00:00",
+      "solar_wind": {
+        "speed": 678.0,
+        "density": 0.9,
+        "temperature": 94891.0,
+        "pressure": 0.8274311999999999
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": 2.4,
+        "by": -2.2,
+        "bz": 2.6
+      },
+      "geomagnetic": {
+        "dst": -106.0,
+        "kp": 3.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.731936834840258
+      }
+    },
+    {
+      "timestamp": "2000-07-17T03:00:00",
+      "solar_wind": {
+        "speed": 670.0,
+        "density": 1.0,
+        "temperature": 117024.0,
+        "pressure": 0.8978
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": 2.1,
+        "by": -1.7,
+        "bz": 2.3
+      },
+      "geomagnetic": {
+        "dst": -100.0,
+        "kp": 2.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 11.58774290883344
+      }
+    },
+    {
+      "timestamp": "2000-07-17T04:00:00",
+      "solar_wind": {
+        "speed": 680.0,
+        "density": 0.9,
+        "temperature": 116730.0,
+        "pressure": 0.8323200000000001
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": 2.5,
+        "by": -1.2,
+        "bz": 2.7
+      },
+      "geomagnetic": {
+        "dst": -93.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.721469828073323
+      }
+    },
+    {
+      "timestamp": "2000-07-17T05:00:00",
+      "solar_wind": {
+        "speed": 678.0,
+        "density": 0.9,
+        "temperature": 92087.0,
+        "pressure": 0.8274311999999999
+      },
+      "imf": {
+        "magnitude": 3.7,
+        "bx": 2.8,
+        "by": -1.5,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -86.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.731936834840258
+      }
+    },
+    {
+      "timestamp": "2000-07-17T06:00:00",
+      "solar_wind": {
+        "speed": 668.0,
+        "density": 0.8,
+        "temperature": 56618.0,
+        "pressure": 0.7139584
+      },
+      "imf": {
+        "magnitude": 3.8,
+        "bx": 2.6,
+        "by": -1.9,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -79.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.997081879753145
+      }
+    },
+    {
+      "timestamp": "2000-07-17T07:00:00",
+      "solar_wind": {
+        "speed": 659.0,
+        "density": 0.7,
+        "temperature": 41339.0,
+        "pressure": 0.6079934
+      },
+      "imf": {
+        "magnitude": 3.6,
+        "bx": 2.9,
+        "by": -1.0,
+        "bz": 3.3
+      },
+      "geomagnetic": {
+        "dst": -75.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 12.292704660606947
+      }
+    },
+    {
+      "timestamp": "2000-07-17T08:00:00",
+      "solar_wind": {
+        "speed": 659.0,
+        "density": 1.3,
+        "temperature": 80391.0,
+        "pressure": 1.1291306
+      },
+      "imf": {
+        "magnitude": 5.3,
+        "bx": 4.7,
+        "by": 1.1,
+        "bz": 4.6
+      },
+      "geomagnetic": {
+        "dst": -67.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.19214451844329
+      }
+    },
+    {
+      "timestamp": "2000-07-17T09:00:00",
+      "solar_wind": {
+        "speed": 663.0,
+        "density": 1.2,
+        "temperature": 270029.0,
+        "pressure": 1.0549655999999998
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": 0.7,
+        "by": 0.8,
+        "bz": 0.4
+      },
+      "geomagnetic": {
+        "dst": -70.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.307950455639537
+      }
+    },
+    {
+      "timestamp": "2000-07-17T10:00:00",
+      "solar_wind": {
+        "speed": 685.0,
+        "density": 1.3,
+        "temperature": 248234.0,
+        "pressure": 1.219985
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": 3.2,
+        "by": -1.1,
+        "bz": 3.9
+      },
+      "geomagnetic": {
+        "dst": -69.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.061673551247038
+      }
+    },
+    {
+      "timestamp": "2000-07-17T11:00:00",
+      "solar_wind": {
+        "speed": 650.0,
+        "density": 1.2,
+        "temperature": 132093.0,
+        "pressure": 1.014
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": 3.2,
+        "by": -2.3,
+        "bz": 4.3
+      },
+      "geomagnetic": {
+        "dst": -68.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.376011166190908
+      }
+    },
+    {
+      "timestamp": "2000-07-17T12:00:00",
+      "solar_wind": {
+        "speed": 631.0,
+        "density": 1.2,
+        "temperature": 162074.0,
+        "pressure": 0.9555864
+      },
+      "imf": {
+        "magnitude": 4.7,
+        "bx": 2.3,
+        "by": -1.8,
+        "bz": 3.1
+      },
+      "geomagnetic": {
+        "dst": -69.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.478740854448699
+      }
+    },
+    {
+      "timestamp": "2000-07-17T13:00:00",
+      "solar_wind": {
+        "speed": 624.0,
+        "density": 1.2,
+        "temperature": 156171.0,
+        "pressure": 0.9345024
+      },
+      "imf": {
+        "magnitude": 4.8,
+        "bx": 2.2,
+        "by": -1.3,
+        "bz": 2.8
+      },
+      "geomagnetic": {
+        "dst": -69.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.517609856271447
+      }
+    },
+    {
+      "timestamp": "2000-07-17T14:00:00",
+      "solar_wind": {
+        "speed": 637.0,
+        "density": 1.1,
+        "temperature": 158305.0,
+        "pressure": 0.8926918
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": 2.8,
+        "by": -1.8,
+        "bz": 3.5
+      },
+      "geomagnetic": {
+        "dst": -68.0,
+        "kp": 2.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.597765254815004
+      }
+    },
+    {
+      "timestamp": "2000-07-17T15:00:00",
+      "solar_wind": {
+        "speed": 625.0,
+        "density": 1.1,
+        "temperature": 151201.0,
+        "pressure": 0.8593750000000001
+      },
+      "imf": {
+        "magnitude": 4.4,
+        "bx": 2.9,
+        "by": -2.0,
+        "bz": 3.5
+      },
+      "geomagnetic": {
+        "dst": -64.0,
+        "kp": 1.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.664796514060892
+      }
+    },
+    {
+      "timestamp": "2000-07-17T16:00:00",
+      "solar_wind": {
+        "speed": 625.0,
+        "density": 1.1,
+        "temperature": 130391.0,
+        "pressure": 0.8593750000000001
+      },
+      "imf": {
+        "magnitude": 3.9,
+        "bx": 2.7,
+        "by": -2.2,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -58.0,
+        "kp": 1.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.664796514060892
+      }
+    },
+    {
+      "timestamp": "2000-07-17T17:00:00",
+      "solar_wind": {
+        "speed": 617.0,
+        "density": 1.2,
+        "temperature": 121437.0,
+        "pressure": 0.9136536
+      },
+      "imf": {
+        "magnitude": 3.5,
+        "bx": 2.9,
+        "by": -1.4,
+        "bz": 3.2
+      },
+      "geomagnetic": {
+        "dst": -53.0,
+        "kp": 1.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 11.55705121178387
+      }
+    },
+    {
+      "timestamp": "2000-07-17T18:00:00",
+      "solar_wind": {
+        "speed": 604.0,
+        "density": 1.2,
+        "temperature": 105834.0,
+        "pressure": 0.8755584
+      },
+      "imf": {
+        "magnitude": 3.7,
+        "bx": 2.2,
+        "by": -2.8,
+        "bz": 2.5
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 1.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.631869745526384
+      }
+    },
+    {
+      "timestamp": "2000-07-17T19:00:00",
+      "solar_wind": {
+        "speed": 595.0,
+        "density": 1.2,
+        "temperature": 101687.0,
+        "pressure": 0.84966
+      },
+      "imf": {
+        "magnitude": 3.6,
+        "bx": 2.2,
+        "by": -2.6,
+        "bz": 2.3
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 1.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.684907523191518
+      }
+    },
+    {
+      "timestamp": "2000-07-17T20:00:00",
+      "solar_wind": {
+        "speed": 589.0,
+        "density": 1.2,
+        "temperature": 123576.0,
+        "pressure": 0.8326104
+      },
+      "imf": {
+        "magnitude": 4.2,
+        "bx": 3.4,
+        "by": -0.3,
+        "bz": 3.4
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 1.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.720850305421747
+      }
+    },
+    {
+      "timestamp": "2000-07-17T21:00:00",
+      "solar_wind": {
+        "speed": 613.0,
+        "density": 1.4,
+        "temperature": 92750.0,
+        "pressure": 1.0521532
+      },
+      "imf": {
+        "magnitude": 4.5,
+        "bx": 3.5,
+        "by": -2.8,
+        "bz": 3.5
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.312524981767169
+      }
+    },
+    {
+      "timestamp": "2000-07-17T22:00:00",
+      "solar_wind": {
+        "speed": 619.0,
+        "density": 1.3,
+        "temperature": 91865.0,
+        "pressure": 0.9962186
+      },
+      "imf": {
+        "magnitude": 4.9,
+        "bx": 3.5,
+        "by": -3.3,
+        "bz": 3.5
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.406545767973789
+      }
+    },
+    {
+      "timestamp": "2000-07-17T23:00:00",
+      "solar_wind": {
+        "speed": 595.0,
+        "density": 1.2,
+        "temperature": 86609.0,
+        "pressure": 0.84966
+      },
+      "imf": {
+        "magnitude": 4.3,
+        "bx": 1.8,
+        "by": -3.9,
+        "bz": 1.8
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 1.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 11.684907523191518
+      }
+    }
+  ],
+  "generated_at": "2026-01-20T03:26:57.888353Z",
+  "summary": {
+    "time_range": {
+      "start": "2000-07-14T00:00:00",
+      "end": "2000-07-17T23:00:00",
+      "hours": 96
+    },
+    "solar_wind": {
+      "max_speed": 1107.0,
+      "min_speed": 573.0,
+      "avg_speed": 735.3125,
+      "max_density": 26.6
+    },
+    "geomagnetic": {
+      "min_dst": -300.0,
+      "max_storm_level": 5
+    },
+    "imf": {
+      "min_bz": -45.3,
+      "max_bz": 26.0
+    }
+  }
+}

@@ -1,0 +1,3346 @@
+{
+  "event_info": {
+    "name": "March 1989 Geomagnetic Storm",
+    "description": "Caused Quebec power grid collapse, 6 million without power for 9 hours.",
+    "start": "1989-03-10",
+    "end": "1989-03-15",
+    "peak_flare": "X15",
+    "min_dst": -589
+  },
+  "data": [
+    {
+      "timestamp": "1989-03-10T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -101.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -84.0,
+        "kp": 4.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -75.0,
+        "kp": 4.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -81.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -81.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -71.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -68.0,
+        "kp": 3.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -62.0,
+        "kp": 3.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -61.0,
+        "kp": 3.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -57.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -51.0,
+        "kp": 2.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -37.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -36.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -36.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -35.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -37.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -41.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-10T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 3.3,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -45.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -42.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -35.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -33.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -37.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -38.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -29.0,
+        "kp": 3.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -30.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -33.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -24.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -25.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -29.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -29.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -45.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-11T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -53.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -69.0,
+        "kp": 5.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -64.0,
+        "kp": 5.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -44.0,
+        "kp": 5.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -35.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -32.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -31.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -30.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -30.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -34.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 2.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -52.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -22.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -28.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -43.0,
+        "kp": 4.7,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -48.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 4.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -39.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-12T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -36.0,
+        "kp": 3.0,
+        "storm_level": 0
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -38.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -17.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -40.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -64.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -91.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -96.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -128.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -138.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -143.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -88.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -101.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -231.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -246.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -160.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -183.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -221.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -210.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -257.0,
+        "kp": 8.3,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -257.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -255.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -302.0,
+        "kp": 8.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -382.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -418.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-13T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -472.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -583.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -589.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T02:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -463.0,
+        "kp": 9.0,
+        "storm_level": 5
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T03:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -386.0,
+        "kp": 7.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T04:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -346.0,
+        "kp": 7.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -343.0,
+        "kp": 7.7,
+        "storm_level": 4
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -252.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -238.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -193.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -134.0,
+        "kp": 5.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -126.0,
+        "kp": 5.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -119.0,
+        "kp": 5.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T12:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -175.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T13:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -156.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T14:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -144.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T15:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -135.0,
+        "kp": 5.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -130.0,
+        "kp": 5.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -122.0,
+        "kp": 5.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -137.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -140.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -115.0,
+        "kp": 7.7,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -124.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-14T22:00:00",
+      "solar_wind": {
+        "speed": 811.0,
+        "density": 7.4,
+        "temperature": 54221.0,
+        "pressure": 9.734270800000001
+      },
+      "imf": {
+        "magnitude": 19.9,
+        "bx": 19.6,
+        "by": -10.1,
+        "bz": 16.8
+      },
+      "geomagnetic": {
+        "dst": -129.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 8.075360298007064
+      }
+    },
+    {
+      "timestamp": "1989-03-14T23:00:00",
+      "solar_wind": {
+        "speed": 839.0,
+        "density": 13.9,
+        "temperature": 83593.0,
+        "pressure": 19.5690038
+      },
+      "imf": {
+        "magnitude": 8.8,
+        "bx": 8.1,
+        "by": -7.5,
+        "bz": 4.7
+      },
+      "geomagnetic": {
+        "dst": -114.0,
+        "kp": 7.3,
+        "storm_level": 3
+      },
+      "magnetosphere": {
+        "standoff_re": 7.264615306012379
+      }
+    },
+    {
+      "timestamp": "1989-03-15T00:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -157.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T01:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 10.1,
+        "bx": -5.2,
+        "by": 7.0,
+        "bz": -1.8
+      },
+      "geomagnetic": {
+        "dst": -159.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T02:00:00",
+      "solar_wind": {
+        "speed": 813.0,
+        "density": 5.7,
+        "temperature": 149728.0,
+        "pressure": 7.535046599999999
+      },
+      "imf": {
+        "magnitude": 7.0,
+        "bx": -1.9,
+        "by": 4.8,
+        "bz": 0.6
+      },
+      "geomagnetic": {
+        "dst": -152.0,
+        "kp": 6.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.394851958808365
+      }
+    },
+    {
+      "timestamp": "1989-03-15T03:00:00",
+      "solar_wind": {
+        "speed": 811.0,
+        "density": 6.3,
+        "temperature": 88584.0,
+        "pressure": 8.2872846
+      },
+      "imf": {
+        "magnitude": 7.7,
+        "bx": -2.0,
+        "by": 3.3,
+        "bz": -0.5
+      },
+      "geomagnetic": {
+        "dst": -151.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.192757605157817
+      }
+    },
+    {
+      "timestamp": "1989-03-15T04:00:00",
+      "solar_wind": {
+        "speed": 819.0,
+        "density": 7.2,
+        "temperature": 137857.0,
+        "pressure": 9.6589584
+      },
+      "imf": {
+        "magnitude": 7.2,
+        "bx": -0.5,
+        "by": 2.4,
+        "bz": 0.5
+      },
+      "geomagnetic": {
+        "dst": -134.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.084869018336926
+      }
+    },
+    {
+      "timestamp": "1989-03-15T05:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": 6.5,
+        "bx": -0.9,
+        "by": 2.6,
+        "bz": 0.0
+      },
+      "geomagnetic": {
+        "dst": -128.0,
+        "kp": 6.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T06:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -119.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T07:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -108.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T08:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -105.0,
+        "kp": 4.7,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T09:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -100.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T10:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -103.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T11:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -106.0,
+        "kp": 5.0,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T12:00:00",
+      "solar_wind": {
+        "speed": 759.0,
+        "density": 4.4,
+        "temperature": 106492.0,
+        "pressure": 5.0695128
+      },
+      "imf": {
+        "magnitude": 5.0,
+        "bx": -1.1,
+        "by": -2.8,
+        "bz": -1.8
+      },
+      "geomagnetic": {
+        "dst": -108.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 8.604626658305268
+      }
+    },
+    {
+      "timestamp": "1989-03-15T13:00:00",
+      "solar_wind": {
+        "speed": 740.0,
+        "density": 3.8,
+        "temperature": 89090.0,
+        "pressure": 4.16176
+      },
+      "imf": {
+        "magnitude": 5.5,
+        "bx": 0.2,
+        "by": -0.2,
+        "bz": 0.1
+      },
+      "geomagnetic": {
+        "dst": -102.0,
+        "kp": 4.3,
+        "storm_level": 2
+      },
+      "magnetosphere": {
+        "standoff_re": 9.184911964584636
+      }
+    },
+    {
+      "timestamp": "1989-03-15T14:00:00",
+      "solar_wind": {
+        "speed": 710.0,
+        "density": 3.4,
+        "temperature": 173389.0,
+        "pressure": 3.42788
+      },
+      "imf": {
+        "magnitude": 5.6,
+        "bx": 1.1,
+        "by": -1.9,
+        "bz": 0.6
+      },
+      "geomagnetic": {
+        "dst": -89.0,
+        "kp": 4.3,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.458894137799962
+      }
+    },
+    {
+      "timestamp": "1989-03-15T15:00:00",
+      "solar_wind": {
+        "speed": 725.0,
+        "density": 3.7,
+        "temperature": 91127.0,
+        "pressure": 3.889625
+      },
+      "imf": {
+        "magnitude": 5.2,
+        "bx": 1.0,
+        "by": -3.7,
+        "bz": -0.3
+      },
+      "geomagnetic": {
+        "dst": -86.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 9.224161775054705
+      }
+    },
+    {
+      "timestamp": "1989-03-15T16:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -89.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T17:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -94.0,
+        "kp": 4.7,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T18:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -99.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T19:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -90.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T20:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -87.0,
+        "kp": 4.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T21:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -88.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T22:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -91.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    },
+    {
+      "timestamp": "1989-03-15T23:00:00",
+      "solar_wind": {
+        "speed": null,
+        "density": null,
+        "temperature": null,
+        "pressure": null
+      },
+      "imf": {
+        "magnitude": null,
+        "bx": null,
+        "by": null,
+        "bz": null
+      },
+      "geomagnetic": {
+        "dst": -92.0,
+        "kp": 3.0,
+        "storm_level": 1
+      },
+      "magnetosphere": {
+        "standoff_re": 10.0
+      }
+    }
+  ],
+  "generated_at": "2026-01-20T03:26:57.451096Z",
+  "summary": {
+    "time_range": {
+      "start": "1989-03-10T00:00:00",
+      "end": "1989-03-15T23:00:00",
+      "hours": 144
+    },
+    "solar_wind": {
+      "max_speed": 839.0,
+      "min_speed": 710.0,
+      "avg_speed": 780.7777777777778,
+      "max_density": 13.9
+    },
+    "geomagnetic": {
+      "min_dst": -589.0,
+      "max_storm_level": 5
+    },
+    "imf": {
+      "min_bz": -1.8,
+      "max_bz": 16.8
+    }
+  }
+}
