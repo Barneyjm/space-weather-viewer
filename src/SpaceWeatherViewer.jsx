@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download } from 'lucide-react';
 import { useVideoExport } from './hooks/useVideoExport';
 import { ExportModal } from './components/ExportModal';
+import HistoricalEventPlayer from './components/HistoricalEventPlayer';
 
 // Image cache to avoid re-fetching frames we already have
 const imageCache = new Map();
@@ -556,6 +557,7 @@ const initialURLState = typeof window !== 'undefined' ? getInitialStateFromURL()
 
 export default function SpaceWeatherViewer() {
   const [multiView, setMultiView] = useState(initialURLState?.multiView ?? false);
+  const [historicalMode, setHistoricalMode] = useState(false);
   const [useLocalTime, setUseLocalTime] = useState(true);
   const [selectedSource, setSelectedSource] = useState(initialURLState?.source ?? 'suvi_304');
   const [selectedMultiSources, setSelectedMultiSources] = useState(initialURLState?.sources ?? DEFAULT_MULTIVIEW_SOURCES);
@@ -956,9 +958,9 @@ export default function SpaceWeatherViewer() {
         {/* View Mode Toggle */}
         <div className="flex gap-2 mb-4">
           <button
-            onClick={() => setMultiView(false)}
+            onClick={() => { setMultiView(false); setHistoricalMode(false); }}
             className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
-              !multiView
+              !multiView && !historicalMode
                 ? 'bg-cyan-600 text-white'
                 : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
             }`}
@@ -967,20 +969,36 @@ export default function SpaceWeatherViewer() {
             Single View
           </button>
           <button
-            onClick={() => setMultiView(true)}
+            onClick={() => { setMultiView(true); setHistoricalMode(false); }}
             className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
-              multiView
+              multiView && !historicalMode
                 ? 'bg-cyan-600 text-white'
                 : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
             }`}
           >
             <Grid3X3 className="w-4 h-4" />
-            Multi View ({selectedMultiSources.length})
+            Multi View
+          </button>
+          <button
+            onClick={() => setHistoricalMode(true)}
+            className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+              historicalMode
+                ? 'bg-amber-600 text-white'
+                : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+            }`}
+          >
+            <Clock className="w-4 h-4" />
+            Historical
           </button>
         </div>
 
+        {/* Historical Event Player */}
+        {historicalMode && (
+          <HistoricalEventPlayer className="mb-4" />
+        )}
+
         {/* Source Selector - Single View */}
-        {!multiView && (
+        {!multiView && !historicalMode && (
           <div className="relative mb-4">
             <button
               onClick={() => setShowDropdown(!showDropdown)}
@@ -1034,7 +1052,7 @@ export default function SpaceWeatherViewer() {
         )}
 
         {/* Source Selector - Multi View */}
-        {multiView && (
+        {multiView && !historicalMode && (
           <div className="mb-4">
             <button
               onClick={() => setShowSourceSelector(!showSourceSelector)}
@@ -1111,6 +1129,8 @@ export default function SpaceWeatherViewer() {
           </div>
         )}
 
+        {/* Live Data Content - Hidden when in Historical mode */}
+        {!historicalMode && (<>
         {/* Time Range & Timezone Selector */}
         <div className="flex gap-2 mb-4">
           <div className="flex gap-2 flex-1">
@@ -1361,6 +1381,7 @@ export default function SpaceWeatherViewer() {
             </div>
           )}
         </div>
+        </>)}
 
         <footer className="mt-4 text-center text-xs text-slate-500">
           <span>Data: <a href="https://www.swpc.noaa.gov/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">NOAA SWPC</a></span>
