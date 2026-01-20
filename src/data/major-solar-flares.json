@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "description": "Historical record of major solar flares (X-class and significant M-class)",
+    "source": "NOAA SWPC, Australian Bureau of Meteorology Space Weather Services",
+    "lastUpdated": "2026-01-20",
+    "notes": "X-class flares are the most powerful. Classes: A < B < C < M < X. Each class is 10x stronger than the previous."
+  },
+  "flareClasses": {
+    "X": "Extreme - can cause planet-wide radio blackouts and long-lasting radiation storms",
+    "M": "Medium - can cause brief radio blackouts in polar regions",
+    "C": "Common - few noticeable consequences",
+    "B": "Background - minimal impact",
+    "A": "Ambient - no significant impact"
+  },
+  "historicalMajorFlares": [
+    {
+      "date": "2003-11-04",
+      "time": "19:29",
+      "class": "X28",
+      "estimatedClass": "X45",
+      "region": "AR 10486",
+      "notes": "Largest recorded flare in modern history. Saturated GOES detectors. Later analysis suggests X45.",
+      "geoeffective": false,
+      "associatedCME": true
+    },
+    {
+      "date": "2001-04-02",
+      "time": "21:51",
+      "class": "X20.0",
+      "region": "AR 9393",
+      "notes": "Second largest recorded flare. Saturated detectors.",
+      "geoeffective": false,
+      "associatedCME": true
+    },
+    {
+      "date": "1989-08-16",
+      "time": "01:37",
+      "class": "X20.0",
+      "region": null,
+      "notes": "Tied for second largest. Occurred during Solar Cycle 22 maximum.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2003-10-28",
+      "time": "11:10",
+      "class": "X17.2",
+      "region": "AR 10486",
+      "notes": "Halloween Solar Storms. Caused widespread radio blackouts.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2005-09-07",
+      "time": "17:40",
+      "class": "X17.0",
+      "region": "AR 10808",
+      "notes": "One of several major flares from this active region.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1989-03-06",
+      "time": "13:50",
+      "class": "X15.0",
+      "region": null,
+      "notes": "Precursor to the March 1989 geomagnetic storm that caused Quebec blackout.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1978-07-11",
+      "time": "10:54",
+      "class": "X15.0",
+      "region": null,
+      "notes": "Early satellite era measurement.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2001-04-15",
+      "time": "13:50",
+      "class": "X14.4",
+      "region": "AR 9415",
+      "notes": "Major flare during Solar Cycle 23.",
+      "geoeffective": false,
+      "associatedCME": true
+    },
+    {
+      "date": "1984-04-24",
+      "time": "23:49",
+      "class": "X13.0",
+      "region": null,
+      "notes": "Solar Cycle 21 event.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1989-10-19",
+      "time": "12:29",
+      "class": "X13.0",
+      "region": null,
+      "notes": "Solar Cycle 22 event.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1982-12-15",
+      "time": "23:49",
+      "class": "X12.9",
+      "region": null,
+      "notes": "Solar Cycle 21 event.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1991-06-01",
+      "time": "16:14",
+      "class": "X12.0",
+      "region": "AR 6659",
+      "notes": "Part of June 1991 activity - worst year for large flares.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1991-06-04",
+      "time": "03:37",
+      "class": "X12.0",
+      "region": "AR 6659",
+      "notes": "Part of June 1991 activity.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1991-06-06",
+      "time": "01:08",
+      "class": "X12.0",
+      "region": "AR 6659",
+      "notes": "Part of June 1991 activity.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1991-06-09",
+      "time": "01:40",
+      "class": "X10.0",
+      "region": "AR 6659",
+      "notes": "Part of June 1991 activity.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1991-06-11",
+      "time": "02:09",
+      "class": "X12.0",
+      "region": "AR 6659",
+      "notes": "Part of June 1991 activity.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "1991-06-15",
+      "time": "08:21",
+      "class": "X12.0",
+      "region": "AR 6659",
+      "notes": "Part of June 1991 activity.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2003-10-29",
+      "time": "20:49",
+      "class": "X10.0",
+      "region": "AR 10486",
+      "notes": "Halloween Solar Storms continuation.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2017-09-06",
+      "time": "12:02",
+      "class": "X9.3",
+      "region": "AR 2673",
+      "notes": "Strongest flare of Solar Cycle 24.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2017-09-10",
+      "time": "16:06",
+      "class": "X8.2",
+      "region": "AR 2673",
+      "notes": "Second strongest of Solar Cycle 24. Limb event.",
+      "geoeffective": false,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-10-03",
+      "time": "12:18",
+      "class": "X9.0",
+      "region": "AR 3842",
+      "notes": "Strongest flare of Solar Cycle 25. Produced Earth-directed CME.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-05-14",
+      "time": "16:51",
+      "class": "X8.7",
+      "region": "AR 3664",
+      "notes": "Part of May 2024 solar storm that produced historic aurora displays.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-10-01",
+      "time": "22:20",
+      "class": "X7.1",
+      "region": "AR 3842",
+      "notes": "Precursor to X9.0 flare two days later.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-05-11",
+      "time": "01:23",
+      "class": "X5.8",
+      "region": "AR 3664",
+      "notes": "Part of historic May 2024 solar storm series.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-05-10",
+      "time": "06:54",
+      "class": "X5.4",
+      "region": "AR 3664",
+      "notes": "Part of May 2024 solar storm that produced G5 geomagnetic storm.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-02-22",
+      "time": "22:34",
+      "class": "X6.3",
+      "region": "AR 3590",
+      "notes": "Largest flare of early 2024.",
+      "geoeffective": false,
+      "associatedCME": true
+    },
+    {
+      "date": "2024-01-01",
+      "time": "00:55",
+      "class": "X5.0",
+      "region": "AR 3536",
+      "notes": "New Year's Day flare marking active start to 2024.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2023-12-31",
+      "time": "21:55",
+      "class": "X5.0",
+      "region": "AR 3536",
+      "notes": "New Year's Eve flare.",
+      "geoeffective": true,
+      "associatedCME": true
+    },
+    {
+      "date": "2023-02-17",
+      "time": "20:16",
+      "class": "X2.3",
+      "region": "AR 3229",
+      "notes": "Early Solar Cycle 25 X-class event.",
+      "geoeffective": false,
+      "associatedCME": true
+    },
+    {
+      "date": "2026-01-18",
+      "time": "18:09",
+      "class": "X1.9",
+      "region": "AR 4341",
+      "notes": "Recent flare from current data.",
+      "geoeffective": true,
+      "associatedCME": true
+    }
+  ],
+  "notableStorms": [
+    {
+      "name": "Carrington Event",
+      "date": "1859-09-01",
+      "estimatedClass": "X45+",
+      "description": "Most powerful solar storm in recorded history. Telegraph systems failed worldwide. Auroras visible in tropical latitudes.",
+      "geomagneticIndex": "Dst estimated -850 to -1760 nT"
+    },
+    {
+      "name": "Halloween Solar Storms",
+      "dates": ["2003-10-28", "2003-10-29", "2003-11-04"],
+      "description": "Series of powerful flares causing widespread effects. Satellite damage, airline reroutes, power grid fluctuations.",
+      "maxClass": "X28"
+    },
+    {
+      "name": "March 1989 Storm",
+      "date": "1989-03-13",
+      "description": "Caused Quebec power grid collapse, leaving 6 million without power for 9 hours.",
+      "geomagneticIndex": "Kp=9, Dst=-589 nT"
+    },
+    {
+      "name": "May 2024 Storm",
+      "dates": ["2024-05-10", "2024-05-11", "2024-05-14"],
+      "description": "G5 extreme geomagnetic storm. Historic aurora displays visible at unusually low latitudes worldwide.",
+      "maxClass": "X8.7"
+    },
+    {
+      "name": "Bastille Day Event",
+      "date": "2000-07-14",
+      "class": "X5.7",
+      "description": "Major solar event causing satellite anomalies and spectacular auroras.",
+      "geomagneticIndex": "Dst=-301 nT"
+    }
+  ],
+  "statistics": {
+    "averageXClassPerCycle": 175,
+    "averageX10PerCycle": 8,
+    "solarCycle25Peak": "October 2024",
+    "cycle25PeakSSN": 161,
+    "totalX2024": 50
+  }
+}
