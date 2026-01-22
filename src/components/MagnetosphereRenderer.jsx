@@ -99,8 +99,9 @@ function getMagnetopauseBoundary(standoffDistance, numPoints = 100) {
     const theta = (i / numPoints) * Math.PI * 1.67 - Math.PI * 0.83;
     const r = r0 * Math.pow(2 / (1 + Math.cos(theta)), alpha);
 
+    // Negate X so sunward side (magnetopause nose) faces left toward Sun
     points.push({
-      x: r * Math.cos(theta),
+      x: -r * Math.cos(theta),
       y: r * Math.sin(theta),
     });
   }
@@ -119,8 +120,9 @@ function getBowShockBoundary(standoffDistance, numPoints = 80) {
     const theta = (i / numPoints) * Math.PI * 1.4 - Math.PI * 0.7;
     const r = r0 * Math.pow(2 / (1 + 0.8 * Math.cos(theta)), 0.7);
 
+    // Negate X so bow shock faces left toward Sun
     points.push({
-      x: r * Math.cos(theta),
+      x: -r * Math.cos(theta),
       y: r * Math.sin(theta),
     });
   }
@@ -147,10 +149,12 @@ function generateFieldValues(width, height, params, mode) {
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       // Convert to Earth radii coordinates
+      // Note: negative X is sunward (toward left side of screen)
       const xRe = (x - centerX) / scale;
       const yRe = (y - centerY) / scale;
       const r = Math.sqrt(xRe * xRe + yRe * yRe);
-      const theta = Math.atan2(yRe, xRe);
+      // Use -xRe so theta=0 points sunward (left)
+      const theta = Math.atan2(yRe, -xRe);
 
       let value = 0;
 
@@ -163,8 +167,8 @@ function generateFieldValues(width, height, params, mode) {
       // Calculate magnetopause distance at this angle
       const mpDist = standoffRe * Math.pow(2 / (1 + Math.cos(theta)), 0.58);
 
-      // Solar wind region (outside magnetopause)
-      if (r > mpDist || xRe > standoffRe * 0.8) {
+      // Solar wind region (outside magnetopause, or in the tail region on the right)
+      if (r > mpDist || xRe > standoffRe * 0.5) {
         if (mode === 'velocity') {
           // Velocity decreases as it flows around magnetosphere
           const flowFactor = Math.max(0.3, 1 - Math.abs(yRe) / 15);
