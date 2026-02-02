@@ -14,6 +14,19 @@ const DIRECTORY_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 // Check if we're deployed (use API routes) or local (direct NOAA requests)
 const USE_API = import.meta.env.PROD;
 
+/**
+ * Get proxied image URL for caching at Vercel edge
+ * In production, routes through /api/image for caching
+ * In development, uses direct NOAA URLs
+ */
+function getProxiedImageUrl(url) {
+  if (!url) return url;
+  if (USE_API && url.includes('services.swpc.noaa.gov')) {
+    return `/api/image?url=${encodeURIComponent(url)}`;
+  }
+  return url;
+}
+
 // Source categories for organization
 const SOURCE_CATEGORIES = {
   solar: { name: 'Solar Imagery', icon: Sun },
@@ -511,7 +524,7 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
   return minDiff <= maxDiffMs ? closest : null;
 }
 
-// Preload a single image with caching
+// Preload a single image with caching (via proxy in production)
 async function preloadImage(url, timeout = 8000) {
   if (imageCache.has(url)) return true;
 
@@ -528,7 +541,8 @@ async function preloadImage(url, timeout = 8000) {
       clearTimeout(timeoutId);
       resolve(false);
     };
-    img.src = url;
+    // Route through proxy in production for edge caching
+    img.src = getProxiedImageUrl(url);
   });
 }
 
@@ -632,7 +646,8 @@ export default function SpaceWeatherViewer() {
       const img = new Image();
       img.onload = () => resolve(true);
       img.onerror = () => resolve(false);
-      img.src = sourceConfig.latestUrl + '?t=' + Date.now();
+      // Check via proxy in production, with cache-buster to test connectivity
+      img.src = getProxiedImageUrl(sourceConfig.latestUrl) + (USE_API ? '&' : '?') + 't=' + Date.now();
     });
 
     if (!latestWorks) {
@@ -894,7 +909,7 @@ export default function SpaceWeatherViewer() {
           </div>
         ) : frame ? (
           <img
-            src={frame.url}
+            src={getProxiedImageUrl(frame.url)}
             alt={config.name}
             className="w-full h-auto object-contain"
           />
@@ -1230,7 +1245,7 @@ export default function SpaceWeatherViewer() {
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
                 <img
-                  src={latestImageUrl}
+                  src={getProxiedImageUrl(latestImageUrl)}
                   alt={`${currentSourceConfig?.name || 'Source'} - Latest`}
                   className="w-full h-auto object-contain"
                 />
@@ -1244,7 +1259,7 @@ export default function SpaceWeatherViewer() {
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
                 <img
-                  src={currentFrameData.url}
+                  src={getProxiedImageUrl(currentFrameData.url)}
                   alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
                   className="w-full h-auto object-contain"
                 />
@@ -1256,7 +1271,7 @@ export default function SpaceWeatherViewer() {
           ) : latestImageUrl ? (
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <img
-                src={latestImageUrl}
+                src={getProxiedImageUrl(latestImageUrl)}
                 alt={`${currentSourceConfig?.name || 'Source'} - Latest`}
                 className="w-full h-auto object-contain"
               />
