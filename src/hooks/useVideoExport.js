@@ -5,7 +5,8 @@ import {
   exportToGIF,
   supportsMediaRecorder,
   downloadBlob,
-  RESOLUTION_PRESETS
+  RESOLUTION_PRESETS,
+  getVideoFileExtension
 } from '../utils/videoExport';
 
 /**
@@ -107,9 +108,10 @@ export function useVideoExport() {
         return;
       }
 
-      // Generate filename
+      // Generate filename (use actual extension for video - might be mp4 on iOS instead of webm)
       const timestamp = new Date().toISOString().slice(0, 19).replace(/[:-]/g, '');
-      const filename = `space-weather-${sourceKey}-${timestamp}.${format}`;
+      const ext = format === 'webm' ? getVideoFileExtension() : 'gif';
+      const filename = `space-weather-${sourceKey}-${timestamp}.${ext}`;
 
       downloadBlob(blob, filename);
 
@@ -239,9 +241,10 @@ export function useVideoExport() {
         return;
       }
 
-      // Generate filename
+      // Generate filename (use actual extension for video - might be mp4 on iOS instead of webm)
       const timestamp = new Date().toISOString().slice(0, 19).replace(/[:-]/g, '');
-      const filename = `space-weather-multiview-${timestamp}.${format}`;
+      const ext = format === 'webm' ? getVideoFileExtension() : 'gif';
+      const filename = `space-weather-multiview-${timestamp}.${ext}`;
 
       downloadBlob(blob, filename);
 

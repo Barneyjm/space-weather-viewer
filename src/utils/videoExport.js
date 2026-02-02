@@ -4,37 +4,51 @@
 const USE_API = import.meta.env.PROD;
 
 /**
- * Check if MediaRecorder API is supported with WebM
+ * Check if MediaRecorder API is supported
  */
 export function supportsMediaRecorder() {
   if (typeof MediaRecorder === 'undefined') return false;
 
-  // Check for WebM support
+  // Check for video recording support (WebM or MP4)
   const types = [
     'video/webm;codecs=vp9',
     'video/webm;codecs=vp8',
-    'video/webm'
+    'video/webm',
+    'video/mp4;codecs=avc1',
+    'video/mp4'
   ];
 
   return types.some(type => MediaRecorder.isTypeSupported(type));
 }
 
 /**
- * Get the best supported WebM codec
+ * Get the best supported video mime type
+ * Prefers WebM on desktop, but iOS Safari only supports MP4
  */
-function getBestWebMType() {
+function getBestVideoMimeType() {
+  // Priority order: VP9 > VP8 > WebM > MP4 (H.264)
   const types = [
-    'video/webm;codecs=vp9',
-    'video/webm;codecs=vp8',
-    'video/webm'
+    { mime: 'video/webm;codecs=vp9', ext: 'webm' },
+    { mime: 'video/webm;codecs=vp8', ext: 'webm' },
+    { mime: 'video/webm', ext: 'webm' },
+    { mime: 'video/mp4;codecs=avc1', ext: 'mp4' },
+    { mime: 'video/mp4', ext: 'mp4' }
   ];
 
   for (const type of types) {
-    if (MediaRecorder.isTypeSupported(type)) {
+    if (MediaRecorder.isTypeSupported(type.mime)) {
       return type;
     }
   }
-  return 'video/webm';
+  // Fallback
+  return { mime: 'video/webm', ext: 'webm' };
+}
+
+/**
+ * Get the actual file extension for the video format being used
+ */
+export function getVideoFileExtension() {
+  return getBestVideoMimeType().ext;
 }
 
 /**
@@ -233,7 +247,7 @@ export function renderMultiViewFrame(ctx, canvas, timelineEntry, sources, source
 }
 
 /**
- * Export frames to WebM using MediaRecorder
+ * Export frames to video using MediaRecorder (WebM on desktop, MP4 on iOS)
  */
 export async function exportToWebM(frames, config, onProgress) {
   const { width, height, frameDelay } = config;
@@ -245,7 +259,7 @@ export async function exportToWebM(frames, config, onProgress) {
 
   // Create stream from canvas
   const stream = canvas.captureStream(0); // 0 = manual frame control
-  const mimeType = getBestWebMType();
+  const { mime: mimeType } = getBestVideoMimeType();
 
   const recorder = new MediaRecorder(stream, {
     mimeType,
@@ -331,8 +345,11 @@ export async function exportToWebM(frames, config, onProgress) {
 export async function exportToGIF(frames, config, onProgress) {
   const { width, height, frameDelay } = config;
 
-  // Dynamically import gif.js
-  const GIF = await loadGifJs();
+  // Dynamically import gif.js and get worker blob URL in parallel
+  const [GIF, workerUrl] = await Promise.all([
+    loadGifJs(),
+    getGifWorkerBlobUrl()
+  ]);
 
   const canvas = document.createElement('canvas');
   canvas.width = width;
@@ -358,7 +375,7 @@ export async function exportToGIF(frames, config, onProgress) {
       quality: 10,
       width,
       height,
-      workerScript: getGifWorkerUrl()
+      workerScript: workerUrl
     });
 
     gif.on('finished', (blob) => {
@@ -450,10 +467,28 @@ async function loadGifJs() {
 }
 
 /**
- * Get gif.js worker URL
+ * Cached blob URL for gif.js worker (to avoid re-fetching)
  */
-function getGifWorkerUrl() {
-  return 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js';
+let gifWorkerBlobUrl = null;
+
+/**
+ * Get gif.js worker URL - creates a blob URL to avoid cross-origin issues on mobile
+ */
+async function getGifWorkerBlobUrl() {
+  if (gifWorkerBlobUrl) return gifWorkerBlobUrl;
+
+  try {
+    const response = await fetch('https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js');
+    if (!response.ok) throw new Error('Failed to fetch worker');
+    const workerCode = await response.text();
+    const blob = new Blob([workerCode], { type: 'application/javascript' });
+    gifWorkerBlobUrl = URL.createObjectURL(blob);
+    return gifWorkerBlobUrl;
+  } catch (err) {
+    // Fallback to CDN URL (might work on desktop)
+    console.warn('Could not create blob URL for GIF worker, falling back to CDN:', err);
+    return 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js';
+  }
 }
 
 /**
