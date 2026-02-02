@@ -267,13 +267,27 @@ export async function exportToWebM(frames, config, onProgress) {
       resolve(blob);
     };
 
-    recorder.start();
+    // Use timeslice to get data in chunks for better compatibility
+    recorder.start(100); // Request data every 100ms
 
     let frameIndex = 0;
 
     const renderNextFrame = async () => {
       if (frameIndex >= frames.length) {
-        recorder.stop();
+        // Wait for the last frame to be fully encoded before stopping
+        // This ensures proper container finalization
+        setTimeout(() => {
+          // Request any remaining data before stopping
+          if (recorder.state === 'recording') {
+            recorder.requestData();
+            // Give time for the data to be collected, then stop
+            setTimeout(() => {
+              if (recorder.state === 'recording') {
+                recorder.stop();
+              }
+            }, 200);
+          }
+        }, frameDelay + 100);
         return;
       }
 
@@ -300,7 +314,9 @@ export async function exportToWebM(frames, config, onProgress) {
         // Wait for frame duration then render next
         setTimeout(renderNextFrame, frameDelay);
       } catch (err) {
-        recorder.stop();
+        if (recorder.state === 'recording') {
+          recorder.stop();
+        }
         reject(err);
       }
     };
@@ -324,6 +340,19 @@ export async function exportToGIF(frames, config, onProgress) {
   const ctx = canvas.getContext('2d');
 
   return new Promise((resolve, reject) => {
+    let isResolved = false;
+    let timeoutId = null;
+
+    // Timeout after 2 minutes of encoding (workers may have failed silently)
+    const ENCODING_TIMEOUT = 120000;
+
+    const cleanup = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+    };
+
     const gif = new GIF({
       workers: 2,
       quality: 10,
@@ -333,10 +362,24 @@ export async function exportToGIF(frames, config, onProgress) {
     });
 
     gif.on('finished', (blob) => {
+      if (isResolved) return;
+      isResolved = true;
+      cleanup();
       resolve(blob);
     });
 
-    gif.on('error', reject);
+    gif.on('error', (err) => {
+      if (isResolved) return;
+      isResolved = true;
+      cleanup();
+      reject(err);
+    });
+
+    // Track encoding progress (fires during render phase)
+    gif.on('progress', (p) => {
+      // p is 0-1, map to percentage of the encoding phase
+      onProgress(frames.length, frames.length, `Encoding GIF (${Math.round(p * 100)}%)`);
+    });
 
     // Render all frames
     frames.forEach((frame, index) => {
@@ -350,17 +393,31 @@ export async function exportToGIF(frames, config, onProgress) {
         gif.addFrame(ctx, { copy: true, delay: frameDelay });
         onProgress(index + 1, frames.length, 'Adding frames');
       } catch (err) {
-        reject(err);
+        if (!isResolved) {
+          isResolved = true;
+          cleanup();
+          reject(err);
+        }
       }
     });
 
-    onProgress(frames.length, frames.length, 'Encoding GIF');
+    onProgress(frames.length, frames.length, 'Encoding GIF (0%)');
+
+    // Set timeout to detect hung workers
+    timeoutId = setTimeout(() => {
+      if (!isResolved) {
+        isResolved = true;
+        gif.abort();
+        reject(new Error('GIF encoding timed out. This may be due to worker loading issues on mobile browsers. Try WebM format instead.'));
+      }
+    }, ENCODING_TIMEOUT);
+
     gif.render();
   });
 }
 
 /**
- * Load gif.js library dynamically
+ * Load gif.js library dynamically with timeout
  */
 async function loadGifJs() {
   if (window.GIF) return window.GIF;
@@ -368,8 +425,26 @@ async function loadGifJs() {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js';
-    script.onload = () => resolve(window.GIF);
-    script.onerror = () => reject(new Error('Failed to load gif.js'));
+
+    // Timeout after 10 seconds
+    const timeoutId = setTimeout(() => {
+      reject(new Error('Failed to load GIF library (timeout). Check your network connection.'));
+    }, 10000);
+
+    script.onload = () => {
+      clearTimeout(timeoutId);
+      if (window.GIF) {
+        resolve(window.GIF);
+      } else {
+        reject(new Error('GIF library loaded but not available. Try refreshing the page.'));
+      }
+    };
+
+    script.onerror = () => {
+      clearTimeout(timeoutId);
+      reject(new Error('Failed to load GIF library. Check your network connection or try WebM format.'));
+    };
+
     document.head.appendChild(script);
   });
 }
