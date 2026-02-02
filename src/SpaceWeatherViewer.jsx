@@ -590,7 +590,8 @@ export default function SpaceWeatherViewer() {
     startMultiViewExport,
     cancelExport,
     clearError: clearExportError,
-    supportsMediaRecorder
+    supportsMediaRecorder,
+    videoFormatLabel
   } = useVideoExport();
 
   // Update URL when channel selection changes
@@ -1399,6 +1400,7 @@ export default function SpaceWeatherViewer() {
         status={exportStatus}
         error={exportError}
         supportsWebM={supportsMediaRecorder}
+        videoFormatLabel={videoFormatLabel}
         onExport={handleExport}
         onCancel={cancelExport}
         onClearError={clearExportError}

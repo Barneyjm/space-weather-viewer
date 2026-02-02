@@ -6,7 +6,8 @@ import {
   supportsMediaRecorder,
   downloadBlob,
   RESOLUTION_PRESETS,
-  getVideoFileExtension
+  getVideoFileExtension,
+  getVideoFormatLabel
 } from '../utils/videoExport';
 
 /**
@@ -287,6 +288,7 @@ export function useVideoExport() {
     startMultiViewExport,
     cancelExport,
     clearError,
-    supportsMediaRecorder: supportsMediaRecorder()
+    supportsMediaRecorder: supportsMediaRecorder(),
+    videoFormatLabel: getVideoFormatLabel()
   };
 }

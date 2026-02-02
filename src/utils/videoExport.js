@@ -4,6 +4,17 @@
 const USE_API = import.meta.env.PROD;
 
 /**
+ * Detect if running on iOS Safari
+ * iOS Safari lies about WebM support - it claims to support it but produces broken files
+ */
+function isIOSSafari() {
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isSafari = /Safari/.test(ua) && !/Chrome|CriOS|FxiOS/.test(ua);
+  return isIOS && isSafari;
+}
+
+/**
  * Check if MediaRecorder API is supported
  */
 export function supportsMediaRecorder() {
@@ -23,9 +34,19 @@ export function supportsMediaRecorder() {
 
 /**
  * Get the best supported video mime type
- * Prefers WebM on desktop, but iOS Safari only supports MP4
+ * iOS Safari lies about WebM support, so we force MP4 on iOS
  */
 function getBestVideoMimeType() {
+  // iOS Safari claims WebM support but produces broken files - force MP4
+  if (isIOSSafari()) {
+    if (MediaRecorder.isTypeSupported('video/mp4;codecs=avc1')) {
+      return { mime: 'video/mp4;codecs=avc1', ext: 'mp4' };
+    }
+    if (MediaRecorder.isTypeSupported('video/mp4')) {
+      return { mime: 'video/mp4', ext: 'mp4' };
+    }
+  }
+
   // Priority order: VP9 > VP8 > WebM > MP4 (H.264)
   const types = [
     { mime: 'video/webm;codecs=vp9', ext: 'webm' },
@@ -49,6 +70,14 @@ function getBestVideoMimeType() {
  */
 export function getVideoFileExtension() {
   return getBestVideoMimeType().ext;
+}
+
+/**
+ * Get a display label for the video format (for UI)
+ */
+export function getVideoFormatLabel() {
+  const ext = getBestVideoMimeType().ext;
+  return ext === 'mp4' ? 'MP4' : 'WebM';
 }
 
 /**
@@ -286,22 +315,23 @@ export async function exportToWebM(frames, config, onProgress) {
 
     let frameIndex = 0;
 
+    // Helper for promise-based delay
+    const delay = (ms) => new Promise(r => setTimeout(r, ms));
+
     const renderNextFrame = async () => {
       if (frameIndex >= frames.length) {
-        // Wait for the last frame to be fully encoded before stopping
-        // This ensures proper container finalization
-        setTimeout(() => {
-          // Request any remaining data before stopping
+        // Wait for the last frame to be fully encoded before stopping.
+        // This ensures proper container finalization.
+        await delay(200);
+
+        if (recorder.state === 'recording') {
+          recorder.requestData();
+          // Give time for the data to be collected before stopping.
+          await delay(200);
           if (recorder.state === 'recording') {
-            recorder.requestData();
-            // Give time for the data to be collected, then stop
-            setTimeout(() => {
-              if (recorder.state === 'recording') {
-                recorder.stop();
-              }
-            }, 200);
+            recorder.stop();
           }
-        }, frameDelay + 100);
+        }
         return;
       }
 
@@ -326,7 +356,8 @@ export async function exportToWebM(frames, config, onProgress) {
         onProgress(frameIndex, frames.length);
 
         // Wait for frame duration then render next
-        setTimeout(renderNextFrame, frameDelay);
+        await delay(frameDelay);
+        renderNextFrame();
       } catch (err) {
         if (recorder.state === 'recording') {
           recorder.stop();
