@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download, Blend } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download, Blend, Layers } from 'lucide-react';
 import { useVideoExport } from './hooks/useVideoExport';
 import { ExportModal } from './components/ExportModal';
+import { RunningDifference } from './components/RunningDifference';
 import HistoricalEventPlayer from './components/HistoricalEventPlayer';
 
 // Image cache to avoid re-fetching frames we already have
@@ -593,8 +594,11 @@ export default function SpaceWeatherViewer() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [showExportModal, setShowExportModal] = useState(false);
   const [smoothPlayback, setSmoothPlayback] = useState(false);
+  const [showDifference, setShowDifference] = useState(false);
   const intervalRef = useRef(null);
   const prevFrameUrlRef = useRef(null);
+  const diffCanvasRef = useRef(null);
+  const prevImageDataRef = useRef(null);
 
   // Video export hook
   const {
@@ -1260,21 +1264,42 @@ export default function SpaceWeatherViewer() {
           ) : currentFrameData ? (
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
-                {/* Crossfade: show previous frame fading out behind current frame */}
-                {smoothPlayback && prevFrameUrlRef.current && prevFrameUrlRef.current !== currentFrameData.url && (
-                  <img
-                    key={prevFrameUrlRef.current}
-                    src={getProxiedImageUrl(prevFrameUrlRef.current)}
-                    alt=""
-                    className="absolute inset-0 w-full h-auto object-contain animate-fade-out"
-                  />
+                {showDifference ? (
+                  /* Running difference mode */
+                  <>
+                    <RunningDifference
+                      currentUrl={getProxiedImageUrl(currentFrameData.url)}
+                      previousUrl={currentFrameIndex > 0 && loadedFrames[currentFrameIndex - 1]
+                        ? getProxiedImageUrl(loadedFrames[currentFrameIndex - 1].url)
+                        : null}
+                      alt={`${currentSourceConfig?.name || 'Source'} - Difference`}
+                      className="w-full"
+                    />
+                    <div className="absolute top-2 left-2 bg-orange-600/80 backdrop-blur rounded-full px-3 py-1 text-xs flex items-center gap-1">
+                      <Layers className="w-3 h-3" />
+                      Running Difference
+                    </div>
+                  </>
+                ) : (
+                  /* Normal image display */
+                  <>
+                    {/* Crossfade: show previous frame fading out behind current frame */}
+                    {smoothPlayback && prevFrameUrlRef.current && prevFrameUrlRef.current !== currentFrameData.url && (
+                      <img
+                        key={prevFrameUrlRef.current}
+                        src={getProxiedImageUrl(prevFrameUrlRef.current)}
+                        alt=""
+                        className="absolute inset-0 w-full h-auto object-contain animate-fade-out"
+                      />
+                    )}
+                    <img
+                      src={getProxiedImageUrl(currentFrameData.url)}
+                      alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
+                      className={`w-full h-auto object-contain ${smoothPlayback ? 'animate-fade-in' : ''}`}
+                      onLoad={() => { prevFrameUrlRef.current = currentFrameData.url; }}
+                    />
+                  </>
                 )}
-                <img
-                  src={getProxiedImageUrl(currentFrameData.url)}
-                  alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
-                  className={`w-full h-auto object-contain ${smoothPlayback ? 'animate-fade-in' : ''}`}
-                  onLoad={() => { prevFrameUrlRef.current = currentFrameData.url; }}
-                />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur rounded-lg px-3 py-1.5 text-xs text-center">
                   {displayTimestamp(currentFrameData)}
                 </div>
@@ -1310,6 +1335,17 @@ export default function SpaceWeatherViewer() {
                 </div>
 
                 <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setShowDifference(!showDifference)}
+                    className={`p-2 rounded-lg transition-colors ${
+                      showDifference
+                        ? 'bg-orange-500/20 text-orange-400 ring-1 ring-orange-500/50'
+                        : 'bg-white/5 hover:bg-white/10 text-slate-400'
+                    }`}
+                    title={showDifference ? 'Running difference ON' : 'Running difference OFF'}
+                  >
+                    <Layers className="w-5 h-5" />
+                  </button>
                   <button
                     onClick={() => setSmoothPlayback(!smoothPlayback)}
                     className={`p-2 rounded-lg transition-colors ${
