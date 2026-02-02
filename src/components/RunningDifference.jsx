@@ -9,19 +9,41 @@ export function RunningDifference({ currentUrl, previousUrl, alt, className }) {
   const canvasRef = useRef(null);
   const [isProcessing, setIsProcessing] = useState(true);
   const [error, setError] = useState(null);
+  const [fallbackMode, setFallbackMode] = useState(false);
 
   useEffect(() => {
-    if (!currentUrl || !canvasRef.current) return;
+    if (!currentUrl) {
+      setIsProcessing(false);
+      return;
+    }
+    if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+    // Set a reasonable default size while loading
+    if (canvas.width === 0) {
+      canvas.width = 512;
+      canvas.height = 512;
+    }
 
     const loadImage = (url) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
         img.crossOrigin = 'anonymous';
-        img.onload = () => resolve(img);
-        img.onerror = () => reject(new Error(`Failed to load: ${url}`));
+
+        const timeout = setTimeout(() => {
+          reject(new Error('Image load timeout'));
+        }, 10000);
+
+        img.onload = () => {
+          clearTimeout(timeout);
+          resolve(img);
+        };
+        img.onerror = () => {
+          clearTimeout(timeout);
+          reject(new Error(`Failed to load image`));
+        };
         img.src = url;
       });
     };
@@ -29,6 +51,7 @@ export function RunningDifference({ currentUrl, previousUrl, alt, className }) {
     const computeDifference = async () => {
       setIsProcessing(true);
       setError(null);
+      setFallbackMode(false);
 
       try {
         // Load current image
@@ -55,9 +78,19 @@ export function RunningDifference({ currentUrl, previousUrl, alt, className }) {
         // Load previous image
         const prevImg = await loadImage(previousUrl);
 
-        // Draw current image and get pixel data
+        // Draw current image and try to get pixel data
         ctx.drawImage(currentImg, 0, 0);
-        const currentData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+        let currentData;
+        try {
+          currentData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        } catch (securityError) {
+          // CORS issue - fall back to showing regular image with overlay
+          console.warn('Cannot access pixel data (CORS):', securityError);
+          setFallbackMode(true);
+          setIsProcessing(false);
+          return;
+        }
 
         // Draw previous image and get pixel data
         ctx.drawImage(prevImg, 0, 0);
@@ -128,6 +161,7 @@ export function RunningDifference({ currentUrl, previousUrl, alt, className }) {
       } catch (err) {
         console.error('Error computing difference:', err);
         setError(err.message);
+        setFallbackMode(true);
         setIsProcessing(false);
       }
     };
@@ -135,19 +169,45 @@ export function RunningDifference({ currentUrl, previousUrl, alt, className }) {
     computeDifference();
   }, [currentUrl, previousUrl]);
 
+  // No URL provided - show placeholder
+  if (!currentUrl) {
+    return (
+      <div className={`relative ${className || ''}`} style={{ minHeight: '200px', background: '#000' }}>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-slate-400 text-sm">No image available</div>
+        </div>
+      </div>
+    );
+  }
+
+  // Fallback: show regular image when difference can't be computed
+  if (fallbackMode) {
+    return (
+      <div className={`relative ${className || ''}`} style={{ minHeight: '200px', background: '#000' }}>
+        <img
+          src={currentUrl}
+          alt={alt}
+          className="w-full h-auto object-contain"
+        />
+        <div className="absolute top-2 left-2 bg-red-600/80 backdrop-blur rounded px-2 py-1 text-xs">
+          Difference unavailable (CORS)
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={`relative ${className || ''}`}>
+    <div className={`relative ${className || ''}`} style={{ minHeight: '200px', background: '#000' }}>
       <canvas
         ref={canvasRef}
         className="w-full h-auto"
-        style={{ imageRendering: 'pixelated' }}
       />
       {isProcessing && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/50">
           <div className="text-cyan-400 text-sm">Computing difference...</div>
         </div>
       )}
-      {error && (
+      {error && !fallbackMode && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/50">
           <div className="text-red-400 text-sm">Error: {error}</div>
         </div>
