@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download, Blend, Layers } from 'lucide-react';
 import { useVideoExport } from './hooks/useVideoExport';
 import { ExportModal } from './components/ExportModal';
+import { RunningDifference } from './components/RunningDifference';
 import HistoricalEventPlayer from './components/HistoricalEventPlayer';
 
 // Image cache to avoid re-fetching frames we already have
@@ -13,6 +14,19 @@ const DIRECTORY_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 // Check if we're deployed (use API routes) or local (direct NOAA requests)
 const USE_API = import.meta.env.PROD;
+
+/**
+ * Get proxied image URL for caching at Vercel edge
+ * In production, routes through /api/image for caching
+ * In development, uses direct NOAA URLs
+ */
+function getProxiedImageUrl(url) {
+  if (!url) return url;
+  if (USE_API && url.includes('services.swpc.noaa.gov')) {
+    return `/api/image?url=${encodeURIComponent(url)}`;
+  }
+  return url;
+}
 
 // Source categories for organization
 const SOURCE_CATEGORIES = {
@@ -511,7 +525,7 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
   return minDiff <= maxDiffMs ? closest : null;
 }
 
-// Preload a single image with caching
+// Preload a single image with caching (via proxy in production)
 async function preloadImage(url, timeout = 8000) {
   if (imageCache.has(url)) return true;
 
@@ -528,7 +542,8 @@ async function preloadImage(url, timeout = 8000) {
       clearTimeout(timeoutId);
       resolve(false);
     };
-    img.src = url;
+    // Route through proxy in production for edge caching
+    img.src = getProxiedImageUrl(url);
   });
 }
 
@@ -578,7 +593,12 @@ export default function SpaceWeatherViewer() {
   const [latestImageUrl, setLatestImageUrl] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [showExportModal, setShowExportModal] = useState(false);
+  const [smoothPlayback, setSmoothPlayback] = useState(false);
+  const [showDifference, setShowDifference] = useState(false);
   const intervalRef = useRef(null);
+  const prevFrameUrlRef = useRef(null);
+  const diffCanvasRef = useRef(null);
+  const prevImageDataRef = useRef(null);
 
   // Video export hook
   const {
@@ -590,7 +610,8 @@ export default function SpaceWeatherViewer() {
     startMultiViewExport,
     cancelExport,
     clearError: clearExportError,
-    supportsMediaRecorder
+    supportsMediaRecorder,
+    videoFormatLabel
   } = useVideoExport();
 
   // Update URL when channel selection changes
@@ -631,7 +652,8 @@ export default function SpaceWeatherViewer() {
       const img = new Image();
       img.onload = () => resolve(true);
       img.onerror = () => resolve(false);
-      img.src = sourceConfig.latestUrl + '?t=' + Date.now();
+      // Check via proxy in production, with cache-buster to test connectivity
+      img.src = getProxiedImageUrl(sourceConfig.latestUrl) + (USE_API ? '&' : '?') + 't=' + Date.now();
     });
 
     if (!latestWorks) {
@@ -893,7 +915,7 @@ export default function SpaceWeatherViewer() {
           </div>
         ) : frame ? (
           <img
-            src={frame.url}
+            src={getProxiedImageUrl(frame.url)}
             alt={config.name}
             className="w-full h-auto object-contain"
           />
@@ -1229,7 +1251,7 @@ export default function SpaceWeatherViewer() {
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
                 <img
-                  src={latestImageUrl}
+                  src={getProxiedImageUrl(latestImageUrl)}
                   alt={`${currentSourceConfig?.name || 'Source'} - Latest`}
                   className="w-full h-auto object-contain"
                 />
@@ -1242,11 +1264,42 @@ export default function SpaceWeatherViewer() {
           ) : currentFrameData ? (
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
-                <img
-                  src={currentFrameData.url}
-                  alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
-                  className="w-full h-auto object-contain"
-                />
+                {showDifference ? (
+                  /* Running difference mode */
+                  <>
+                    <RunningDifference
+                      currentUrl={getProxiedImageUrl(currentFrameData.url)}
+                      previousUrl={currentFrameIndex > 0 && loadedFrames[currentFrameIndex - 1]
+                        ? getProxiedImageUrl(loadedFrames[currentFrameIndex - 1].url)
+                        : null}
+                      alt={`${currentSourceConfig?.name || 'Source'} - Difference`}
+                      className="w-full"
+                    />
+                    <div className="absolute top-2 left-2 bg-orange-600/80 backdrop-blur rounded-full px-3 py-1 text-xs flex items-center gap-1">
+                      <Layers className="w-3 h-3" />
+                      Running Difference
+                    </div>
+                  </>
+                ) : (
+                  /* Normal image display */
+                  <>
+                    {/* Crossfade: show previous frame fading out behind current frame */}
+                    {smoothPlayback && prevFrameUrlRef.current && prevFrameUrlRef.current !== currentFrameData.url && (
+                      <img
+                        key={prevFrameUrlRef.current}
+                        src={getProxiedImageUrl(prevFrameUrlRef.current)}
+                        alt=""
+                        className="absolute inset-0 w-full h-auto object-contain animate-fade-out"
+                      />
+                    )}
+                    <img
+                      src={getProxiedImageUrl(currentFrameData.url)}
+                      alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
+                      className={`w-full h-auto object-contain ${smoothPlayback ? 'animate-fade-in' : ''}`}
+                      onLoad={() => { prevFrameUrlRef.current = currentFrameData.url; }}
+                    />
+                  </>
+                )}
                 <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur rounded-lg px-3 py-1.5 text-xs text-center">
                   {displayTimestamp(currentFrameData)}
                 </div>
@@ -1255,7 +1308,7 @@ export default function SpaceWeatherViewer() {
           ) : latestImageUrl ? (
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <img
-                src={latestImageUrl}
+                src={getProxiedImageUrl(latestImageUrl)}
                 alt={`${currentSourceConfig?.name || 'Source'} - Latest`}
                 className="w-full h-auto object-contain"
               />
@@ -1282,6 +1335,28 @@ export default function SpaceWeatherViewer() {
                 </div>
 
                 <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setShowDifference(!showDifference)}
+                    className={`p-2 rounded-lg transition-colors ${
+                      showDifference
+                        ? 'bg-orange-500/20 text-orange-400 ring-1 ring-orange-500/50'
+                        : 'bg-white/5 hover:bg-white/10 text-slate-400'
+                    }`}
+                    title={showDifference ? 'Running difference ON' : 'Running difference OFF'}
+                  >
+                    <Layers className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setSmoothPlayback(!smoothPlayback)}
+                    className={`p-2 rounded-lg transition-colors ${
+                      smoothPlayback
+                        ? 'bg-cyan-500/20 text-cyan-400 ring-1 ring-cyan-500/50'
+                        : 'bg-white/5 hover:bg-white/10 text-slate-400'
+                    }`}
+                    title={smoothPlayback ? 'Smooth playback ON' : 'Smooth playback OFF'}
+                  >
+                    <Blend className="w-5 h-5" />
+                  </button>
                   <span className="text-xs text-slate-400">Speed:</span>
                   <select
                     value={speed}
@@ -1399,6 +1474,7 @@ export default function SpaceWeatherViewer() {
         status={exportStatus}
         error={exportError}
         supportsWebM={supportsMediaRecorder}
+        videoFormatLabel={videoFormatLabel}
         onExport={handleExport}
         onCancel={cancelExport}
         onClearError={clearExportError}

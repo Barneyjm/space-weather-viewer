@@ -4,37 +4,80 @@
 const USE_API = import.meta.env.PROD;
 
 /**
- * Check if MediaRecorder API is supported with WebM
+ * Detect if running on iOS Safari
+ * iOS Safari lies about WebM support - it claims to support it but produces broken files
+ */
+function isIOSSafari() {
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isSafari = /Safari/.test(ua) && !/Chrome|CriOS|FxiOS/.test(ua);
+  return isIOS && isSafari;
+}
+
+/**
+ * Check if MediaRecorder API is supported
  */
 export function supportsMediaRecorder() {
   if (typeof MediaRecorder === 'undefined') return false;
 
-  // Check for WebM support
+  // Check for video recording support (WebM or MP4)
   const types = [
     'video/webm;codecs=vp9',
     'video/webm;codecs=vp8',
-    'video/webm'
+    'video/webm',
+    'video/mp4;codecs=avc1',
+    'video/mp4'
   ];
 
   return types.some(type => MediaRecorder.isTypeSupported(type));
 }
 
 /**
- * Get the best supported WebM codec
+ * Get the best supported video mime type
+ * iOS Safari lies about WebM support, so we force MP4 on iOS
  */
-function getBestWebMType() {
+function getBestVideoMimeType() {
+  // iOS Safari claims WebM support but produces broken files - force MP4
+  if (isIOSSafari()) {
+    if (MediaRecorder.isTypeSupported('video/mp4;codecs=avc1')) {
+      return { mime: 'video/mp4;codecs=avc1', ext: 'mp4' };
+    }
+    if (MediaRecorder.isTypeSupported('video/mp4')) {
+      return { mime: 'video/mp4', ext: 'mp4' };
+    }
+  }
+
+  // Priority order: VP9 > VP8 > WebM > MP4 (H.264)
   const types = [
-    'video/webm;codecs=vp9',
-    'video/webm;codecs=vp8',
-    'video/webm'
+    { mime: 'video/webm;codecs=vp9', ext: 'webm' },
+    { mime: 'video/webm;codecs=vp8', ext: 'webm' },
+    { mime: 'video/webm', ext: 'webm' },
+    { mime: 'video/mp4;codecs=avc1', ext: 'mp4' },
+    { mime: 'video/mp4', ext: 'mp4' }
   ];
 
   for (const type of types) {
-    if (MediaRecorder.isTypeSupported(type)) {
+    if (MediaRecorder.isTypeSupported(type.mime)) {
       return type;
     }
   }
-  return 'video/webm';
+  // Fallback
+  return { mime: 'video/webm', ext: 'webm' };
+}
+
+/**
+ * Get the actual file extension for the video format being used
+ */
+export function getVideoFileExtension() {
+  return getBestVideoMimeType().ext;
+}
+
+/**
+ * Get a display label for the video format (for UI)
+ */
+export function getVideoFormatLabel() {
+  const ext = getBestVideoMimeType().ext;
+  return ext === 'mp4' ? 'MP4' : 'WebM';
 }
 
 /**
@@ -233,7 +276,7 @@ export function renderMultiViewFrame(ctx, canvas, timelineEntry, sources, source
 }
 
 /**
- * Export frames to WebM using MediaRecorder
+ * Export frames to video using MediaRecorder (WebM on desktop, MP4 on iOS)
  */
 export async function exportToWebM(frames, config, onProgress) {
   const { width, height, frameDelay } = config;
@@ -245,7 +288,7 @@ export async function exportToWebM(frames, config, onProgress) {
 
   // Create stream from canvas
   const stream = canvas.captureStream(0); // 0 = manual frame control
-  const mimeType = getBestWebMType();
+  const { mime: mimeType } = getBestVideoMimeType();
 
   const recorder = new MediaRecorder(stream, {
     mimeType,
@@ -267,13 +310,28 @@ export async function exportToWebM(frames, config, onProgress) {
       resolve(blob);
     };
 
-    recorder.start();
+    // Use timeslice to get data in chunks for better compatibility
+    recorder.start(100); // Request data every 100ms
 
     let frameIndex = 0;
 
+    // Helper for promise-based delay
+    const delay = (ms) => new Promise(r => setTimeout(r, ms));
+
     const renderNextFrame = async () => {
       if (frameIndex >= frames.length) {
-        recorder.stop();
+        // Wait for the last frame to be fully encoded before stopping.
+        // This ensures proper container finalization.
+        await delay(200);
+
+        if (recorder.state === 'recording') {
+          recorder.requestData();
+          // Give time for the data to be collected before stopping.
+          await delay(200);
+          if (recorder.state === 'recording') {
+            recorder.stop();
+          }
+        }
         return;
       }
 
@@ -298,9 +356,12 @@ export async function exportToWebM(frames, config, onProgress) {
         onProgress(frameIndex, frames.length);
 
         // Wait for frame duration then render next
-        setTimeout(renderNextFrame, frameDelay);
+        await delay(frameDelay);
+        renderNextFrame();
       } catch (err) {
-        recorder.stop();
+        if (recorder.state === 'recording') {
+          recorder.stop();
+        }
         reject(err);
       }
     };
@@ -315,8 +376,11 @@ export async function exportToWebM(frames, config, onProgress) {
 export async function exportToGIF(frames, config, onProgress) {
   const { width, height, frameDelay } = config;
 
-  // Dynamically import gif.js
-  const GIF = await loadGifJs();
+  // Dynamically import gif.js and get worker blob URL in parallel
+  const [GIF, workerUrl] = await Promise.all([
+    loadGifJs(),
+    getGifWorkerBlobUrl()
+  ]);
 
   const canvas = document.createElement('canvas');
   canvas.width = width;
@@ -324,19 +388,46 @@ export async function exportToGIF(frames, config, onProgress) {
   const ctx = canvas.getContext('2d');
 
   return new Promise((resolve, reject) => {
+    let isResolved = false;
+    let timeoutId = null;
+
+    // Timeout after 2 minutes of encoding (workers may have failed silently)
+    const ENCODING_TIMEOUT = 120000;
+
+    const cleanup = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+    };
+
     const gif = new GIF({
       workers: 2,
       quality: 10,
       width,
       height,
-      workerScript: getGifWorkerUrl()
+      workerScript: workerUrl
     });
 
     gif.on('finished', (blob) => {
+      if (isResolved) return;
+      isResolved = true;
+      cleanup();
       resolve(blob);
     });
 
-    gif.on('error', reject);
+    gif.on('error', (err) => {
+      if (isResolved) return;
+      isResolved = true;
+      cleanup();
+      reject(err);
+    });
+
+    // Track encoding progress (fires during render phase)
+    gif.on('progress', (p) => {
+      // p is 0-1, map to percentage of the encoding phase
+      onProgress(frames.length, frames.length, `Encoding GIF (${Math.round(p * 100)}%)`);
+    });
 
     // Render all frames
     frames.forEach((frame, index) => {
@@ -350,17 +441,31 @@ export async function exportToGIF(frames, config, onProgress) {
         gif.addFrame(ctx, { copy: true, delay: frameDelay });
         onProgress(index + 1, frames.length, 'Adding frames');
       } catch (err) {
-        reject(err);
+        if (!isResolved) {
+          isResolved = true;
+          cleanup();
+          reject(err);
+        }
       }
     });
 
-    onProgress(frames.length, frames.length, 'Encoding GIF');
+    onProgress(frames.length, frames.length, 'Encoding GIF (0%)');
+
+    // Set timeout to detect hung workers
+    timeoutId = setTimeout(() => {
+      if (!isResolved) {
+        isResolved = true;
+        gif.abort();
+        reject(new Error('GIF encoding timed out. This may be due to worker loading issues on mobile browsers. Try WebM format instead.'));
+      }
+    }, ENCODING_TIMEOUT);
+
     gif.render();
   });
 }
 
 /**
- * Load gif.js library dynamically
+ * Load gif.js library dynamically with timeout
  */
 async function loadGifJs() {
   if (window.GIF) return window.GIF;
@@ -368,17 +473,53 @@ async function loadGifJs() {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js';
-    script.onload = () => resolve(window.GIF);
-    script.onerror = () => reject(new Error('Failed to load gif.js'));
+
+    // Timeout after 10 seconds
+    const timeoutId = setTimeout(() => {
+      reject(new Error('Failed to load GIF library (timeout). Check your network connection.'));
+    }, 10000);
+
+    script.onload = () => {
+      clearTimeout(timeoutId);
+      if (window.GIF) {
+        resolve(window.GIF);
+      } else {
+        reject(new Error('GIF library loaded but not available. Try refreshing the page.'));
+      }
+    };
+
+    script.onerror = () => {
+      clearTimeout(timeoutId);
+      reject(new Error('Failed to load GIF library. Check your network connection or try WebM format.'));
+    };
+
     document.head.appendChild(script);
   });
 }
 
 /**
- * Get gif.js worker URL
+ * Cached blob URL for gif.js worker (to avoid re-fetching)
  */
-function getGifWorkerUrl() {
-  return 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js';
+let gifWorkerBlobUrl = null;
+
+/**
+ * Get gif.js worker URL - creates a blob URL to avoid cross-origin issues on mobile
+ */
+async function getGifWorkerBlobUrl() {
+  if (gifWorkerBlobUrl) return gifWorkerBlobUrl;
+
+  try {
+    const response = await fetch('https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js');
+    if (!response.ok) throw new Error('Failed to fetch worker');
+    const workerCode = await response.text();
+    const blob = new Blob([workerCode], { type: 'application/javascript' });
+    gifWorkerBlobUrl = URL.createObjectURL(blob);
+    return gifWorkerBlobUrl;
+  } catch (err) {
+    // Fallback to CDN URL (might work on desktop)
+    console.warn('Could not create blob URL for GIF worker, falling back to CDN:', err);
+    return 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js';
+  }
 }
 
 /**
