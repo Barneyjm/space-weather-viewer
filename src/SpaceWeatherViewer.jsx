@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RefreshCw, ChevronDown, ChevronUp, Zap, Globe, Sun, Wind, AlertCircle, Gauge, Waves, Grid3X3, Maximize2, Clock, Radio, Orbit, Activity, Eye, Compass, Check, Download, Blend } from 'lucide-react';
 import { useVideoExport } from './hooks/useVideoExport';
 import { ExportModal } from './components/ExportModal';
 import HistoricalEventPlayer from './components/HistoricalEventPlayer';
@@ -592,7 +592,9 @@ export default function SpaceWeatherViewer() {
   const [latestImageUrl, setLatestImageUrl] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [showExportModal, setShowExportModal] = useState(false);
+  const [smoothPlayback, setSmoothPlayback] = useState(false);
   const intervalRef = useRef(null);
+  const prevFrameUrlRef = useRef(null);
 
   // Video export hook
   const {
@@ -1258,10 +1260,20 @@ export default function SpaceWeatherViewer() {
           ) : currentFrameData ? (
             <div className="relative bg-black flex items-center justify-center" style={{ minHeight: '400px' }}>
               <div className="relative w-full">
+                {/* Crossfade: show previous frame fading out behind current frame */}
+                {smoothPlayback && prevFrameUrlRef.current && prevFrameUrlRef.current !== currentFrameData.url && (
+                  <img
+                    key={prevFrameUrlRef.current}
+                    src={getProxiedImageUrl(prevFrameUrlRef.current)}
+                    alt=""
+                    className="absolute inset-0 w-full h-auto object-contain animate-fade-out"
+                  />
+                )}
                 <img
                   src={getProxiedImageUrl(currentFrameData.url)}
                   alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
-                  className="w-full h-auto object-contain"
+                  className={`w-full h-auto object-contain ${smoothPlayback ? 'animate-fade-in' : ''}`}
+                  onLoad={() => { prevFrameUrlRef.current = currentFrameData.url; }}
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur rounded-lg px-3 py-1.5 text-xs text-center">
                   {displayTimestamp(currentFrameData)}
@@ -1298,6 +1310,17 @@ export default function SpaceWeatherViewer() {
                 </div>
 
                 <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setSmoothPlayback(!smoothPlayback)}
+                    className={`p-2 rounded-lg transition-colors ${
+                      smoothPlayback
+                        ? 'bg-cyan-500/20 text-cyan-400 ring-1 ring-cyan-500/50'
+                        : 'bg-white/5 hover:bg-white/10 text-slate-400'
+                    }`}
+                    title={smoothPlayback ? 'Smooth playback ON' : 'Smooth playback OFF'}
+                  >
+                    <Blend className="w-5 h-5" />
+                  </button>
                   <span className="text-xs text-slate-400">Speed:</span>
                   <select
                     value={speed}
