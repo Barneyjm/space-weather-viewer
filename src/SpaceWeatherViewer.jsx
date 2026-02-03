@@ -526,45 +526,84 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
 }
 
 // Preload a single image with caching (via proxy in production)
-async function preloadImage(url, timeout = 8000) {
-  if (imageCache.has(url)) return true;
+// Supports AbortSignal for cancellation
+async function preloadImage(url, timeout = 8000, signal = null) {
+  if (imageCache.has(url)) return { success: true, cached: true };
 
   return new Promise((resolve) => {
     const img = new Image();
-    const timeoutId = setTimeout(() => resolve(false), timeout);
+    const timeoutId = setTimeout(() => {
+      img.src = ''; // Cancel the load
+      resolve({ success: false, reason: 'timeout' });
+    }, timeout);
+
+    // Handle abort signal
+    if (signal) {
+      signal.addEventListener('abort', () => {
+        clearTimeout(timeoutId);
+        img.src = ''; // Cancel the load
+        resolve({ success: false, reason: 'aborted' });
+      });
+    }
 
     img.onload = () => {
       clearTimeout(timeoutId);
       imageCache.set(url, true);
-      resolve(true);
+      resolve({ success: true, cached: false });
     };
     img.onerror = () => {
       clearTimeout(timeoutId);
-      resolve(false);
+      resolve({ success: false, reason: 'error' });
     };
     // Route through proxy in production for edge caching
     img.src = getProxiedImageUrl(url);
   });
 }
 
-// Preload images in batches
-async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDelay = 100) {
+// Preload images in batches with abort support and stats tracking
+async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDelay = 100, signal = null) {
   let loaded = 0;
   const results = [];
+  const stats = { total: urls.length, fetched: 0, cached: 0, failed: 0, aborted: 0 };
 
   for (let i = 0; i < urls.length; i += batchSize) {
+    // Check if aborted before starting batch
+    if (signal?.aborted) {
+      stats.aborted = urls.length - loaded;
+      break;
+    }
+
     const batch = urls.slice(i, i + batchSize);
-    const batchResults = await Promise.all(batch.map(url => preloadImage(url)));
+    const batchResults = await Promise.all(batch.map(url => preloadImage(url, 8000, signal)));
+
+    // Track stats
+    for (const result of batchResults) {
+      if (result.success) {
+        if (result.cached) stats.cached++;
+        else stats.fetched++;
+      } else if (result.reason === 'aborted') {
+        stats.aborted++;
+      } else {
+        stats.failed++;
+      }
+    }
+
     results.push(...batchResults);
     loaded += batch.length;
-    onProgress(loaded, urls.length);
+    onProgress(loaded, urls.length, stats);
 
-    if (i + batchSize < urls.length) {
+    if (i + batchSize < urls.length && !signal?.aborted) {
       await new Promise(r => setTimeout(r, batchDelay));
     }
   }
 
-  return results;
+  // Log cache effectiveness for debugging
+  if (stats.total > 0) {
+    const cacheRate = Math.round((stats.cached / stats.total) * 100);
+    console.log(`[Cache] ${stats.cached}/${stats.total} from memory (${cacheRate}%), ${stats.fetched} fetched, ${stats.failed} failed, ${stats.aborted} aborted`);
+  }
+
+  return { results, stats };
 }
 
 // Get initial state from URL (computed once at module load for SSR safety)
@@ -630,8 +669,18 @@ export default function SpaceWeatherViewer() {
     });
   };
 
+  // AbortController ref for canceling in-flight requests
+  const abortControllerRef = useRef(null);
+
   // Load frames for single-view mode
   const loadSingleSource = useCallback(async (source) => {
+    // Cancel any in-flight requests from previous load
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+    const signal = abortControllerRef.current.signal;
+
     setLoading(true);
     setLoadProgress(0);
     setLoadingStatus('Checking connection...');
@@ -656,6 +705,8 @@ export default function SpaceWeatherViewer() {
       img.src = getProxiedImageUrl(sourceConfig.latestUrl) + (USE_API ? '&' : '?') + 't=' + Date.now();
     });
 
+    if (signal.aborted) return; // Cancelled while checking connection
+
     if (!latestWorks) {
       setErrorMsg('Could not load images from NOAA. The service may be temporarily unavailable.');
       setLoading(false);
@@ -667,6 +718,8 @@ export default function SpaceWeatherViewer() {
     setLoadProgress(10);
 
     const frames = await fetchFrameList(source, hoursBack);
+    if (signal.aborted) return; // Cancelled while fetching frame list
+
     setLoadProgress(30);
 
     if (frames.length === 0) {
@@ -679,9 +732,16 @@ export default function SpaceWeatherViewer() {
     setLoadingStatus(`Loading ${frames.length} frames...`);
     const urls = frames.map(f => f.url);
 
-    await preloadImagesInBatches(urls, (loaded, total) => {
-      setLoadProgress(30 + Math.round((loaded / total) * 70));
-    });
+    await preloadImagesInBatches(urls, (loaded, total, stats) => {
+      if (!signal.aborted) {
+        setLoadProgress(30 + Math.round((loaded / total) * 70));
+        if (stats) {
+          setLoadingStatus(`Loading frames... (${stats.cached} cached, ${stats.fetched} fetched)`);
+        }
+      }
+    }, 5, 100, signal);
+
+    if (signal.aborted) return; // Cancelled while preloading
 
     const validFrames = frames.filter(f => imageCache.has(f.url));
 
@@ -735,6 +795,13 @@ export default function SpaceWeatherViewer() {
 
   // Load frames for multi-view mode - progressive loading
   const loadMultiSources = useCallback(async (sources) => {
+    // Cancel any in-flight requests from previous load
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+    const signal = abortControllerRef.current.signal;
+
     // Initialize state - show grid immediately with loading placeholders
     const initialStatus = {};
     sources.forEach(key => { initialStatus[key] = 'loading'; });
@@ -752,6 +819,8 @@ export default function SpaceWeatherViewer() {
 
     // Load sources one by one, updating UI progressively
     for (let i = 0; i < sources.length; i++) {
+      if (signal.aborted) return; // Cancelled
+
       const key = sources[i];
       const config = ANIMATION_SOURCES[key];
       if (!config) continue;
@@ -761,13 +830,15 @@ export default function SpaceWeatherViewer() {
 
       try {
         const frames = await fetchFrameList(key, hoursBack);
+        if (signal.aborted) return; // Cancelled
 
         if (frames.length > 0) {
           accumulatedFrames[key] = frames;
 
           // Preload the most recent frame for this source immediately
           const latestFrame = frames[frames.length - 1];
-          await preloadImage(latestFrame.url);
+          await preloadImage(latestFrame.url, 8000, signal);
+          if (signal.aborted) return; // Cancelled
 
           // Update state with this source ready
           setSourceLoadStatus(prev => ({ ...prev, [key]: 'ready' }));
@@ -786,12 +857,15 @@ export default function SpaceWeatherViewer() {
           setSourceLoadStatus(prev => ({ ...prev, [key]: 'error' }));
         }
       } catch (err) {
+        if (signal.aborted) return; // Cancelled
         console.error(`Failed to load ${key}:`, err);
         setSourceLoadStatus(prev => ({ ...prev, [key]: 'error' }));
       }
 
       setLoadProgress(Math.round(((i + 1) / sources.length) * 100));
     }
+
+    if (signal.aborted) return; // Cancelled
 
     // After all sources loaded, preload remaining frames in background
     const allUrls = [];
@@ -805,8 +879,8 @@ export default function SpaceWeatherViewer() {
 
     if (allUrls.length > 0) {
       setLoadingStatus('Caching frames...');
-      // Preload in background without blocking
-      preloadImagesInBatches(allUrls, () => {}, 5, 50);
+      // Preload in background without blocking (pass signal for cancellation)
+      preloadImagesInBatches(allUrls, () => {}, 5, 50, signal);
     }
 
     setLoadingStatus('');
@@ -827,16 +901,14 @@ export default function SpaceWeatherViewer() {
     } else {
       loadSingleSource(selectedSource);
     }
-  }, [multiView, selectedSource, selectedMultiSources, loadSingleSource, loadMultiSources]);
 
-  // Reload when hours change
-  useEffect(() => {
-    if (multiView) {
-      loadMultiSources(selectedMultiSources);
-    } else {
-      loadSingleSource(selectedSource);
-    }
-  }, [hoursBack]);
+    // Cleanup: cancel in-flight requests when dependencies change or unmount
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, [multiView, selectedSource, selectedMultiSources, loadSingleSource, loadMultiSources, hoursBack]);
 
   // Animation loop
   useEffect(() => {
