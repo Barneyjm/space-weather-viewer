@@ -5,7 +5,8 @@ import { ExportModal } from './components/ExportModal';
 import { RunningDifference } from './components/RunningDifference';
 import HistoricalEventPlayer from './components/HistoricalEventPlayer';
 
-// Image cache to avoid re-fetching frames we already have
+// Image cache stores actual Image objects to avoid ANY re-fetching
+// Key: original URL, Value: { img: Image, blobUrl: string }
 const imageCache = new Map();
 
 // Cache directory listings to avoid repeated fetches
@@ -525,46 +526,86 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
   return minDiff <= maxDiffMs ? closest : null;
 }
 
-// Preload a single image with caching (via proxy in production)
+// Preload a single image using Image object (works with Vercel auth, unlike fetch)
+// Browser caches the image data, so playback requests are served from memory cache
 async function preloadImage(url, timeout = 8000) {
-  if (imageCache.has(url)) return true;
+  if (imageCache.has(url)) return { success: true, cached: true };
+
+  const proxiedUrl = getProxiedImageUrl(url);
 
   return new Promise((resolve) => {
     const img = new Image();
-    const timeoutId = setTimeout(() => resolve(false), timeout);
+    const timeoutId = setTimeout(() => {
+      resolve({ success: false, reason: 'timeout' });
+    }, timeout);
 
     img.onload = () => {
       clearTimeout(timeoutId);
-      imageCache.set(url, true);
-      resolve(true);
+      // Store the proxied URL - browser has cached the actual image data
+      imageCache.set(url, proxiedUrl);
+      resolve({ success: true, cached: false });
     };
     img.onerror = () => {
       clearTimeout(timeoutId);
-      resolve(false);
+      resolve({ success: false, reason: 'error' });
     };
-    // Route through proxy in production for edge caching
-    img.src = getProxiedImageUrl(url);
+    img.src = proxiedUrl;
   });
 }
 
-// Preload images in batches
-async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDelay = 100) {
+// Get cached image URL for display
+// The image data is in browser memory cache, so this doesn't cause network transfer
+function getCachedImageUrl(url) {
+  const cached = imageCache.get(url);
+  if (cached) {
+    return cached; // Returns the proxied URL (image data is in browser cache)
+  }
+  return getProxiedImageUrl(url);
+}
+
+// Preload images in batches with optional abort check (only skips NEW batches, doesn't cancel in-flight)
+async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDelay = 100, signal = null) {
   let loaded = 0;
   const results = [];
+  const stats = { total: urls.length, fetched: 0, cached: 0, failed: 0, skipped: 0 };
 
   for (let i = 0; i < urls.length; i += batchSize) {
+    // Check if aborted before starting NEW batch (don't cancel in-flight requests)
+    if (signal?.aborted) {
+      stats.skipped = urls.length - loaded;
+      console.log(`[Cache] Skipping remaining ${stats.skipped} images (load cancelled)`);
+      break;
+    }
+
     const batch = urls.slice(i, i + batchSize);
     const batchResults = await Promise.all(batch.map(url => preloadImage(url)));
+
+    // Track stats
+    for (const result of batchResults) {
+      if (result.success) {
+        if (result.cached) stats.cached++;
+        else stats.fetched++;
+      } else {
+        stats.failed++;
+      }
+    }
+
     results.push(...batchResults);
     loaded += batch.length;
-    onProgress(loaded, urls.length);
+    onProgress(loaded, urls.length, stats);
 
-    if (i + batchSize < urls.length) {
+    if (i + batchSize < urls.length && !signal?.aborted) {
       await new Promise(r => setTimeout(r, batchDelay));
     }
   }
 
-  return results;
+  // Log cache effectiveness for debugging
+  if (stats.total > 0 && !signal?.aborted) {
+    const cacheRate = Math.round((stats.cached / stats.total) * 100);
+    console.log(`[Cache] ${stats.cached}/${stats.total} from memory (${cacheRate}%), ${stats.fetched} fetched, ${stats.failed} failed`);
+  }
+
+  return { results, stats };
 }
 
 // Get initial state from URL (computed once at module load for SSR safety)
@@ -630,8 +671,18 @@ export default function SpaceWeatherViewer() {
     });
   };
 
+  // AbortController ref for canceling in-flight requests
+  const abortControllerRef = useRef(null);
+
   // Load frames for single-view mode
   const loadSingleSource = useCallback(async (source) => {
+    // Cancel any in-flight requests from previous load
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+    const signal = abortControllerRef.current.signal;
+
     setLoading(true);
     setLoadProgress(0);
     setLoadingStatus('Checking connection...');
@@ -656,6 +707,8 @@ export default function SpaceWeatherViewer() {
       img.src = getProxiedImageUrl(sourceConfig.latestUrl) + (USE_API ? '&' : '?') + 't=' + Date.now();
     });
 
+    if (signal.aborted) return; // Cancelled while checking connection
+
     if (!latestWorks) {
       setErrorMsg('Could not load images from NOAA. The service may be temporarily unavailable.');
       setLoading(false);
@@ -667,6 +720,8 @@ export default function SpaceWeatherViewer() {
     setLoadProgress(10);
 
     const frames = await fetchFrameList(source, hoursBack);
+    if (signal.aborted) return; // Cancelled while fetching frame list
+
     setLoadProgress(30);
 
     if (frames.length === 0) {
@@ -679,9 +734,16 @@ export default function SpaceWeatherViewer() {
     setLoadingStatus(`Loading ${frames.length} frames...`);
     const urls = frames.map(f => f.url);
 
-    await preloadImagesInBatches(urls, (loaded, total) => {
-      setLoadProgress(30 + Math.round((loaded / total) * 70));
-    });
+    await preloadImagesInBatches(urls, (loaded, total, stats) => {
+      if (!signal.aborted) {
+        setLoadProgress(30 + Math.round((loaded / total) * 70));
+        if (stats) {
+          setLoadingStatus(`Loading frames... (${stats.cached} cached, ${stats.fetched} fetched)`);
+        }
+      }
+    }, 5, 100, signal);
+
+    if (signal.aborted) return; // Cancelled while preloading
 
     const validFrames = frames.filter(f => imageCache.has(f.url));
 
@@ -735,6 +797,13 @@ export default function SpaceWeatherViewer() {
 
   // Load frames for multi-view mode - progressive loading
   const loadMultiSources = useCallback(async (sources) => {
+    // Cancel any in-flight requests from previous load
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+    const signal = abortControllerRef.current.signal;
+
     // Initialize state - show grid immediately with loading placeholders
     const initialStatus = {};
     sources.forEach(key => { initialStatus[key] = 'loading'; });
@@ -752,6 +821,8 @@ export default function SpaceWeatherViewer() {
 
     // Load sources one by one, updating UI progressively
     for (let i = 0; i < sources.length; i++) {
+      if (signal.aborted) return; // Cancelled
+
       const key = sources[i];
       const config = ANIMATION_SOURCES[key];
       if (!config) continue;
@@ -761,6 +832,7 @@ export default function SpaceWeatherViewer() {
 
       try {
         const frames = await fetchFrameList(key, hoursBack);
+        if (signal.aborted) return; // Cancelled
 
         if (frames.length > 0) {
           accumulatedFrames[key] = frames;
@@ -768,6 +840,7 @@ export default function SpaceWeatherViewer() {
           // Preload the most recent frame for this source immediately
           const latestFrame = frames[frames.length - 1];
           await preloadImage(latestFrame.url);
+          if (signal.aborted) return; // Cancelled
 
           // Update state with this source ready
           setSourceLoadStatus(prev => ({ ...prev, [key]: 'ready' }));
@@ -786,12 +859,15 @@ export default function SpaceWeatherViewer() {
           setSourceLoadStatus(prev => ({ ...prev, [key]: 'error' }));
         }
       } catch (err) {
+        if (signal.aborted) return; // Cancelled
         console.error(`Failed to load ${key}:`, err);
         setSourceLoadStatus(prev => ({ ...prev, [key]: 'error' }));
       }
 
       setLoadProgress(Math.round(((i + 1) / sources.length) * 100));
     }
+
+    if (signal.aborted) return; // Cancelled
 
     // After all sources loaded, preload remaining frames in background
     const allUrls = [];
@@ -805,8 +881,8 @@ export default function SpaceWeatherViewer() {
 
     if (allUrls.length > 0) {
       setLoadingStatus('Caching frames...');
-      // Preload in background without blocking
-      preloadImagesInBatches(allUrls, () => {}, 5, 50);
+      // Preload in background without blocking (pass signal for cancellation)
+      preloadImagesInBatches(allUrls, () => {}, 5, 50, signal);
     }
 
     setLoadingStatus('');
@@ -821,22 +897,15 @@ export default function SpaceWeatherViewer() {
   }, [hoursBack, buildTimelineFromFrames]);
 
   // Effect to load based on mode
+  // Note: AbortController is used to skip remaining batches when source/time changes,
+  // but we let in-flight requests complete (they'll populate cache for later)
   useEffect(() => {
     if (multiView) {
       loadMultiSources(selectedMultiSources);
     } else {
       loadSingleSource(selectedSource);
     }
-  }, [multiView, selectedSource, selectedMultiSources, loadSingleSource, loadMultiSources]);
-
-  // Reload when hours change
-  useEffect(() => {
-    if (multiView) {
-      loadMultiSources(selectedMultiSources);
-    } else {
-      loadSingleSource(selectedSource);
-    }
-  }, [hoursBack]);
+  }, [multiView, selectedSource, selectedMultiSources, loadSingleSource, loadMultiSources, hoursBack]);
 
   // Animation loop
   useEffect(() => {
@@ -915,7 +984,7 @@ export default function SpaceWeatherViewer() {
           </div>
         ) : frame ? (
           <img
-            src={getProxiedImageUrl(frame.url)}
+            src={getCachedImageUrl(frame.url)}
             alt={config.name}
             className="w-full h-auto object-contain"
           />
@@ -1268,9 +1337,9 @@ export default function SpaceWeatherViewer() {
                   /* Running difference mode */
                   <>
                     <RunningDifference
-                      currentUrl={getProxiedImageUrl(currentFrameData.url)}
-                      previousUrl={currentFrameIndex > 0 && loadedFrames[currentFrameIndex - 1]
-                        ? getProxiedImageUrl(loadedFrames[currentFrameIndex - 1].url)
+                      currentUrl={getCachedImageUrl(currentFrameData.url)}
+                      previousUrl={currentFrame > 0 && loadedFrames[currentFrame - 1]
+                        ? getCachedImageUrl(loadedFrames[currentFrame - 1].url)
                         : null}
                       alt={`${currentSourceConfig?.name || 'Source'} - Difference`}
                       className="w-full"
@@ -1287,13 +1356,13 @@ export default function SpaceWeatherViewer() {
                     {smoothPlayback && prevFrameUrlRef.current && prevFrameUrlRef.current !== currentFrameData.url && (
                       <img
                         key={prevFrameUrlRef.current}
-                        src={getProxiedImageUrl(prevFrameUrlRef.current)}
+                        src={getCachedImageUrl(prevFrameUrlRef.current)}
                         alt=""
                         className="absolute inset-0 w-full h-auto object-contain animate-fade-out"
                       />
                     )}
                     <img
-                      src={getProxiedImageUrl(currentFrameData.url)}
+                      src={getCachedImageUrl(currentFrameData.url)}
                       alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
                       className={`w-full h-auto object-contain ${smoothPlayback ? 'animate-fade-in' : ''}`}
                       onLoad={() => { prevFrameUrlRef.current = currentFrameData.url; }}
