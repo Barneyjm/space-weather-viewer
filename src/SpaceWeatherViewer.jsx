@@ -526,47 +526,40 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
   return minDiff <= maxDiffMs ? closest : null;
 }
 
-// Preload a single image and store as blob URL (completely local - zero network requests during playback)
+// Preload a single image using Image object (works with Vercel auth, unlike fetch)
+// Browser caches the image data, so playback requests are served from memory cache
 async function preloadImage(url, timeout = 8000) {
   if (imageCache.has(url)) return { success: true, cached: true };
 
   const proxiedUrl = getProxiedImageUrl(url);
 
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
+  return new Promise((resolve) => {
+    const img = new Image();
+    const timeoutId = setTimeout(() => {
+      resolve({ success: false, reason: 'timeout' });
+    }, timeout);
 
-    const response = await fetch(proxiedUrl, {
-      signal: controller.signal,
-      credentials: 'omit'
-    });
-    clearTimeout(timeoutId);
-
-    if (!response.ok) {
-      return { success: false, reason: 'error' };
-    }
-
-    const blob = await response.blob();
-    const blobUrl = URL.createObjectURL(blob);
-
-    // Store blob URL - this is completely local, no network requests when used
-    imageCache.set(url, blobUrl);
-    return { success: true, cached: false };
-  } catch (err) {
-    if (err.name === 'AbortError') {
-      return { success: false, reason: 'timeout' };
-    }
-    return { success: false, reason: 'error' };
-  }
+    img.onload = () => {
+      clearTimeout(timeoutId);
+      // Store the proxied URL - browser has cached the actual image data
+      imageCache.set(url, proxiedUrl);
+      resolve({ success: true, cached: false });
+    };
+    img.onerror = () => {
+      clearTimeout(timeoutId);
+      resolve({ success: false, reason: 'error' });
+    };
+    img.src = proxiedUrl;
+  });
 }
 
-// Get cached blob URL for display (completely local - no network request)
+// Get cached image URL for display
+// The image data is in browser memory cache, so this doesn't cause network transfer
 function getCachedImageUrl(url) {
   const cached = imageCache.get(url);
   if (cached) {
-    return cached; // This is a blob:// URL
+    return cached; // Returns the proxied URL (image data is in browser cache)
   }
-  // Fallback to proxied URL if not in cache
   return getProxiedImageUrl(url);
 }
 
