@@ -5,7 +5,8 @@ import { ExportModal } from './components/ExportModal';
 import { RunningDifference } from './components/RunningDifference';
 import HistoricalEventPlayer from './components/HistoricalEventPlayer';
 
-// Image cache to avoid re-fetching frames we already have
+// Image cache stores actual Image objects to avoid ANY re-fetching
+// Key: original URL, Value: { img: Image, blobUrl: string }
 const imageCache = new Map();
 
 // Cache directory listings to avoid repeated fetches
@@ -525,29 +526,48 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
   return minDiff <= maxDiffMs ? closest : null;
 }
 
-// Preload a single image with caching (via proxy in production)
-// Note: We let in-flight requests complete even if "aborted" - they'll populate cache
+// Preload a single image and store as blob URL (completely local - zero network requests during playback)
 async function preloadImage(url, timeout = 8000) {
   if (imageCache.has(url)) return { success: true, cached: true };
 
-  return new Promise((resolve) => {
-    const img = new Image();
-    const timeoutId = setTimeout(() => {
-      resolve({ success: false, reason: 'timeout' });
-    }, timeout);
+  const proxiedUrl = getProxiedImageUrl(url);
 
-    img.onload = () => {
-      clearTimeout(timeoutId);
-      imageCache.set(url, true);
-      resolve({ success: true, cached: false });
-    };
-    img.onerror = () => {
-      clearTimeout(timeoutId);
-      resolve({ success: false, reason: 'error' });
-    };
-    // Route through proxy in production for edge caching
-    img.src = getProxiedImageUrl(url);
-  });
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+    const response = await fetch(proxiedUrl, {
+      signal: controller.signal,
+      credentials: 'omit'
+    });
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      return { success: false, reason: 'error' };
+    }
+
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
+    // Store blob URL - this is completely local, no network requests when used
+    imageCache.set(url, blobUrl);
+    return { success: true, cached: false };
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      return { success: false, reason: 'timeout' };
+    }
+    return { success: false, reason: 'error' };
+  }
+}
+
+// Get cached blob URL for display (completely local - no network request)
+function getCachedImageUrl(url) {
+  const cached = imageCache.get(url);
+  if (cached) {
+    return cached; // This is a blob:// URL
+  }
+  // Fallback to proxied URL if not in cache
+  return getProxiedImageUrl(url);
 }
 
 // Preload images in batches with optional abort check (only skips NEW batches, doesn't cancel in-flight)
@@ -971,7 +991,7 @@ export default function SpaceWeatherViewer() {
           </div>
         ) : frame ? (
           <img
-            src={getProxiedImageUrl(frame.url)}
+            src={getCachedImageUrl(frame.url)}
             alt={config.name}
             className="w-full h-auto object-contain"
           />
@@ -1324,9 +1344,9 @@ export default function SpaceWeatherViewer() {
                   /* Running difference mode */
                   <>
                     <RunningDifference
-                      currentUrl={getProxiedImageUrl(currentFrameData.url)}
-                      previousUrl={currentFrameIndex > 0 && loadedFrames[currentFrameIndex - 1]
-                        ? getProxiedImageUrl(loadedFrames[currentFrameIndex - 1].url)
+                      currentUrl={getCachedImageUrl(currentFrameData.url)}
+                      previousUrl={currentFrame > 0 && loadedFrames[currentFrame - 1]
+                        ? getCachedImageUrl(loadedFrames[currentFrame - 1].url)
                         : null}
                       alt={`${currentSourceConfig?.name || 'Source'} - Difference`}
                       className="w-full"
@@ -1343,13 +1363,13 @@ export default function SpaceWeatherViewer() {
                     {smoothPlayback && prevFrameUrlRef.current && prevFrameUrlRef.current !== currentFrameData.url && (
                       <img
                         key={prevFrameUrlRef.current}
-                        src={getProxiedImageUrl(prevFrameUrlRef.current)}
+                        src={getCachedImageUrl(prevFrameUrlRef.current)}
                         alt=""
                         className="absolute inset-0 w-full h-auto object-contain animate-fade-out"
                       />
                     )}
                     <img
-                      src={getProxiedImageUrl(currentFrameData.url)}
+                      src={getCachedImageUrl(currentFrameData.url)}
                       alt={`${currentSourceConfig?.name || 'Source'} - ${displayTimestamp(currentFrameData)}`}
                       className={`w-full h-auto object-contain ${smoothPlayback ? 'animate-fade-in' : ''}`}
                       onLoad={() => { prevFrameUrlRef.current = currentFrameData.url; }}
