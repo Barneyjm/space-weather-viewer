@@ -526,25 +526,15 @@ function findClosestFrame(frames, targetTimestamp, maxDiffMs = 15 * 60 * 1000) {
 }
 
 // Preload a single image with caching (via proxy in production)
-// Supports AbortSignal for cancellation
-async function preloadImage(url, timeout = 8000, signal = null) {
+// Note: We let in-flight requests complete even if "aborted" - they'll populate cache
+async function preloadImage(url, timeout = 8000) {
   if (imageCache.has(url)) return { success: true, cached: true };
 
   return new Promise((resolve) => {
     const img = new Image();
     const timeoutId = setTimeout(() => {
-      img.src = ''; // Cancel the load
       resolve({ success: false, reason: 'timeout' });
     }, timeout);
-
-    // Handle abort signal
-    if (signal) {
-      signal.addEventListener('abort', () => {
-        clearTimeout(timeoutId);
-        img.src = ''; // Cancel the load
-        resolve({ success: false, reason: 'aborted' });
-      });
-    }
 
     img.onload = () => {
       clearTimeout(timeoutId);
@@ -560,29 +550,28 @@ async function preloadImage(url, timeout = 8000, signal = null) {
   });
 }
 
-// Preload images in batches with abort support and stats tracking
+// Preload images in batches with optional abort check (only skips NEW batches, doesn't cancel in-flight)
 async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDelay = 100, signal = null) {
   let loaded = 0;
   const results = [];
-  const stats = { total: urls.length, fetched: 0, cached: 0, failed: 0, aborted: 0 };
+  const stats = { total: urls.length, fetched: 0, cached: 0, failed: 0, skipped: 0 };
 
   for (let i = 0; i < urls.length; i += batchSize) {
-    // Check if aborted before starting batch
+    // Check if aborted before starting NEW batch (don't cancel in-flight requests)
     if (signal?.aborted) {
-      stats.aborted = urls.length - loaded;
+      stats.skipped = urls.length - loaded;
+      console.log(`[Cache] Skipping remaining ${stats.skipped} images (load cancelled)`);
       break;
     }
 
     const batch = urls.slice(i, i + batchSize);
-    const batchResults = await Promise.all(batch.map(url => preloadImage(url, 8000, signal)));
+    const batchResults = await Promise.all(batch.map(url => preloadImage(url)));
 
     // Track stats
     for (const result of batchResults) {
       if (result.success) {
         if (result.cached) stats.cached++;
         else stats.fetched++;
-      } else if (result.reason === 'aborted') {
-        stats.aborted++;
       } else {
         stats.failed++;
       }
@@ -598,9 +587,9 @@ async function preloadImagesInBatches(urls, onProgress, batchSize = 5, batchDela
   }
 
   // Log cache effectiveness for debugging
-  if (stats.total > 0) {
+  if (stats.total > 0 && !signal?.aborted) {
     const cacheRate = Math.round((stats.cached / stats.total) * 100);
-    console.log(`[Cache] ${stats.cached}/${stats.total} from memory (${cacheRate}%), ${stats.fetched} fetched, ${stats.failed} failed, ${stats.aborted} aborted`);
+    console.log(`[Cache] ${stats.cached}/${stats.total} from memory (${cacheRate}%), ${stats.fetched} fetched, ${stats.failed} failed`);
   }
 
   return { results, stats };
@@ -837,7 +826,7 @@ export default function SpaceWeatherViewer() {
 
           // Preload the most recent frame for this source immediately
           const latestFrame = frames[frames.length - 1];
-          await preloadImage(latestFrame.url, 8000, signal);
+          await preloadImage(latestFrame.url);
           if (signal.aborted) return; // Cancelled
 
           // Update state with this source ready
@@ -895,19 +884,14 @@ export default function SpaceWeatherViewer() {
   }, [hoursBack, buildTimelineFromFrames]);
 
   // Effect to load based on mode
+  // Note: AbortController is used to skip remaining batches when source/time changes,
+  // but we let in-flight requests complete (they'll populate cache for later)
   useEffect(() => {
     if (multiView) {
       loadMultiSources(selectedMultiSources);
     } else {
       loadSingleSource(selectedSource);
     }
-
-    // Cleanup: cancel in-flight requests when dependencies change or unmount
-    return () => {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
-    };
   }, [multiView, selectedSource, selectedMultiSources, loadSingleSource, loadMultiSources, hoursBack]);
 
   // Animation loop
